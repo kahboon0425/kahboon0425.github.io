@@ -65,6 +65,9 @@ jobs:
         # will obviously return error 404 not found.
         run: ./trunk build --release --public-url "${GITHUB_REPOSITORY#*/}"
 
+      - name: Copy index.html to 404.html
+        run: cp ./target/trunk/index.html ./target/trunk/404.html
+
 
       # Deploy to gh-pages branch
       # - name: Deploy 🚀
