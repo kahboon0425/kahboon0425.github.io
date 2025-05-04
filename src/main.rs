@@ -1,6 +1,10 @@
 use leptos::prelude::*;
 use leptos_router::components::*;
 use leptos_router::path;
+use leptos_use::{
+    UseMouseCoordType, UseMouseEventExtractor, UseMouseOptions, UseMouseReturn,
+    use_mouse_with_options,
+};
 // use bevy::prelude::*;
 // use leptos_bevy_canvas::prelude::*;
 
@@ -16,6 +20,7 @@ fn App() -> impl IntoView {
                 <Routes fallback=|| view! { <h1>"Not Found"</h1> }>
                         <Route path=path!("/") view=Home/>
                         <Route path=path!("/about") view=About/>
+                        <Route path=path!("/portfolio") view=Portfolio/>
                         <Route path=path!("/*any") view=|| view! { <h1>"Not Found"</h1> }/>
                 </Routes>
             </main>
@@ -107,7 +112,63 @@ fn About() -> impl IntoView {
 }
 
 #[component]
+fn Portfolio() -> impl IntoView {
+    view! {
+        <main class="h-screen flex flex-col items-center justify-center bg-white">
+            <Title title="Portfolio" />
+            <div class="flex flex-wrap gap-4 my-4 justify-center md:gap-6">
+                <div class="snap-x ...">
+                    <div class="snap-center ...">
+                        <img src="/img/vacation-01.jpg" />
+                    </div>
+                    <div class="snap-center ...">
+                        <img src="/img/vacation-02.jpg" />
+                    </div>
+                    <div class="snap-center ...">
+                        <img src="/img/vacation-03.jpg" />
+                    </div>
+                    <div class="snap-center ...">
+                        <img src="/img/vacation-04.jpg" />
+                    </div>
+                    <div class="snap-center ...">
+                        <img src="/img/vacation-05.jpg" />
+                    </div>
+                    <div class="snap-center ...">
+                        <img src="/img/vacation-06.jpg" />
+                    </div>
+                </div>
+            </div>
+        </main>
+    }
+}
+
+#[component]
 fn Home() -> impl IntoView {
+    view! {
+        <main class="h-screen flex flex-col items-center justify-center bg-white">
+            <Title title="Hi, I am Kah Boon" />
+            <div class="flex flex-wrap gap-4 my-4 justify-center md:gap-6">
+                <Button href="./about" content="About" bg="bg-pink-200" bg_hover="hover:bg-pink-300" />
+                <Button href="./portfolio" content="Portfolio" bg="bg-sky-200" bg_hover="hover:bg-sky-300" />
+            </div>
+        </main>
+    }
+}
+
+#[component]
+fn Title<'a>(title: &'a str) -> impl IntoView {
+    view! {
+        <h1 class="m-6 text-center font-bold text-4xl md:text-6xl">{title}</h1>
+    }
+}
+
+#[component]
+fn Button<'a>(
+    href: &'a str,
+    content: impl IntoView,
+    #[prop(default = "bg-zinc-200")] bg: &'a str,
+    #[prop(default = "hover:bg-zinc-300")] bg_hover: &'a str,
+) -> impl IntoView {
     let btn_classes = [
         "text-black",
         "rounded-md",
@@ -121,25 +182,14 @@ fn Home() -> impl IntoView {
         "md:text-3xl",
         "md:w-48",
         "md:py-4",
+        "animate",
+        bg,
+        bg_hover,
     ]
-    .join(" ")
-        + " ";
-
-    let about_btn_classes = btn_classes.clone() + &["bg-pink-200", "hover:bg-pink-300"].join(" ");
-    let port_btn_classes = btn_classes + &["bg-blue-200", "hover:bg-blue-300"].join(" ");
+    .join(" ");
 
     view! {
-        <main class="h-screen flex flex-col items-center justify-center bg-white">
-            <h1 class="m-6 text-center font-bold text-4xl md:text-6xl">"Hi, I am Kah Boon"</h1>
-            <div class="flex flex-wrap gap-4 my-4 justify-center md:gap-6">
-                <a href="./about" class={about_btn_classes}>
-                    "About"
-                </a>
-                <a href="./portfolio" class={port_btn_classes}>
-                    "Portfolio"
-                </a>
-            </div>
-        </main>
+        <a href={href} class={btn_classes}>{content}</a>
     }
 }
 

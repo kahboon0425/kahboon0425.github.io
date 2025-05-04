@@ -7,6 +7,7 @@ edition = "2024"
 bevy = "0.15.3"
 leptos = { version = "0.7.8", features = ["csr"] }
 leptos_router = "0.7.8"
+leptos-use = "0.15.7"
 leptos-bevy-canvas = "0.2.0"
 
 # Remove expensive debug assertions due to <https://github.com/bevyengine/bevy/issues/14291>
