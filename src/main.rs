@@ -16,6 +16,7 @@ fn App() -> impl IntoView {
                 <Routes fallback=|| "Not found.">
                         <Route path=path!("/") view=Home/>
                         <Route path=path!("/about") view=About/>
+                        <Route path=path!("/my-portfolio") view=My_Portfolio/>
                         <Route path=path!("/*any") view=|| view! { <h1>"Not Found"</h1> }/>
                 </Routes>
             </main>
@@ -24,51 +25,57 @@ fn App() -> impl IntoView {
 }
 
 #[component]
+fn My_Portfolio() -> impl IntoView {
+    view! {}
+}
+
+#[component]
 fn About() -> impl IntoView {
     view! {
 
-        <main class="h-screen flex flex-col items-center justify-center bg-white">
-        <div class="w-full flex-wrap flex justify-between">
+        <main class="h-screen flex flex-col items-center bg-white">
+        <div class="w-full flex-wrap flex justify-between m-10">
 
-        <a href="./about"
+        <a href="./"
             class="
                 w-30
                 bg-black
-                hover:bg-white
+                hover:bg-pink-300
+                hover:text-black
                 text-white
                 text-md
                 text-center
                 rounded-md
                 py-2
+                ml-8
                 "
         >
             "BACK"
         </a>
 
-        // <a href="./about"
-        //     class="
-        //         w-30
-        //         h-10
-        //         bg-black
-        //         hover:bg-grey-300
-        //         text-white
-        //         text-md
-        //         rounded-md
-        //         border
-        //         border-black
-        //         text-center
-        //         items-center
-        //         justify-center"
-        // >
-        //     "BACK"
-        // </a>
+        <a href="./my-portfolio"
+            class="
+                w-50
+                bg-black
+                hover:bg-blue-300
+                hover:text-black
+                text-white
+                text-md
+                text-center
+                rounded-md
+                py-2
+                mr-8
+                "
+        >
+            "Visit My Portfolio"
+        </a>
         </div>
 
-            <h1 class="text-7xl mb-10">"About"</h1>
+        <h1 class="text-7xl mb-12">"About"</h1>
 
 
-         <div class="flex-wrap flex justify-center">
-                <div class="w-md p-6 mr-18 border-2 border-black rounded-md bg-gray-100">
+         <div class="flex-wrap flex justify-center gap-15">
+                <div class="w-lg p-8 border-2 border-black rounded-md bg-gray-50">
                     <p>
                         "Hi, I’m Kahboon. I graduated with an IT background but have a strong interest in 3D art. Over the past few months, I’ve been self-learning 3D modeling using Blender. I enjoy creating cute and stylized characters. I have also been learning character rigging and animation to bring my characters to life. In addition to that, I have also been exploring CGI, VFX, and 3D design for booths and pop-up stores."
                     </p>
@@ -78,28 +85,22 @@ fn About() -> impl IntoView {
                     </p>
                 </div>
 
-                <div class="w-2xs p-6 border-2 border-black rounded-md bg-gray-100 flex flex-col gap-4 justify-center items-center">
-                    <div class="flex items-center gap-4">
+                <div class="w-xs p-6 border-2 border-black rounded-md bg-gray-50">
+                    <div class="flex flex-wrap gap-4 mb-4 items-center">
                         <div class="w-10 h-10 bg-pink-300 rounded-md border"></div>
-                        <p>"Visit My Portfolio"</p>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-blue-300 rounded-md border"></div>
-                        <p>"Visit My Portfolio"</p>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-pink-300 rounded-md border"></div>
-                        <p>"Visit My Portfolio"</p>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-blue-300 rounded-md border"></div>
-                        <p>"Visit My Portfolio"</p>
+                        <p>"changkahboon25@gmail.com"</p>
                     </div>
 
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-blue-300 rounded-md border"></div>
-                        <p>"visit my portfolio"</p>
+                    <div class="flex flex-wrap gap-4 mb-4 items-center">
+                        <div class="w-10 h-10 bg-pink-300 rounded-md border"></div>
+                        <p>"the_sushi_queen_art"</p>
                     </div>
+
+                    <div class="flex flex-wrap gap-4 mb-4 items-center">
+                        <div class="w-10 h-10 bg-pink-300 rounded-md border"></div>
+                        <p>"012-7645817"</p>
+                    </div>
+
                 </div>
             </div>
         </main>
