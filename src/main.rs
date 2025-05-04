@@ -25,7 +25,85 @@ fn App() -> impl IntoView {
 
 #[component]
 fn About() -> impl IntoView {
-    view! {}
+    view! {
+
+        <main class="h-screen flex flex-col items-center justify-center bg-white">
+        <div class="w-full flex-wrap flex justify-between">
+
+        <a href="./about"
+            class="
+                w-30
+                bg-black
+                hover:bg-white
+                text-white
+                text-md
+                text-center
+                rounded-md
+                py-2
+                "
+        >
+            "BACK"
+        </a>
+
+        // <a href="./about"
+        //     class="
+        //         w-30
+        //         h-10
+        //         bg-black
+        //         hover:bg-grey-300
+        //         text-white
+        //         text-md
+        //         rounded-md
+        //         border
+        //         border-black
+        //         text-center
+        //         items-center
+        //         justify-center"
+        // >
+        //     "BACK"
+        // </a>
+        </div>
+
+            <h1 class="text-7xl mb-10">"About"</h1>
+
+
+         <div class="flex-wrap flex justify-center">
+                <div class="w-md p-6 mr-18 border-2 border-black rounded-md bg-gray-100">
+                    <p>
+                        "Hi, I’m Kahboon. I graduated with an IT background but have a strong interest in 3D art. Over the past few months, I’ve been self-learning 3D modeling using Blender. I enjoy creating cute and stylized characters. I have also been learning character rigging and animation to bring my characters to life. In addition to that, I have also been exploring CGI, VFX, and 3D design for booths and pop-up stores."
+                    </p>
+                    <br/>
+                    <p>
+                        "I’m currently looking for a junior 3D artist position or a 3D booth designer role. Feel free to check out my portfolio. Thanks for visiting!"
+                    </p>
+                </div>
+
+                <div class="w-2xs p-6 border-2 border-black rounded-md bg-gray-100 flex flex-col gap-4 justify-center items-center">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-pink-300 rounded-md border"></div>
+                        <p>"Visit My Portfolio"</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-blue-300 rounded-md border"></div>
+                        <p>"Visit My Portfolio"</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-pink-300 rounded-md border"></div>
+                        <p>"Visit My Portfolio"</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-blue-300 rounded-md border"></div>
+                        <p>"Visit My Portfolio"</p>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-blue-300 rounded-md border"></div>
+                        <p>"visit my portfolio"</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    }
 }
 
 #[component]
