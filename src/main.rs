@@ -1,10 +1,10 @@
 use leptos::prelude::*;
 use leptos_router::components::*;
 use leptos_router::path;
-use leptos_use::{
-    UseMouseCoordType, UseMouseEventExtractor, UseMouseOptions, UseMouseReturn,
-    use_mouse_with_options,
-};
+// use leptos_use::{
+//     UseMouseCoordType, UseMouseEventExtractor, UseMouseOptions, UseMouseReturn,
+//     use_mouse_with_options,
+// };
 // use bevy::prelude::*;
 // use leptos_bevy_canvas::prelude::*;
 
@@ -111,27 +111,13 @@ fn Portfolio() -> impl IntoView {
     view! {
         <main class="h-screen flex flex-col items-center justify-center bg-white">
             <Title title="Portfolio" />
-            <div class="flex flex-wrap gap-4 my-4 justify-center md:gap-6">
-                <div class="snap-x ...">
-                    <div class="snap-center ...">
-                        <img src="/img/vacation-01.jpg" />
-                    </div>
-                    <div class="snap-center ...">
-                        <img src="/img/vacation-02.jpg" />
-                    </div>
-                    <div class="snap-center ...">
-                        <img src="/img/vacation-03.jpg" />
-                    </div>
-                    <div class="snap-center ...">
-                        <img src="/img/vacation-04.jpg" />
-                    </div>
-                    <div class="snap-center ...">
-                        <img src="/img/vacation-05.jpg" />
-                    </div>
-                    <div class="snap-center ...">
-                        <img src="/img/vacation-06.jpg" />
-                    </div>
-                </div>
+            <div class="py-8" />
+            <div class="flex flex-row flex-wrap gap-8 items-center justify-center">
+                <PortfolioCell label="Character Design" />
+                <PortfolioCell label="CGI/VFX" />
+                <PortfolioCell label="Event Booth Design" />
+                <PortfolioCell label="3D Modeling" />
+                <PortfolioCell label="2D Art" />
             </div>
         </main>
     }
@@ -147,6 +133,31 @@ fn Home() -> impl IntoView {
                 <Button href="./portfolio" content="Portfolio" bg="bg-sky-200" bg_hover="hover:bg-sky-300" />
             </div>
         </main>
+    }
+}
+
+#[component]
+fn PortfolioCell<'a>(label: &'a str) -> impl IntoView {
+    view! {
+        <a href="" class="
+            flex
+            items-center
+            justify-center
+            bg-blue-200
+            p-6
+            font-semibold
+            text-center
+            text-xl
+            rounded-4xl
+            size-40
+            md:size-60
+            lg:size-80
+            md:text-2xl
+            lg:text-4xl
+            "
+        >
+            {label}
+        </a>
     }
 }
 
