@@ -1,12 +1,20 @@
 @font-face {
-    font-family: "Virgil";
-    src: url("assets/fonts/Virgil.woff2");
-    font-display: swap;
+  font-family: "ComicNeue";
+  src: url("assets/fonts/ComicNeue/ComicNeue-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ComicNeue";
+  src: url("assets/fonts/ComicNeue/ComicNeue-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
 }
 
 body {
     margin: 0;
-    font-family: "Virgil";
+    font-family: "ComicNeue";
 }
 
 canvas {

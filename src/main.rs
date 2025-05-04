@@ -13,7 +13,7 @@ fn App() -> impl IntoView {
     view! {
         <Router base="/portfolio">
             <main>
-                <Routes fallback=|| "Not found.">
+                <Routes fallback=|| view! { <h1>"Not Found"</h1> }>
                         <Route path=path!("/") view=Home/>
                         <Route path=path!("/about") view=About/>
                         <Route path=path!("/*any") view=|| view! { <h1>"Not Found"</h1> }/>
@@ -36,6 +36,7 @@ fn Home() -> impl IntoView {
         "border",
         "border-black",
         "text-center",
+        "font-medium",
         "text-xl",
         "w-32",
         "py-2",
@@ -51,7 +52,7 @@ fn Home() -> impl IntoView {
 
     view! {
         <main class="h-screen flex flex-col items-center justify-center bg-white">
-            <h1 class="m-6 text-center text-4xl md:text-6xl">"Hi, I am Kah Boon"</h1>
+            <h1 class="m-6 text-center font-bold text-4xl md:text-6xl">"Hi, I am Kah Boon"</h1>
             <div class="flex flex-wrap gap-4 my-4 justify-center md:gap-6">
                 <a href="./about" class={about_btn_classes}>
                     "About"
