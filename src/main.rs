@@ -1,4 +1,3 @@
-use leptos::leptos_dom::logging::console_log;
 use leptos::prelude::*;
 use leptos_router::components::*;
 use leptos_router::path;
@@ -12,7 +11,7 @@ fn main() {
 #[component]
 fn App() -> impl IntoView {
     view! {
-        <Router>
+        <Router base="/portfolio">
             <main>
                 <Routes fallback=|| "Not found.">
                         <Route path=path!("/") view=Home/>
@@ -35,7 +34,7 @@ fn Home() -> impl IntoView {
         <main class="h-screen flex flex-col items-center justify-center bg-white">
             <h1 class="text-7xl mb-8">"Hi, I am Kah Boon"</h1>
             <div class="flex gap-6">
-                <a href="/about"
+                <a href="./about"
                     class="
                         w-xs
                         bg-pink-200
@@ -51,7 +50,7 @@ fn Home() -> impl IntoView {
                 >
                     "About"
                 </a>
-                <a href="/portfolio"
+                <a href="./portfolio"
                     class="
                         w-xs
                         bg-blue-200
