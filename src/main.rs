@@ -30,40 +30,33 @@ fn About() -> impl IntoView {
 
 #[component]
 fn Home() -> impl IntoView {
+    let btn_classes = [
+        "text-black",
+        "rounded-md",
+        "border",
+        "border-black",
+        "text-center",
+        "text-xl",
+        "w-32",
+        "py-2",
+        "md:text-3xl",
+        "md:w-48",
+        "md:py-4",
+    ]
+    .join(" ")
+        + " ";
+
+    let about_btn_classes = btn_classes.clone() + &["bg-pink-200", "hover:bg-pink-300"].join(" ");
+    let port_btn_classes = btn_classes + &["bg-blue-200", "hover:bg-blue-300"].join(" ");
+
     view! {
         <main class="h-screen flex flex-col items-center justify-center bg-white">
-            <h1 class="text-7xl mb-8">"Hi, I am Kah Boon"</h1>
-            <div class="flex gap-6">
-                <a href="./about"
-                    class="
-                        w-xs
-                        bg-pink-200
-                        hover:bg-pink-300
-                        text-black
-                        text-4xl
-                        py-8
-                        my-8
-                        rounded-md
-                        border
-                        border-black
-                        text-center"
-                >
+            <h1 class="m-6 text-center text-4xl md:text-6xl">"Hi, I am Kah Boon"</h1>
+            <div class="flex flex-wrap gap-4 my-4 justify-center md:gap-6">
+                <a href="./about" class={about_btn_classes}>
                     "About"
                 </a>
-                <a href="./portfolio"
-                    class="
-                        w-xs
-                        bg-blue-200
-                        hover:bg-blue-300
-                        text-black
-                        text-4xl
-                        py-8
-                        my-8
-                        rounded-md
-                        border
-                        border-black
-                        text-center"
-                >
+                <a href="./portfolio" class={port_btn_classes}>
                     "Portfolio"
                 </a>
             </div>
