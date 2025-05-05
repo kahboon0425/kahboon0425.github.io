@@ -32,45 +32,15 @@ fn App() -> impl IntoView {
 fn About() -> impl IntoView {
     view! {
 
-        <main class="h-screen flex flex-col items-center bg-white">
-        <div class="w-full flex-wrap flex justify-between m-10">
+        <main class="h-screen flex flex-col items-center bg-white p-10">
+        <div class="w-full flex-wrap flex md:justify-between justify-center">
 
-        <a href="./"
-            class="
-                w-30
-                bg-black
-                hover:bg-pink-300
-                hover:text-black
-                text-white
-                text-md
-                text-center
-                rounded-md
-                py-2
-                ml-8
-                "
-        >
-            "BACK"
-        </a>
+        <SmallButton href="./" content="BACK" width="w-30" bg_hover="hover:bg-pink-300"/>
+        <SmallButton href="./portfolio" content="Visit My Portfolio" width="w-50"/>
 
-        <a href="./my-portfolio"
-            class="
-                w-50
-                bg-black
-                hover:bg-blue-300
-                hover:text-black
-                text-white
-                text-md
-                text-center
-                rounded-md
-                py-2
-                mr-8
-                "
-        >
-            "Visit My Portfolio"
-        </a>
         </div>
 
-        <h1 class="text-7xl mb-12">"About"</h1>
+        <h1 class="text-7xl mt-5 mb-12">"About"</h1>
 
 
          <div class="flex-wrap flex justify-center gap-15">
@@ -86,7 +56,15 @@ fn About() -> impl IntoView {
 
                 <div class="w-xs p-6 border-2 border-black rounded-md bg-gray-50">
                     <div class="flex flex-wrap gap-4 mb-4 items-center">
-                        <div class="w-10 h-10 bg-pink-300 rounded-md border"></div>
+                        <div class="flex size-10 bg-pink-300 rounded-md border items-center justify-center">
+                        // email
+                        <svg
+                        class="h-6 w-6"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512">
+                        <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
+                        </svg>
+                        </div>
                         <p>"changkahboon25@gmail.com"</p>
                     </div>
 
@@ -231,6 +209,37 @@ fn Button<'a>(
         "animate",
         bg,
         bg_hover,
+    ]
+    .join(" ");
+
+    view! {
+        <a href={href} class={btn_classes}>{content}</a>
+    }
+}
+
+#[component]
+fn SmallButton<'a>(
+    href: &'a str,
+    content: impl IntoView,
+    #[prop(default = "")] width: &'a str,
+    #[prop(default = "bg-black")] bg: &'a str,
+    #[prop(default = "hover:bg-blue-300")] bg_hover: &'a str,
+    #[prop(default = "hover:text-black")] text_hover: &'a str,
+) -> impl IntoView {
+    let btn_classes = [
+        "text-white",
+        "text-md",
+        "text-center",
+        "rounded-md",
+        "border",
+        "border-black",
+        "py-2",
+        "mt-0",
+        "m-2",
+        width,
+        bg,
+        bg_hover,
+        text_hover,
     ]
     .join(" ");
 
