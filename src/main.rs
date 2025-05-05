@@ -35,8 +35,8 @@ fn App() -> impl IntoView {
 #[component]
 fn About() -> impl IntoView {
     view! {
-        <main class="h-screen flex flex-col items-center bg-white">
-        <div class="w-full flex-wrap flex justify-between m-10">
+        <main class="h-screen flex flex-col items-center bg-white p-10">
+        <div class="w-full flex-wrap flex md:justify-between justify-center">
 
         <SmallButton href="./" content="BACK" width="w-30" bg_hover="hover:bg-pink-300"/>
         <SmallButton href="./portfolio" content="Visit My Portfolio" width="w-50"/>
@@ -46,7 +46,7 @@ fn About() -> impl IntoView {
         <h1 class="text-7xl mt-5 mb-12">"About"</h1>
 
 
-         <div class="flex-wrap flex justify-center gap-15">
+         <div class="flex-wrap flex justify-center gap-15 p-10">
                 <div class="md:w-lg p-8 border-2 border-black rounded-md bg-gray-50">
                     <p>
                         "Hi, I’m Kahboon. I graduated with an IT background but have a strong interest in 3D art. Over the past few months, I’ve been self-learning 3D modeling using Blender. I enjoy creating cute and stylized characters. I have also been learning character rigging and animation to bring my characters to life. In addition to that, I have also been exploring CGI, VFX, and 3D design for booths and pop-up stores."
@@ -228,6 +228,8 @@ fn SmallButton<'a>(
         "py-2",
         "mt-0",
         "m-2",
+        "hover:scale-110",
+        "transition",
         width,
         bg,
         bg_hover,
