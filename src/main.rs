@@ -1,4 +1,3 @@
-use leptos::ev::MouseEvent;
 use leptos::prelude::*;
 use leptos_router::components::*;
 use leptos_router::path;
@@ -8,8 +7,6 @@ use leptos_router::path;
 // };
 // use bevy::prelude::*;
 // use leptos_bevy_canvas::prelude::*;
-
-mod portfolio;
 
 fn main() {
     mount_to_body(App);
@@ -24,7 +21,6 @@ fn App() -> impl IntoView {
                         <Route path=path!("/") view=Home/>
                         <Route path=path!("/about") view=About/>
                         <Route path=path!("/portfolio") view=Portfolio/>
-                        // <Route path=path!("/portfolio/character") view=portfolio::Character/>
                         <Route path=path!("/*any") view=|| view! { <h1>"Not Found"</h1> }/>
                 </Routes>
             </main>
@@ -35,49 +31,20 @@ fn App() -> impl IntoView {
 #[component]
 fn About() -> impl IntoView {
     view! {
-        <main class="h-screen flex flex-col items-center bg-white">
-        <div class="w-full flex-wrap flex justify-between m-10">
 
-        <a href="./"
-            class="
-                w-30
-                bg-black
-                hover:bg-pink-300
-                hover:text-black
-                text-white
-                text-md
-                text-center
-                rounded-md
-                py-2
-                ml-8
-                "
-        >
-            "BACK"
-        </a>
+        <main class="h-screen flex flex-col items-center bg-white p-10">
+        <div class="w-full flex-wrap flex md:justify-between justify-center">
 
-        <a href="./my-portfolio"
-            class="
-                w-50
-                bg-black
-                hover:bg-blue-300
-                hover:text-black
-                text-white
-                text-md
-                text-center
-                rounded-md
-                py-2
-                mr-8
-                "
-        >
-            "Visit My Portfolio"
-        </a>
+        <SmallButton href="./" content="BACK" width="w-30" bg_hover="hover:bg-pink-300"/>
+        <SmallButton href="./portfolio" content="Visit My Portfolio" width="w-50"/>
+
         </div>
 
-        <h1 class="text-7xl mb-12">"About"</h1>
+        <h1 class="text-7xl mt-5 mb-12">"About"</h1>
 
 
          <div class="flex-wrap flex justify-center gap-15">
-                <div class="w-lg p-8 border-2 border-black rounded-md bg-gray-50">
+                <div class="md:w-lg p-8 border-2 border-black rounded-md bg-gray-50">
                     <p>
                         "Hi, I’m Kahboon. I graduated with an IT background but have a strong interest in 3D art. Over the past few months, I’ve been self-learning 3D modeling using Blender. I enjoy creating cute and stylized characters. I have also been learning character rigging and animation to bring my characters to life. In addition to that, I have also been exploring CGI, VFX, and 3D design for booths and pop-up stores."
                     </p>
@@ -89,7 +56,15 @@ fn About() -> impl IntoView {
 
                 <div class="w-xs p-6 border-2 border-black rounded-md bg-gray-50">
                     <div class="flex flex-wrap gap-4 mb-4 items-center">
-                        <div class="w-10 h-10 bg-pink-300 rounded-md border"></div>
+                        <div class="flex size-10 bg-pink-300 rounded-md border items-center justify-center">
+                        // email
+                        <svg
+                        class="h-6 w-6"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512">
+                        <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
+                        </svg>
+                        </div>
                         <p>"changkahboon25@gmail.com"</p>
                     </div>
 
@@ -112,15 +87,15 @@ fn About() -> impl IntoView {
 #[component]
 fn Portfolio() -> impl IntoView {
     view! {
-        <main class="bg-white h-full px-10 py-20">
+        <main class="h-screen flex flex-col items-center justify-center bg-white">
             <Title title="Portfolio" />
-            <div class="items-center justify-center py-10" />
-            <div class="flex flex-row flex-wrap gap-8 h-full items-center justify-center">
-                <PortfolioCell label="Character Design" on_click=move |m| {}/>
-                <PortfolioCell label="CGI/VFX" on_click=move |m| {}/>
-                <PortfolioCell label="Event Booth Design" on_click=move |m| {}/>
-                <PortfolioCell label="3D Modeling" on_click=move |m| {}/>
-                <PortfolioCell label="2D Art" on_click=move |m| {}/>
+            <div class="py-8" />
+            <div class="flex flex-row flex-wrap gap-8 items-center justify-center">
+                <PortfolioCell label="Character Design" />
+                <PortfolioCell label="CGI/VFX" />
+                <PortfolioCell label="Event Booth Design" />
+                <PortfolioCell label="3D Modeling" />
+                <PortfolioCell label="2D Art" />
             </div>
         </main>
     }
@@ -130,7 +105,6 @@ fn Portfolio() -> impl IntoView {
 fn Home() -> impl IntoView {
     view! {
     <main class="h-screen flex flex-col items-center justify-center bg-white">
-        <img class="size-40 md:size-60" src="assets/images/Sushi Queen Logo Transparent.png" />
         <Title title="Hi, I am Kah Boon" />
         <div class="flex flex-wrap gap-4 my-4 justify-center md:gap-6">
             <Button href="./about" content="About" bg="bg-pink-300" bg_hover="hover:bg-pink-200" />
@@ -181,27 +155,24 @@ fn Home() -> impl IntoView {
 }
 
 #[component]
-fn PortfolioCell<'a>(label: &'a str, on_click: fn(MouseEvent)) -> impl IntoView {
+fn PortfolioCell<'a>(label: &'a str) -> impl IntoView {
     view! {
-        <a class="
+        <a href="" class="
             flex
             items-center
             justify-center
             bg-blue-200
             p-6
             font-semibold
-            rounded-xl
-            border-2
             text-center
             text-xl
+            rounded-4xl
             size-40
             md:size-60
+            lg:size-80
             md:text-2xl
             lg:text-4xl
-            transition
-            hover:scale-110
             "
-            on:click={on_click}
         >
             {label}
         </a>
@@ -209,9 +180,9 @@ fn PortfolioCell<'a>(label: &'a str, on_click: fn(MouseEvent)) -> impl IntoView 
 }
 
 #[component]
-fn Title<'a>(title: &'a str, #[prop(optional)] color: &'a str) -> impl IntoView {
+fn Title<'a>(title: &'a str) -> impl IntoView {
     view! {
-        <p class="text-center font-bold text-4xl md:text-6xl ".to_owned() + {color}>{title}</p>
+        <h1 class="m-6 text-center font-bold text-4xl md:text-6xl">{title}</h1>
     }
 }
 
@@ -235,10 +206,40 @@ fn Button<'a>(
         "md:text-3xl",
         "md:w-48",
         "md:py-4",
-        "hover:scale-110",
-        "transition",
+        "animate",
         bg,
         bg_hover,
+    ]
+    .join(" ");
+
+    view! {
+        <a href={href} class={btn_classes}>{content}</a>
+    }
+}
+
+#[component]
+fn SmallButton<'a>(
+    href: &'a str,
+    content: impl IntoView,
+    #[prop(default = "")] width: &'a str,
+    #[prop(default = "bg-black")] bg: &'a str,
+    #[prop(default = "hover:bg-blue-300")] bg_hover: &'a str,
+    #[prop(default = "hover:text-black")] text_hover: &'a str,
+) -> impl IntoView {
+    let btn_classes = [
+        "text-white",
+        "text-md",
+        "text-center",
+        "rounded-md",
+        "border",
+        "border-black",
+        "py-2",
+        "mt-0",
+        "m-2",
+        width,
+        bg,
+        bg_hover,
+        text_hover,
     ]
     .join(" ");
 
