@@ -1,3 +1,4 @@
+use leptos::ev::MouseEvent;
 use leptos::prelude::*;
 use leptos_router::components::*;
 use leptos_router::path;
@@ -7,6 +8,8 @@ use leptos_router::path;
 // };
 // use bevy::prelude::*;
 // use leptos_bevy_canvas::prelude::*;
+
+mod portfolio;
 
 fn main() {
     mount_to_body(App);
@@ -21,6 +24,7 @@ fn App() -> impl IntoView {
                         <Route path=path!("/") view=Home/>
                         <Route path=path!("/about") view=About/>
                         <Route path=path!("/portfolio") view=Portfolio/>
+                        // <Route path=path!("/portfolio/character") view=portfolio::Character/>
                         <Route path=path!("/*any") view=|| view! { <h1>"Not Found"</h1> }/>
                 </Routes>
             </main>
@@ -31,9 +35,8 @@ fn App() -> impl IntoView {
 #[component]
 fn About() -> impl IntoView {
     view! {
-
-        <main class="h-screen flex flex-col items-center bg-white p-10">
-        <div class="w-full flex-wrap flex md:justify-between justify-center">
+        <main class="h-screen flex flex-col items-center bg-white">
+        <div class="w-full flex-wrap flex justify-between m-10">
 
         <SmallButton href="./" content="BACK" width="w-30" bg_hover="hover:bg-pink-300"/>
         <SmallButton href="./portfolio" content="Visit My Portfolio" width="w-50"/>
@@ -87,15 +90,15 @@ fn About() -> impl IntoView {
 #[component]
 fn Portfolio() -> impl IntoView {
     view! {
-        <main class="h-screen flex flex-col items-center justify-center bg-white">
+        <main class="bg-white h-full px-10 py-20">
             <Title title="Portfolio" />
-            <div class="py-8" />
-            <div class="flex flex-row flex-wrap gap-8 items-center justify-center">
-                <PortfolioCell label="Character Design" />
-                <PortfolioCell label="CGI/VFX" />
-                <PortfolioCell label="Event Booth Design" />
-                <PortfolioCell label="3D Modeling" />
-                <PortfolioCell label="2D Art" />
+            <div class="items-center justify-center py-10" />
+            <div class="flex flex-row flex-wrap gap-8 h-full items-center justify-center">
+                <PortfolioCell label="Character Design" on_click=move |m| {}/>
+                <PortfolioCell label="CGI/VFX" on_click=move |m| {}/>
+                <PortfolioCell label="Event Booth Design" on_click=move |m| {}/>
+                <PortfolioCell label="3D Modeling" on_click=move |m| {}/>
+                <PortfolioCell label="2D Art" on_click=move |m| {}/>
             </div>
         </main>
     }
@@ -105,6 +108,7 @@ fn Portfolio() -> impl IntoView {
 fn Home() -> impl IntoView {
     view! {
     <main class="h-screen flex flex-col items-center justify-center bg-white">
+        <img class="size-40 md:size-60" src="assets/images/Sushi Queen Logo Transparent.png" />
         <Title title="Hi, I am Kah Boon" />
         <div class="flex flex-wrap gap-4 my-4 justify-center md:gap-6">
             <Button href="./about" content="About" bg="bg-pink-300" bg_hover="hover:bg-pink-200" />
@@ -139,24 +143,27 @@ fn Home() -> impl IntoView {
 }
 
 #[component]
-fn PortfolioCell<'a>(label: &'a str) -> impl IntoView {
+fn PortfolioCell<'a>(label: &'a str, on_click: fn(MouseEvent)) -> impl IntoView {
     view! {
-        <a href="" class="
+        <a class="
             flex
             items-center
             justify-center
             bg-blue-200
             p-6
             font-semibold
+            rounded-xl
+            border-2
             text-center
             text-xl
-            rounded-4xl
             size-40
             md:size-60
-            lg:size-80
             md:text-2xl
             lg:text-4xl
+            transition
+            hover:scale-110
             "
+            on:click={on_click}
         >
             {label}
         </a>
@@ -164,9 +171,9 @@ fn PortfolioCell<'a>(label: &'a str) -> impl IntoView {
 }
 
 #[component]
-fn Title<'a>(title: &'a str) -> impl IntoView {
+fn Title<'a>(title: &'a str, #[prop(optional)] color: &'a str) -> impl IntoView {
     view! {
-        <h1 class="m-6 text-center font-bold text-4xl md:text-6xl">{title}</h1>
+        <p class="text-center font-bold text-4xl md:text-6xl ".to_owned() + {color}>{title}</p>
     }
 }
 
@@ -190,7 +197,8 @@ fn Button<'a>(
         "md:text-3xl",
         "md:w-48",
         "md:py-4",
-        "animate",
+        "hover:scale-110",
+        "transition",
         bg,
         bg_hover,
     ]
