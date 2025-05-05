@@ -123,8 +123,7 @@ fn Home() -> impl IntoView {
           </div>
           <div class="">
             // insta
-            <Icon href="./" src="assets/svg/instagram-brands.svg" alt="Instagram SVG"/>
-          </div>
+            <Icon href="https://www.instagram.com/the_sushi_queen_art/" src="assets/svg/instagram-brands.svg" alt="Instagram SVG"/> </div>
           <div class="">
             //linkedin
             <Icon href="./" src="assets/svg/linkedin-brands.svg" alt="Linkedin SVG"/>
@@ -141,9 +140,10 @@ fn Home() -> impl IntoView {
 #[component]
 fn Icon<'a>(href: &'a str, src: &'a str, alt: &'a str) -> impl IntoView {
     view! {
-        <img class="hover:scale-110 transition h-6 w-6"
-            src={src} alt={alt}/>
-        <a href={href}></a>
+        <a href={href}>
+            <img class="hover:scale-110 transition h-6 w-6"
+                src={src} alt={alt}/>
+        </a>
     }
 }
 
