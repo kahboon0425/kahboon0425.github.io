@@ -37,17 +37,22 @@ fn App() -> impl IntoView {
 fn About() -> impl IntoView {
     view! {
         <main class="h-screen flex flex-col items-center bg-white p-10">
-        <div class="w-full flex-wrap flex md:justify-between justify-center">
+        <div class="w-full flex justify-between">
 
-        <SmallButton href="./" content="BACK" width="w-30" bg_hover="hover:bg-pink-300"/>
+        // <SmallButton href="./" content="BACK" width="w-30" bg_hover="hover:bg-pink-300"/>
+        <Icon href="./" src="assets/svg/arrow-left-solid.svg" alt="Email SVG"/>
         <SmallButton href="./portfolio" content="Visit My Portfolio" width="w-50"/>
 
         </div>
 
         <h1 class="text-7xl mt-5 mb-8">"About"</h1>
 
+       <div class=" flex w-full xl:px-32 py-2 justify-center xl:justify-end">
+            <a href="https://drive.google.com/file/d/1n6NcOnok-7g97gj7ykd_XPxBP4CSDYW1/view?usp=sharing"><p class="underline hover:text-blue-300 hover:scale-110 cursor-pointer">View Resume</p></a>
+        </div>
 
-         <div class="flex-wrap flex justify-center gap-15 p-10">
+        // <div class="border-2 border-black"><p>Open Resume</p></div>
+         <div class="flex-wrap flex justify-center gap-15 p-10 pt-0">
                 <div class="md:w-lg p-8 border-2 border-black rounded-md bg-gray-50">
                     <p>
                         "Hi, I’m Kahboon. I graduated with an IT background but have a strong interest in 3D art. Over the past few months, I’ve been self-learning 3D modeling using Blender. I enjoy creating cute and stylized characters. I have also been learning character rigging and animation to bring my characters to life. In addition to that, I have also been exploring CGI, VFX, and 3D design for booths and pop-up stores."
@@ -139,7 +144,10 @@ fn Portfolio() -> impl IntoView {
     ];
 
     view! {
-        <main class="bg-white h-full px-10 py-20">
+        <main class="bg-white h-full px-10 py-10">
+
+        <Icon href="./" src="assets/svg/arrow-left-solid.svg" alt="Back Arrow SVG"/>
+
             <Title title="Portfolio" />
             <div class="items-center justify-center py-10" />
             <div class="flex flex-row flex-wrap gap-8 h-full items-center justify-center">
@@ -150,12 +158,9 @@ fn Portfolio() -> impl IntoView {
                                 big-img
                                 transition
                                 duration-300
-                                md:opacity-75
-                                md:blur-[2px]
+                                md:opacity-50
                                 hover:opacity-100
-                                hover:blur-none
                                 active:opacity-100
-                                active:blur-none
                             "
                                 src="assets/images/portfolio/".to_string() + f + "/showcase.png"
                             />
@@ -174,7 +179,8 @@ fn Portfolio() -> impl IntoView {
 fn Home() -> impl IntoView {
     view! {
     <main class="h-screen flex flex-col items-center justify-center bg-white">
-        <img class="size-40 md:size-60" src="assets/images/Sushi Queen Logo Transparent.png" />
+        <img class="size-30 md:size-50" src="assets/images/Sushi Queen Logo Transparent.png" />
+        // <img class="size-30 md:size-50" src="assets/images/Sushi Queen Logo Transparent.png" />
         <Title title="Hi, I am Kah Boon" />
         <div class="flex flex-wrap gap-4 my-4 justify-center md:gap-6">
             <Button href="./about" content="About" bg="bg-pink-300" bg_hover="hover:bg-pink-200" />
@@ -247,7 +253,6 @@ fn PortfolioCell(content: impl IntoView, on_click: impl Fn(MouseEvent) + 'static
             bg-gray-300
             font-semibold
             rounded-xl
-            border-2
             overflow-hidden
             text-center
             text-xl
