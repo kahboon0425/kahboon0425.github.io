@@ -119,27 +119,32 @@ fn Home() -> impl IntoView {
         <div class="mt-5 w-md flex flex-row  items-center justify-center gap-4">
           <div class="">
             // email
-            <img class="h-6 w-6" src="assets/svg/envelope-solid.svg" alt="Email SVG"/>
+            <Icon href="./" src="assets/svg/envelope-solid.svg" alt="Email SVG"/>
           </div>
           <div class="">
             // insta
-            <img class="h-6 w-6" src="assets/svg/instagram-brands.svg" alt="Instagram SVG"/>
+            <Icon href="./" src="assets/svg/instagram-brands.svg" alt="Instagram SVG"/>
           </div>
-          // <div class="">
-          //   // phone
-          //   <img class="h-6 w-6" src="assets/svg/whatsapp-brands.svg" alt="Whatsapp SVG"/>
-          // </div>
           <div class="">
             //linkedin
-            <img class="h-6 w-6" src="assets/svg/linkedin-brands.svg" alt="Linkedin SVG"/>
+            <Icon href="./" src="assets/svg/linkedin-brands.svg" alt="Linkedin SVG"/>
           </div>
           <div class="">
             //Github
-            <img class="h-6 w-6" src="assets/svg/github-brands.svg" alt="Github SVG"/>
+            <Icon href="./" src="assets/svg/github-brands.svg" alt="Github SVG"/>
           </div>
         </div>
     </main>
         }
+}
+
+#[component]
+fn Icon<'a>(href: &'a str, src: &'a str, alt: &'a str) -> impl IntoView {
+    view! {
+        <img class="hover:scale-110 transition h-6 w-6"
+            src={src} alt={alt}/>
+        <a href={href}></a>
+    }
 }
 
 #[component]
