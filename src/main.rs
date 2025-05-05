@@ -94,11 +94,13 @@ fn Portfolio() -> impl IntoView {
             <Title title="Portfolio" />
             <div class="items-center justify-center py-10" />
             <div class="flex flex-row flex-wrap gap-8 h-full items-center justify-center">
-                <PortfolioCell label="Character Design" on_click=move |m| {}/>
-                <PortfolioCell label="CGI/VFX" on_click=move |m| {}/>
-                <PortfolioCell label="Event Booth Design" on_click=move |m| {}/>
-                <PortfolioCell label="3D Modeling" on_click=move |m| {}/>
-                <PortfolioCell label="2D Art" on_click=move |m| {}/>
+                <PortfolioCell content={view! {
+                    <img src="assets/images/portfolio/Booth Design 1/showcase.png" class="big-img"/>
+                }} on_click=move |m| {}/>
+                // <PortfolioCell content="CGI/VFX" on_click=move |m| {}/>
+                // <PortfolioCell content="Event Booth Design" on_click=move |m| {}/>
+                // <PortfolioCell content="3D Modeling" on_click=move |m| {}/>
+                // <PortfolioCell content="2D Art" on_click=move |m| {}/>
             </div>
         </main>
     }
@@ -159,17 +161,17 @@ fn Home() -> impl IntoView {
 }
 
 #[component]
-fn PortfolioCell<'a>(label: &'a str, on_click: fn(MouseEvent)) -> impl IntoView {
+fn PortfolioCell(content: impl IntoView, on_click: fn(MouseEvent)) -> impl IntoView {
     view! {
-        <a class="
+        <div class="
             flex
             items-center
             justify-center
             bg-blue-200
-            p-6
             font-semibold
             rounded-xl
             border-2
+            overflow-hidden
             text-center
             text-xl
             size-40
@@ -181,8 +183,8 @@ fn PortfolioCell<'a>(label: &'a str, on_click: fn(MouseEvent)) -> impl IntoView 
             "
             on:click={on_click}
         >
-            {label}
-        </a>
+            {content}
+        </div>
     }
 }
 

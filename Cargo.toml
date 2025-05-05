@@ -8,7 +8,6 @@ bevy = "0.15.3"
 leptos-bevy-canvas = "0.2.0"
 leptos = { version = "0.7.8", features = ["csr"] }
 leptos_router = "0.7.8"
-# leptos-use = "0.15.7"
 
 # Remove expensive debug assertions due to <https://github.com/bevyengine/bevy/issues/14291>
 [profile.dev.package.wgpu-types]
