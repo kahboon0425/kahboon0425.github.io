@@ -44,7 +44,7 @@ fn About() -> impl IntoView {
 
 
          <div class="flex-wrap flex justify-center gap-15">
-                <div class="w-lg p-8 border-2 border-black rounded-md bg-gray-50">
+                <div class="md:w-lg p-8 border-2 border-black rounded-md bg-gray-50">
                     <p>
                         "Hi, I’m Kahboon. I graduated with an IT background but have a strong interest in 3D art. Over the past few months, I’ve been self-learning 3D modeling using Blender. I enjoy creating cute and stylized characters. I have also been learning character rigging and animation to bring my characters to life. In addition to that, I have also been exploring CGI, VFX, and 3D design for booths and pop-up stores."
                     </p>
