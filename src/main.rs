@@ -149,6 +149,27 @@ fn Portfolio() -> impl IntoView {
         <Icon href="./" src="assets/svg/arrow-left-solid.svg" alt="Back Arrow SVG"/>
 
             <Title title="Portfolio" />
+
+            <div class="flex justify-center border-b border-gray-200 mt-5">
+              <nav class="flex gap-8">
+                <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium active:border-blue-600 active:border-b-2">
+                  Character Design
+                </a>
+                <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium active:border-blue-600 active:border-b-2">
+                  CGI
+                </a>
+                <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium active:border-blue-600 active:border-b-2">
+                  Animation
+                </a>
+                <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium active:border-blue-600 active:border-b-2">
+                  3D Booth Design
+                </a>
+                <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium active:border-blue-600 active:border-b-2">
+                  2D Art
+                </a>
+              </nav>
+            </div>
+
             <div class="items-center justify-center py-10" />
             <div class="flex flex-row flex-wrap gap-8 h-full items-center justify-center">
                 {
