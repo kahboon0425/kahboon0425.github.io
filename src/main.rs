@@ -214,6 +214,8 @@ fn PortfolioCell(content: impl IntoView, on_click: impl Fn(MouseEvent) + 'static
             duration-300
             hover:scale-110
             hover:border-none
+            focus:scale-110
+            focus:border-none
             "
             on:click={on_click}
         >
