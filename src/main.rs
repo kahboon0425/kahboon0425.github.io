@@ -125,10 +125,10 @@ fn Home() -> impl IntoView {
             // insta
             <img class="h-6 w-6" src="assets/svg/instagram-brands.svg" alt="Instagram SVG"/>
           </div>
-          <div class="">
-            // phone
-            <img class="h-6 w-6" src="assets/svg/whatsapp-brands.svg" alt="Whatsapp SVG"/>
-          </div>
+          // <div class="">
+          //   // phone
+          //   <img class="h-6 w-6" src="assets/svg/whatsapp-brands.svg" alt="Whatsapp SVG"/>
+          // </div>
           <div class="">
             //linkedin
             <img class="h-6 w-6" src="assets/svg/linkedin-brands.svg" alt="Linkedin SVG"/>
