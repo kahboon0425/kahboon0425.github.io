@@ -43,7 +43,7 @@ fn About() -> impl IntoView {
 
         </div>
 
-        <h1 class="text-7xl mt-5 mb-12">"About"</h1>
+        <h1 class="text-7xl mt-5 mb-8">"About"</h1>
 
 
          <div class="flex-wrap flex justify-center gap-15 p-10">
@@ -57,28 +57,50 @@ fn About() -> impl IntoView {
                     </p>
                 </div>
 
-                <div class="w-xs p-6 border-2 border-black rounded-md bg-gray-50">
+                <div class="w-sm p-6 border-2 border-black rounded-md bg-gray-50">
                     <div class="flex flex-wrap gap-4 mb-4 items-center">
                         <div class="flex size-10 bg-pink-300 rounded-md border items-center justify-center">
-                        // email
-                        <svg
-                        class="h-6 w-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512">
-                        <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
-                        </svg>
+
+                        <Icon href="mailto:changkahboon25@gmail.com" src="assets/svg/envelope-solid.svg" alt="Email SVG"/>
+
                         </div>
                         <p>"changkahboon25@gmail.com"</p>
                     </div>
 
                     <div class="flex flex-wrap gap-4 mb-4 items-center">
-                        <div class="w-10 h-10 bg-pink-300 rounded-md border"></div>
+                        <div class="flex size-10 bg-blue-300 rounded-md border items-center justify-center">
+
+                        <Icon href="https://www.instagram.com/the_sushi_queen_art/" src="assets/svg/instagram-brands.svg" alt="Instagram SVG"/>
+
+                        </div>
                         <p>"the_sushi_queen_art"</p>
                     </div>
 
                     <div class="flex flex-wrap gap-4 mb-4 items-center">
-                        <div class="w-10 h-10 bg-pink-300 rounded-md border"></div>
+                        <div class="flex size-10 bg-pink-300 rounded-md border items-center justify-center">
+
+                        <Icon src="assets/svg/whatsapp-brands.svg" alt="Whatsapp SVG"/>
+
+                        </div>
                         <p>"012-7645817"</p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4 mb-4 items-center">
+                        <div class="flex size-10 bg-blue-300 rounded-md border items-center justify-center">
+
+                        <Icon href="https://www.linkedin.com/in/kahboon" src="assets/svg/linkedin-brands.svg" alt="Linkedin SVG"/>
+
+                        </div>
+                        <p>"https://www.linkedin.com/in/kahboon"</p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4 mb-4 items-center">
+                        <div class="flex size-10 bg-pink-300 rounded-md border items-center justify-center">
+
+                        <Icon href="https://github.com/kahboon0425" src="assets/svg/github-brands.svg" alt="Github SVG"/>
+
+                        </div>
+                        <p>"https://github.com/kahboon0425"</p>
                     </div>
 
                 </div>
@@ -119,18 +141,18 @@ fn Home() -> impl IntoView {
         <div class="mt-5 w-md flex flex-row  items-center justify-center gap-4">
           <div class="">
             // email
-            <Icon href="./" src="assets/svg/envelope-solid.svg" alt="Email SVG"/>
+            <Icon href="mailto:changkahboon25@gmail.com" src="assets/svg/envelope-solid.svg" alt="Email SVG"/>
           </div>
           <div class="">
             // insta
             <Icon href="https://www.instagram.com/the_sushi_queen_art/" src="assets/svg/instagram-brands.svg" alt="Instagram SVG"/> </div>
           <div class="">
             //linkedin
-            <Icon href="./" src="assets/svg/linkedin-brands.svg" alt="Linkedin SVG"/>
+            <Icon href="https://www.linkedin.com/in/kahboon" src="assets/svg/linkedin-brands.svg" alt="Linkedin SVG"/>
           </div>
           <div class="">
             //Github
-            <Icon href="./" src="assets/svg/github-brands.svg" alt="Github SVG"/>
+            <Icon href="https://github.com/kahboon0425" src="assets/svg/github-brands.svg" alt="Github SVG"/>
           </div>
         </div>
     </main>
@@ -138,7 +160,11 @@ fn Home() -> impl IntoView {
 }
 
 #[component]
-fn Icon<'a>(href: &'a str, src: &'a str, alt: &'a str) -> impl IntoView {
+fn Icon<'a>(
+    src: &'a str,
+    alt: &'a str,
+    #[prop(default = "./about")] href: &'a str,
+) -> impl IntoView {
     view! {
         <a href={href}>
             <img class="hover:scale-110 transition h-6 w-6"
@@ -146,6 +172,25 @@ fn Icon<'a>(href: &'a str, src: &'a str, alt: &'a str) -> impl IntoView {
         </a>
     }
 }
+
+// #[component]
+// fn IconContainer<'a>(
+//     #[prop(default = "bg-pink-300")]bg: &'a str
+// ) -> impl IntoView {
+//     let icon_container_classes = [
+//         "flex size-10",
+//         "rounded-md",
+//         "border",
+//         "items-center",
+//         "justify-center",
+//         bg,
+//     ]
+//     .join(" ");
+
+//     view! {
+//         <div class={icon_container_classes}></div>
+//     }
+// }
 
 #[component]
 fn PortfolioCell<'a>(label: &'a str, on_click: fn(MouseEvent)) -> impl IntoView {
