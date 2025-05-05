@@ -1,4 +1,5 @@
 use leptos::ev::MouseEvent;
+use leptos::leptos_dom::logging::console_log;
 use leptos::prelude::*;
 use leptos_router::components::*;
 use leptos_router::path;
@@ -111,16 +112,59 @@ fn About() -> impl IntoView {
 
 #[component]
 fn Portfolio() -> impl IntoView {
+    const FOLDERS: &[&str] = &[
+        "Booth Design 1",
+        "Booth Design 2",
+        "Booth Design 3",
+        "Booth Design 4",
+        "Cat Dropping",
+        "Cat in Box",
+        "CGI-Balls",
+        "CGI-Gift-Box",
+        "CGI-headphone",
+        "CGI-Sushi-Queen",
+        "Donut",
+        "Factory",
+        "Gatcha Machine",
+        "Milk",
+        "Profile Image",
+        "Room",
+        "Sushi Character Prawn",
+        "Sushi Character Salmon",
+        "Sushi Queen",
+        "Sushi Queen Typing",
+        "Tin",
+        "Tree",
+        "Vendor Machine",
+    ];
+
     view! {
         <main class="bg-white h-full px-10 py-20">
             <Title title="Portfolio" />
             <div class="items-center justify-center py-10" />
             <div class="flex flex-row flex-wrap gap-8 h-full items-center justify-center">
-                <PortfolioCell label="Character Design" on_click=move |m| {}/>
-                <PortfolioCell label="CGI/VFX" on_click=move |m| {}/>
-                <PortfolioCell label="Event Booth Design" on_click=move |m| {}/>
-                <PortfolioCell label="3D Modeling" on_click=move |m| {}/>
-                <PortfolioCell label="2D Art" on_click=move |m| {}/>
+                {
+                    FOLDERS.iter().map(|f| view!{
+                        <PortfolioCell content={view! {
+                            <img class="
+                                big-img
+                                transition
+                                duration-300
+                                md:opacity-75
+                                md:blur-[2px]
+                                hover:opacity-100
+                                hover:blur-none
+                                active:opacity-100
+                                active:blur-none
+                            "
+                                src="assets/images/portfolio/".to_string() + f + "/showcase.png"
+                            />
+                        }} on_click=move |m| {
+                            console_log(&("assets/images/portfolio/".to_string() + f));
+                            console_log(&format!("{m:?}"));
+                        }/>
+                    }).collect::<Vec<_>>()
+                }
             </div>
         </main>
     }
@@ -193,17 +237,18 @@ fn Icon<'a>(
 // }
 
 #[component]
-fn PortfolioCell<'a>(label: &'a str, on_click: fn(MouseEvent)) -> impl IntoView {
+fn PortfolioCell(content: impl IntoView, on_click: impl Fn(MouseEvent) + 'static) -> impl IntoView {
     view! {
-        <a class="
+        <div class="
+            cursor-pointer
             flex
             items-center
             justify-center
-            bg-blue-200
-            p-6
+            bg-gray-300
             font-semibold
             rounded-xl
             border-2
+            overflow-hidden
             text-center
             text-xl
             size-40
@@ -211,12 +256,16 @@ fn PortfolioCell<'a>(label: &'a str, on_click: fn(MouseEvent)) -> impl IntoView 
             md:text-2xl
             lg:text-4xl
             transition
+            duration-300
             hover:scale-110
+            hover:border-none
+            focus:scale-110
+            focus:border-none
             "
             on:click={on_click}
         >
-            {label}
-        </a>
+            {content}
+        </div>
     }
 }
 
