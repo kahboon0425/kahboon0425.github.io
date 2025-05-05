@@ -40,14 +40,14 @@ fn About() -> impl IntoView {
         <div class="w-full flex justify-between">
 
         // <SmallButton href="./" content="BACK" width="w-30" bg_hover="hover:bg-pink-300"/>
-        <Icon href="./" src="assets/svg/arrow-left-solid.svg" alt="Email SVG"/>
+        <Icon href="./" src="assets/svg/arrow-left-solid.svg" alt="Back Arrow SVG"/>
         <SmallButton href="./portfolio" content="Visit My Portfolio" width="w-50"/>
 
         </div>
 
         <h1 class="text-7xl mt-5 mb-8">"About"</h1>
 
-       <div class=" flex w-full xl:px-32 py-2 justify-center xl:justify-end">
+       <div class=" flex w-full xl:px-32 py-2 justify-center xl:justify-end animate-bounce">
             <a href="https://drive.google.com/file/d/1n6NcOnok-7g97gj7ykd_XPxBP4CSDYW1/view?usp=sharing"><p class="underline hover:text-blue-300 hover:scale-110 cursor-pointer">View Resume</p></a>
         </div>
 
@@ -155,7 +155,7 @@ fn Portfolio() -> impl IntoView {
                 <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium active:border-blue-600 active:border-b-2">
                   Character Design
                 </a>
-                <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium active:border-blue-600 active:border-b-2">
+                <a href="#" class="text-gray-500 hover:text-gray-700 active:border-blue-600 active:border-b-2 px-3 py-2 text-sm font-medium active:border-blue-600 active:border-b-2">
                   CGI
                 </a>
                 <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium active:border-blue-600 active:border-b-2">
