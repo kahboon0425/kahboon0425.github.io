@@ -65,91 +65,92 @@ fn About() -> impl IntoView {
 
             <h1 class="mt-5 mb-8 text-7xl">"About"</h1>
 
-            <div class="flex justify-center py-2 w-full animate-bounce xl:justify-end xl:px-32">
-                <a href="https://drive.google.com/file/d/1n6NcOnok-7g97gj7ykd_XPxBP4CSDYW1/view?usp=sharing">
-                    <p class="underline cursor-pointer hover:text-blue-300 hover:scale-110">
-                        View Resume
-                    </p>
-                </a>
-            </div>
-
-            // <div class="border-2 border-black"><p>Open Resume</p></div>
-            <div class="flex flex-wrap justify-center p-10 pt-0 gap-15">
-                <div class="p-8 bg-gray-50 rounded-md border-2 border-black md:w-lg">
-                    <p>
-                        "Hi, I’m Kahboon. I graduated with an IT background but have a strong interest in 3D art. Over the past few months, I’ve been self-learning 3D modeling using Blender. I enjoy creating cute and stylized characters. I have also been learning character rigging and animation to bring my characters to life. In addition to that, I have also been exploring CGI, VFX, and 3D design for booths and pop-up stores."
-                    </p>
-                    <br />
-                    <p>
-                        "I’m currently looking for a junior 3D artist position or a 3D booth designer role. Feel free to check out my portfolio. Thanks for visiting!"
-                    </p>
+            <div class="flex flex-col justify-center p-10 pt-0">
+                <div class="self-center py-2 animate-bounce xl:self-end">
+                    <a href="https://drive.google.com/file/d/1n6NcOnok-7g97gj7ykd_XPxBP4CSDYW1/view?usp=sharing">
+                        <p class="underline transition cursor-pointer hover:text-blue-300 hover:scale-110">
+                            View Resume
+                        </p>
+                    </a>
                 </div>
 
-                <div class="p-6 bg-gray-50 rounded-md border-2 border-black w-sm">
-                    <div class="flex flex-wrap gap-4 items-center mb-4">
-                        <div class="flex justify-center items-center bg-pink-300 rounded-md border size-10">
-
-                            <Icon
-                                href="mailto:changkahboon25@gmail.com"
-                                src="assets/svg/envelope-solid.svg"
-                                alt="Email SVG"
-                            />
-
-                        </div>
-                        <p>"changkahboon25@gmail.com"</p>
+                <div class="flex flex-row flex-wrap justify-center gap-15">
+                    <div class="p-8 bg-gray-50 rounded-md border-2 border-black md:w-lg">
+                        <p>
+                            "Hi, I’m Kahboon. I graduated with an IT background but have a strong interest in 3D art. Over the past few months, I’ve been self-learning 3D modeling using Blender. I enjoy creating cute and stylized characters. I have also been learning character rigging and animation to bring my characters to life. In addition to that, I have also been exploring CGI, VFX, and 3D design for booths and pop-up stores."
+                        </p>
+                        <br />
+                        <p>
+                            "I’m currently looking for a junior 3D artist position or a 3D booth designer role. Feel free to check out my portfolio. Thanks for visiting!"
+                        </p>
                     </div>
 
-                    <div class="flex flex-wrap gap-4 items-center mb-4">
-                        <div class="flex justify-center items-center bg-blue-300 rounded-md border size-10">
+                    <div class="p-6 bg-gray-50 rounded-md border-2 border-black w-sm">
+                        <div class="flex flex-wrap gap-4 items-center mb-4">
+                            <div class="flex justify-center items-center bg-pink-300 rounded-md border size-10">
 
-                            <Icon
-                                href="https://www.instagram.com/the_sushi_queen_art/"
-                                src="assets/svg/instagram-brands.svg"
-                                alt="Instagram SVG"
-                            />
+                                <Icon
+                                    href="mailto:changkahboon25@gmail.com"
+                                    src="assets/svg/envelope-solid.svg"
+                                    alt="Email SVG"
+                                />
 
+                            </div>
+                            <p>"changkahboon25@gmail.com"</p>
                         </div>
-                        <p>"the_sushi_queen_art"</p>
-                    </div>
 
-                    <div class="flex flex-wrap gap-4 items-center mb-4">
-                        <div class="flex justify-center items-center bg-pink-300 rounded-md border size-10">
+                        <div class="flex flex-wrap gap-4 items-center mb-4">
+                            <div class="flex justify-center items-center bg-blue-300 rounded-md border size-10">
 
-                            <Icon
-                                src="assets/svg/whatsapp-brands.svg"
-                                alt="Whatsapp SVG"
-                            />
+                                <Icon
+                                    href="https://www.instagram.com/the_sushi_queen_art/"
+                                    src="assets/svg/instagram-brands.svg"
+                                    alt="Instagram SVG"
+                                />
 
+                            </div>
+                            <p>"the_sushi_queen_art"</p>
                         </div>
-                        <p>"012-7645817"</p>
-                    </div>
 
-                    <div class="flex flex-wrap gap-4 items-center mb-4">
-                        <div class="flex justify-center items-center bg-blue-300 rounded-md border size-10">
+                        <div class="flex flex-wrap gap-4 items-center mb-4">
+                            <div class="flex justify-center items-center bg-pink-300 rounded-md border size-10">
 
-                            <Icon
-                                href="https://www.linkedin.com/in/kahboon"
-                                src="assets/svg/linkedin-brands.svg"
-                                alt="Linkedin SVG"
-                            />
+                                <Icon
+                                    src="assets/svg/whatsapp-brands.svg"
+                                    alt="Whatsapp SVG"
+                                />
 
+                            </div>
+                            <p>"012-7645817"</p>
                         </div>
-                        <p>"https://www.linkedin.com/in/kahboon"</p>
-                    </div>
 
-                    <div class="flex flex-wrap gap-4 items-center mb-4">
-                        <div class="flex justify-center items-center bg-pink-300 rounded-md border size-10">
+                        <div class="flex flex-wrap gap-4 items-center mb-4">
+                            <div class="flex justify-center items-center bg-blue-300 rounded-md border size-10">
 
-                            <Icon
-                                href="https://github.com/kahboon0425"
-                                src="assets/svg/github-brands.svg"
-                                alt="Github SVG"
-                            />
+                                <Icon
+                                    href="https://www.linkedin.com/in/kahboon"
+                                    src="assets/svg/linkedin-brands.svg"
+                                    alt="Linkedin SVG"
+                                />
 
+                            </div>
+                            <p>"https://www.linkedin.com/in/kahboon"</p>
                         </div>
-                        <p>"https://github.com/kahboon0425"</p>
-                    </div>
 
+                        <div class="flex flex-wrap gap-4 items-center mb-4">
+                            <div class="flex justify-center items-center bg-pink-300 rounded-md border size-10">
+
+                                <Icon
+                                    href="https://github.com/kahboon0425"
+                                    src="assets/svg/github-brands.svg"
+                                    alt="Github SVG"
+                                />
+
+                            </div>
+                            <p>"https://github.com/kahboon0425"</p>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </main>
@@ -370,7 +371,7 @@ fn PortfolioCell(
 ) -> impl IntoView {
     view! {
         <div
-            class="flex overflow-hidden justify-center items-center text-xl font-semibold text-center bg-gray-300 rounded-xl transition duration-300 cursor-pointer md:text-2xl lg:text-4xl hover:border-none hover:scale-110 focus:border-none focus:scale-110 size-40 md:size-60"
+            class="flex overflow-hidden justify-center items-center text-xl font-semibold text-center bg-gray-300 rounded-xl transition duration-300 cursor-pointer md:text-2xl lg:text-4xl hover:border-none hover:scale-110 focus:border-none focus:scale-110 size-60"
             on:click=on_click
         >
             {content}
@@ -510,7 +511,6 @@ pub fn get_directory_node<'a>(
                 }
 
                 if paths.len() == 1 {
-                    console_log(&format!("{:#?}", children));
                     return Some(children);
                 }
 
