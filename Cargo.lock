@@ -4103,6 +4103,8 @@ dependencies = [
  "leptos",
  "leptos-bevy-canvas",
  "leptos_router",
+ "ron",
+ "serde",
 ]
 
 [[package]]

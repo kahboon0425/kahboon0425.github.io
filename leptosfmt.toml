@@ -1,0 +1,8 @@
+max_width = 70 # Maximum width of each line
+tab_spaces = 4 # Number of spaces per tab
+indentation_style = "Spaces" # "Tabs", "Spaces" or "Auto"
+
+# Attribute values can be formatted by custom formatters
+# Every attribute name may only select one formatter (this might change later on)
+[attr_values]
+class = "Tailwind" # "Tailwind" is the only attribute value formatter available for now

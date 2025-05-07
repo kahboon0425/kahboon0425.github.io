@@ -22,11 +22,14 @@ fn App() -> impl IntoView {
         <Router base="/portfolio">
             <main>
                 <Routes fallback=|| view! { <h1>"Not Found"</h1> }>
-                        <Route path=path!("/") view=Home/>
-                        <Route path=path!("/about") view=About/>
-                        <Route path=path!("/portfolio") view=Portfolio/>
-                        // <Route path=path!("/portfolio/character") view=portfolio::Character/>
-                        <Route path=path!("/*any") view=|| view! { <h1>"Not Found"</h1> }/>
+                    <Route path=path!("/") view=Home />
+                    <Route path=path!("/about") view=About />
+                    <Route path=path!("/portfolio") view=Portfolio />
+                    // <Route path=path!("/portfolio/character") view=portfolio::Character/>
+                    <Route
+                        path=path!("/*any")
+                        view=|| view! { <h1>"Not Found"</h1> }
+                    />
                 </Routes>
             </main>
         </Router>
@@ -36,74 +39,105 @@ fn App() -> impl IntoView {
 #[component]
 fn About() -> impl IntoView {
     view! {
-        <main class="h-screen flex flex-col items-center bg-white p-10">
-        <div class="w-full flex justify-between">
+        <main class="flex flex-col items-center p-10 h-screen bg-white">
+            <div class="flex justify-between w-full">
 
-        // <SmallButton href="./" content="BACK" width="w-30" bg_hover="hover:bg-pink-300"/>
-        <Icon href="./" src="assets/svg/arrow-left-solid.svg" alt="Back Arrow SVG"/>
-        <SmallButton href="./portfolio" content="Visit My Portfolio" width="w-50"/>
+                // <SmallButton href="./" content="BACK" width="w-30" bg_hover="hover:bg-pink-300"/>
+                <Icon
+                    href="./"
+                    src="assets/svg/arrow-left-solid.svg"
+                    alt="Back Arrow SVG"
+                />
+                <SmallButton
+                    href="./portfolio"
+                    content="Visit My Portfolio"
+                    width="w-50"
+                />
 
-        </div>
+            </div>
 
-        <h1 class="text-7xl mt-5 mb-8">"About"</h1>
+            <h1 class="mt-5 mb-8 text-7xl">"About"</h1>
 
-       <div class=" flex w-full xl:px-32 py-2 justify-center xl:justify-end animate-bounce">
-            <a href="https://drive.google.com/file/d/1n6NcOnok-7g97gj7ykd_XPxBP4CSDYW1/view?usp=sharing"><p class="underline hover:text-blue-300 hover:scale-110 cursor-pointer">View Resume</p></a>
-        </div>
+            <div class="flex justify-center py-2 w-full animate-bounce xl:justify-end xl:px-32">
+                <a href="https://drive.google.com/file/d/1n6NcOnok-7g97gj7ykd_XPxBP4CSDYW1/view?usp=sharing">
+                    <p class="underline cursor-pointer hover:text-blue-300 hover:scale-110">
+                        View Resume
+                    </p>
+                </a>
+            </div>
 
-        // <div class="border-2 border-black"><p>Open Resume</p></div>
-         <div class="flex-wrap flex justify-center gap-15 p-10 pt-0">
-                <div class="md:w-lg p-8 border-2 border-black rounded-md bg-gray-50">
+            // <div class="border-2 border-black"><p>Open Resume</p></div>
+            <div class="flex flex-wrap justify-center p-10 pt-0 gap-15">
+                <div class="p-8 bg-gray-50 rounded-md border-2 border-black md:w-lg">
                     <p>
                         "Hi, I’m Kahboon. I graduated with an IT background but have a strong interest in 3D art. Over the past few months, I’ve been self-learning 3D modeling using Blender. I enjoy creating cute and stylized characters. I have also been learning character rigging and animation to bring my characters to life. In addition to that, I have also been exploring CGI, VFX, and 3D design for booths and pop-up stores."
                     </p>
-                    <br/>
+                    <br />
                     <p>
                         "I’m currently looking for a junior 3D artist position or a 3D booth designer role. Feel free to check out my portfolio. Thanks for visiting!"
                     </p>
                 </div>
 
-                <div class="w-sm p-6 border-2 border-black rounded-md bg-gray-50">
-                    <div class="flex flex-wrap gap-4 mb-4 items-center">
-                        <div class="flex size-10 bg-pink-300 rounded-md border items-center justify-center">
+                <div class="p-6 bg-gray-50 rounded-md border-2 border-black w-sm">
+                    <div class="flex flex-wrap gap-4 items-center mb-4">
+                        <div class="flex justify-center items-center bg-pink-300 rounded-md border size-10">
 
-                        <Icon href="mailto:changkahboon25@gmail.com" src="assets/svg/envelope-solid.svg" alt="Email SVG"/>
+                            <Icon
+                                href="mailto:changkahboon25@gmail.com"
+                                src="assets/svg/envelope-solid.svg"
+                                alt="Email SVG"
+                            />
 
                         </div>
                         <p>"changkahboon25@gmail.com"</p>
                     </div>
 
-                    <div class="flex flex-wrap gap-4 mb-4 items-center">
-                        <div class="flex size-10 bg-blue-300 rounded-md border items-center justify-center">
+                    <div class="flex flex-wrap gap-4 items-center mb-4">
+                        <div class="flex justify-center items-center bg-blue-300 rounded-md border size-10">
 
-                        <Icon href="https://www.instagram.com/the_sushi_queen_art/" src="assets/svg/instagram-brands.svg" alt="Instagram SVG"/>
+                            <Icon
+                                href="https://www.instagram.com/the_sushi_queen_art/"
+                                src="assets/svg/instagram-brands.svg"
+                                alt="Instagram SVG"
+                            />
 
                         </div>
                         <p>"the_sushi_queen_art"</p>
                     </div>
 
-                    <div class="flex flex-wrap gap-4 mb-4 items-center">
-                        <div class="flex size-10 bg-pink-300 rounded-md border items-center justify-center">
+                    <div class="flex flex-wrap gap-4 items-center mb-4">
+                        <div class="flex justify-center items-center bg-pink-300 rounded-md border size-10">
 
-                        <Icon src="assets/svg/whatsapp-brands.svg" alt="Whatsapp SVG"/>
+                            <Icon
+                                src="assets/svg/whatsapp-brands.svg"
+                                alt="Whatsapp SVG"
+                            />
 
                         </div>
                         <p>"012-7645817"</p>
                     </div>
 
-                    <div class="flex flex-wrap gap-4 mb-4 items-center">
-                        <div class="flex size-10 bg-blue-300 rounded-md border items-center justify-center">
+                    <div class="flex flex-wrap gap-4 items-center mb-4">
+                        <div class="flex justify-center items-center bg-blue-300 rounded-md border size-10">
 
-                        <Icon href="https://www.linkedin.com/in/kahboon" src="assets/svg/linkedin-brands.svg" alt="Linkedin SVG"/>
+                            <Icon
+                                href="https://www.linkedin.com/in/kahboon"
+                                src="assets/svg/linkedin-brands.svg"
+                                alt="Linkedin SVG"
+                            />
 
                         </div>
                         <p>"https://www.linkedin.com/in/kahboon"</p>
                     </div>
 
-                    <div class="flex flex-wrap gap-4 mb-4 items-center">
-                        <div class="flex size-10 bg-pink-300 rounded-md border items-center justify-center">
+                    <div class="flex flex-wrap gap-4 items-center mb-4">
+                        <div class="flex justify-center items-center bg-pink-300 rounded-md border size-10">
 
-                        <Icon href="https://github.com/kahboon0425" src="assets/svg/github-brands.svg" alt="Github SVG"/>
+                            <Icon
+                                href="https://github.com/kahboon0425"
+                                src="assets/svg/github-brands.svg"
+                                alt="Github SVG"
+                            />
 
                         </div>
                         <p>"https://github.com/kahboon0425"</p>
@@ -154,62 +188,72 @@ fn Portfolio() -> impl IntoView {
     ];
 
     view! {
-        <main class="bg-white h-full px-10 py-10">
-
-        <Icon href="./" src="assets/svg/arrow-left-solid.svg" alt="Back Arrow SVG"/>
+        <main class="py-10 px-10 h-full bg-white">
+            <Icon
+                href="./"
+                src="assets/svg/arrow-left-solid.svg"
+                alt="Back Arrow SVG"
+            />
 
             <Title title="Portfolio" />
 
-            <div class="flex justify-center border-b border-gray-200 mt-5">
-              <nav class="flex gap-8">
+            <div class="flex justify-center mt-5 border-b border-gray-200">
+                <nav class="flex gap-8">
 
-                {
+                    {CATEGORIES
+                        .iter()
+                        .enumerate()
+                        .map(|(i, f)| {
+                            view! {
+                                <a
+                                    href=""
+                                    class=move || {
+                                        let base = "text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium";
+                                        if clicked.get() == i {
+                                            format!("{base} border-blue-600 border-b-2")
+                                        } else {
+                                            base.to_string()
+                                        }
+                                    }
 
-                CATEGORIES.iter().enumerate().map(|(i, f)| view!{
-                    <a href="" class=move || {
-                    let base = "text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium";
-                    if clicked.get() == i {
-                        format!("{base} border-blue-600 border-b-2")
-                    } else {
-                        base.to_string()
-                    }
-                    }
+                                    on:click=move |_| {
+                                        set_clicked.set(i);
+                                    }
+                                >
 
-                    on:click=move |_| {
-                        set_clicked.set(i);
-                    }
+                                    {*f}
+                                </a>
+                            }
+                        })
+                        .collect::<Vec<_>>()}
 
-                    >
-                        {*f}
-                    </a>
-                }).collect::<Vec<_>>()
-
-                }
-
-              </nav>
+                </nav>
             </div>
 
-            <div class="items-center justify-center py-10" />
-            <div class="flex flex-row flex-wrap gap-8 h-full items-center justify-center">
-                {
-                    FOLDERS.iter().map(|f| view!{
-                        <PortfolioCell content={view! {
-                            <img class="
-                                big-img
-                                transition
-                                duration-300
-                                md:opacity-50
-                                hover:opacity-100
-                                active:opacity-100
-                            "
-                                src="assets/images/portfolio/".to_string() + f + "/showcase.png"
+            <div class="justify-center items-center py-10" />
+            <div class="flex flex-row flex-wrap gap-8 justify-center items-center h-full">
+                {FOLDERS
+                    .iter()
+                    .map(|f| {
+                        view! {
+                            <PortfolioCell
+                                content={
+                                    view! {
+                                        <img
+                                            class="transition duration-300 md:opacity-50 hover:opacity-100 active:opacity-100 big-img"
+                                            src="assets/images/portfolio/".to_string() + f
+                                                + "/showcase.png"
+                                        />
+                                    }
+                                }
+                                on_click=move |m| {
+                                    console_log(&("assets/images/portfolio/".to_string() + f));
+                                    console_log(&format!("{m:?}"));
+                                }
                             />
-                        }} on_click=move |m| {
-                            console_log(&("assets/images/portfolio/".to_string() + f));
-                            console_log(&format!("{m:?}"));
-                        }/>
-                    }).collect::<Vec<_>>()
-                }
+                        }
+                    })
+                    .collect::<Vec<_>>()}
             </div>
         </main>
     }
@@ -218,35 +262,64 @@ fn Portfolio() -> impl IntoView {
 #[component]
 fn Home() -> impl IntoView {
     view! {
-    <main class="h-screen flex flex-col items-center justify-center bg-white">
-        <img class="size-30 md:size-50" src="assets/images/Sushi Queen Logo Transparent.png" />
-        // <img class="size-30 md:size-50" src="assets/images/Sushi Queen Logo Transparent.png" />
-        <Title title="Hi, I am Kah Boon" />
-        <div class="flex flex-wrap gap-4 my-4 justify-center md:gap-6">
-            <Button href="./about" content="About" bg="bg-pink-300" bg_hover="hover:bg-pink-200" />
-            <Button href="./portfolio" content="Portfolio" bg="bg-sky-300" bg_hover="hover:bg-sky-200" />
-        </div>
+        <main class="flex flex-col justify-center items-center h-screen bg-white">
+            <img
+                class="size-30 md:size-50"
+                src="assets/images/Sushi Queen Logo Transparent.png"
+            />
+            // <img class="size-30 md:size-50" src="assets/images/Sushi Queen Logo Transparent.png" />
+            <Title title="Hi, I am Kah Boon" />
+            <div class="flex flex-wrap gap-4 justify-center my-4 md:gap-6">
+                <Button
+                    href="./about"
+                    content="About"
+                    bg="bg-pink-300"
+                    bg_hover="hover:bg-pink-200"
+                />
+                <Button
+                    href="./portfolio"
+                    content="Portfolio"
+                    bg="bg-sky-300"
+                    bg_hover="hover:bg-sky-200"
+                />
+            </div>
 
-
-        <div class="mt-5 w-md flex flex-row  items-center justify-center gap-4">
-          <div class="">
-            // email
-            <Icon href="mailto:changkahboon25@gmail.com" src="assets/svg/envelope-solid.svg" alt="Email SVG"/>
-          </div>
-          <div class="">
-            // insta
-            <Icon href="https://www.instagram.com/the_sushi_queen_art/" src="assets/svg/instagram-brands.svg" alt="Instagram SVG"/> </div>
-          <div class="">
-            //linkedin
-            <Icon href="https://www.linkedin.com/in/kahboon" src="assets/svg/linkedin-brands.svg" alt="Linkedin SVG"/>
-          </div>
-          <div class="">
-            //Github
-            <Icon href="https://github.com/kahboon0425" src="assets/svg/github-brands.svg" alt="Github SVG"/>
-          </div>
-        </div>
-    </main>
-        }
+            <div class="flex flex-row gap-4 justify-center items-center mt-5 w-md">
+                <div class="">
+                    // email
+                    <Icon
+                        href="mailto:changkahboon25@gmail.com"
+                        src="assets/svg/envelope-solid.svg"
+                        alt="Email SVG"
+                    />
+                </div>
+                <div class="">
+                    // insta
+                    <Icon
+                        href="https://www.instagram.com/the_sushi_queen_art/"
+                        src="assets/svg/instagram-brands.svg"
+                        alt="Instagram SVG"
+                    />
+                </div>
+                <div class="">
+                    // linkedin
+                    <Icon
+                        href="https://www.linkedin.com/in/kahboon"
+                        src="assets/svg/linkedin-brands.svg"
+                        alt="Linkedin SVG"
+                    />
+                </div>
+                <div class="">
+                    // Github
+                    <Icon
+                        href="https://github.com/kahboon0425"
+                        src="assets/svg/github-brands.svg"
+                        alt="Github SVG"
+                    />
+                </div>
+            </div>
+        </main>
+    }
 }
 
 #[component]
@@ -256,9 +329,12 @@ fn Icon<'a>(
     #[prop(default = "./about")] href: &'a str,
 ) -> impl IntoView {
     view! {
-        <a href={href}>
-            <img class="hover:scale-110 transition h-6 w-6"
-                src={src} alt={alt}/>
+        <a href=href>
+            <img
+                class="w-6 h-6 transition hover:scale-110"
+                src=src
+                alt=alt
+            />
         </a>
     }
 }
@@ -283,31 +359,14 @@ fn Icon<'a>(
 // }
 
 #[component]
-fn PortfolioCell(content: impl IntoView, on_click: impl Fn(MouseEvent) + 'static) -> impl IntoView {
+fn PortfolioCell(
+    content: impl IntoView,
+    on_click: impl Fn(MouseEvent) + 'static,
+) -> impl IntoView {
     view! {
-        <div class="
-            cursor-pointer
-            flex
-            items-center
-            justify-center
-            bg-gray-300
-            font-semibold
-            rounded-xl
-            overflow-hidden
-            text-center
-            text-xl
-            size-40
-            md:size-60
-            md:text-2xl
-            lg:text-4xl
-            transition
-            duration-300
-            hover:scale-110
-            hover:border-none
-            focus:scale-110
-            focus:border-none
-            "
-            on:click={on_click}
+        <div
+            class="flex overflow-hidden justify-center items-center text-xl font-semibold text-center bg-gray-300 rounded-xl transition duration-300 cursor-pointer md:text-2xl lg:text-4xl hover:border-none hover:scale-110 focus:border-none focus:scale-110 size-40 md:size-60"
+            on:click=on_click
         >
             {content}
         </div>
@@ -315,9 +374,13 @@ fn PortfolioCell(content: impl IntoView, on_click: impl Fn(MouseEvent) + 'static
 }
 
 #[component]
-fn Title<'a>(title: &'a str, #[prop(optional)] color: &'a str) -> impl IntoView {
+fn Title<'a>(
+    title: &'a str,
+    #[prop(optional)] color: &'a str,
+) -> impl IntoView {
     view! {
-        <p class="text-center font-bold text-4xl md:text-6xl ".to_owned() + {color}>{title}</p>
+        <p class="text-center font-bold text-4xl md:text-6xl "
+            .to_owned() + { color }>{title}</p>
     }
 }
 
@@ -349,7 +412,9 @@ fn Button<'a>(
     .join(" ");
 
     view! {
-        <a href={href} class={btn_classes}>{content}</a>
+        <a href=href class=btn_classes>
+            {content}
+        </a>
     }
 }
 
@@ -382,7 +447,9 @@ fn SmallButton<'a>(
     .join(" ");
 
     view! {
-        <a href={href} class={btn_classes}>{content}</a>
+        <a href=href class=btn_classes>
+            {content}
+        </a>
     }
 }
 
