@@ -1,8 +1,11 @@
+use std::sync::LazyLock;
+
 use leptos::ev::MouseEvent;
 use leptos::leptos_dom::logging::console_log;
 use leptos::prelude::*;
 use leptos_router::components::*;
 use leptos_router::path;
+use serde::Deserialize;
 // use leptos_use::{
 //     UseMouseCoordType, UseMouseEventExtractor, UseMouseOptions, UseMouseReturn,
 //     use_mouse_with_options,
@@ -11,6 +14,10 @@ use leptos_router::path;
 // use leptos_bevy_canvas::prelude::*;
 
 mod portfolio;
+
+const ASSETS_INDEX: &str = include_str!("../assets/assets_index.ron");
+static ASSET_TREE: LazyLock<Vec<AssetNode>> =
+    LazyLock::new(|| ron::from_str(ASSETS_INDEX).unwrap());
 
 fn main() {
     mount_to_body(App);
@@ -151,41 +158,21 @@ fn About() -> impl IntoView {
 
 #[component]
 fn Portfolio() -> impl IntoView {
-    const FOLDERS: &[&str] = &[
-        "Booth Design 1",
-        "Booth Design 2",
-        "Booth Design 3",
-        "Booth Design 4",
-        "Cat Dropping",
-        "Cat in Box",
-        "CGI-Balls",
-        "CGI-Gift-Box",
-        "CGI-headphone",
-        "CGI-Sushi-Queen",
-        "Donut",
-        "Factory",
-        "Gatcha Machine",
-        "Milk",
-        "Profile Image",
-        "Room",
-        "Sushi Character Prawn",
-        "Sushi Character Salmon",
-        "Sushi Queen",
-        "Sushi Queen Typing",
-        "Tin",
-        "Tree",
-        "Vendor Machine",
-    ];
-    let (clicked, set_clicked) = signal(0);
+    const PATHS: &[&str] = &["images", "portfolio"];
+    let folders = get_directory_node(PATHS, &ASSET_TREE).unwrap();
 
-    const CATEGORIES: &[&str] = &[
-        "All",
-        "Character Design",
-        "CGI",
-        "Animation",
-        "3D Booth Design",
-        "2D Art",
+    // [(Key, Display)]
+    const CATEGORIES: &[(&str, &str)] = &[
+        ("All", "All"),
+        ("3D", "3D"),
+        ("Anim", "Animation"),
+        ("CGI", "CGI"),
+        ("Booth", "Booth Design"),
+        ("Char", "Character"),
+        ("2D", "2D"),
     ];
+
+    let (filter_idx, set_filter_idx) = signal(0);
 
     view! {
         <main class="py-10 px-10 h-full bg-white">
@@ -203,13 +190,13 @@ fn Portfolio() -> impl IntoView {
                     {CATEGORIES
                         .iter()
                         .enumerate()
-                        .map(|(i, f)| {
+                        .map(|(i, (_, c))| {
                             view! {
                                 <a
                                     href=""
                                     class=move || {
                                         let base = "text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium";
-                                        if clicked.get() == i {
+                                        if filter_idx.get() == i {
                                             format!("{base} border-blue-600 border-b-2")
                                         } else {
                                             base.to_string()
@@ -217,11 +204,11 @@ fn Portfolio() -> impl IntoView {
                                     }
 
                                     on:click=move |_| {
-                                        set_clicked.set(i);
+                                        set_filter_idx.set(i);
                                     }
                                 >
 
-                                    {*f}
+                                    {*c}
                                 </a>
                             }
                         })
@@ -232,28 +219,46 @@ fn Portfolio() -> impl IntoView {
 
             <div class="justify-center items-center py-10" />
             <div class="flex flex-row flex-wrap gap-8 justify-center items-center h-full">
-                {FOLDERS
-                    .iter()
-                    .map(|f| {
-                        view! {
-                            <PortfolioCell
-                                content={
-                                    view! {
-                                        <img
-                                            class="transition duration-300 md:opacity-50 hover:opacity-100 active:opacity-100 big-img"
-                                            src="assets/images/portfolio/".to_string() + f
-                                                + "/showcase.png"
-                                        />
-                                    }
-                                }
-                                on_click=move |m| {
-                                    console_log(&("assets/images/portfolio/".to_string() + f));
-                                    console_log(&format!("{m:?}"));
-                                }
-                            />
-                        }
-                    })
-                    .collect::<Vec<_>>()}
+                {move || {
+                    folders
+                        .iter()
+                        .filter_map(|f| {
+                            let folder_name = extract!(
+                                &f, AssetNode::Directory = {name}
+                            )?;
+                            let idx = filter_idx.get();
+                            if idx != 0
+                                && folder_name.contains(CATEGORIES[idx].0) == false
+                            {
+                                return None;
+                            }
+                            Some(
+
+                                // Filter according to folder name.
+
+                                view! {
+                                    <PortfolioCell
+                                        content={
+                                            view! {
+                                                <img
+                                                    class="transition duration-300 md:opacity-50 hover:opacity-100 active:opacity-100 big-img"
+                                                    src="assets/images/portfolio/".to_string() + folder_name
+                                                        + "/showcase.png"
+                                                />
+                                            }
+                                        }
+                                        on_click=move |m| {
+                                            console_log(
+                                                &("assets/images/portfolio/".to_string() + folder_name),
+                                            );
+                                            console_log(&format!("{m:?}"));
+                                        }
+                                    />
+                                },
+                            )
+                        })
+                        .collect::<Vec<_>>()
+                }}
             </div>
         </main>
     }
@@ -482,3 +487,54 @@ fn SmallButton<'a>(
 // pub struct TextEvent {
 //     pub text: String,
 // }
+
+#[derive(Debug, Deserialize)]
+pub enum AssetNode {
+    File(String),
+    Directory {
+        name: String,
+        children: Vec<AssetNode>,
+    },
+}
+
+/// Recursively find the directory from `paths`.
+pub fn get_directory_node<'a>(
+    paths: &'a [&str],
+    nodes: &'a [AssetNode],
+) -> Option<&'a [AssetNode]> {
+    for node in nodes {
+        match node {
+            AssetNode::Directory { name, children } => {
+                if paths[0] != name {
+                    continue;
+                }
+
+                if paths.len() == 1 {
+                    console_log(&format!("{:#?}", children));
+                    return Some(children);
+                }
+
+                return get_directory_node(&paths[1..], children);
+            }
+            AssetNode::File(_) => {}
+        }
+    }
+
+    None
+}
+
+macro_rules! extract {
+    ($e:expr, $p:path = ()) => {
+        match $e {
+            $p(value) => Some(value),
+            _ => None,
+        }
+    };
+    ($e:expr, $p:path = {$f:ident}) => {
+        match $e {
+            $p { $f, .. } => Some($f),
+            _ => None,
+        }
+    };
+}
+pub(crate) use extract;

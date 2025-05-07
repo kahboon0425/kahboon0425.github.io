@@ -25,28 +25,63 @@
                 name: "portfolio",
                 children: [
                     Directory(
-                        name: "Booth Design 1",
+                        name: "2D-Profile Image",
+                        children: [
+                            File("profile 1.png"),
+                            File("profile 2.png"),
+                            File("profile 3.png"),
+                            File("showcase.png"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Anim-Cat Dropping",
+                        children: [
+                            File("cat dropping.png"),
+                            File("showcase.png"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Anim-Cat in Box",
+                        children: [
+                            File("showcase.png"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Anim-Factory",
+                        children: [
+                            File("showcase.png"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Anim-Sushi Queen Typing",
+                        children: [
+                            File("showcase.png"),
+                            File("sushi queen typing.png"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Booth-Design 1",
                         children: [
                             File("booth 1.png"),
                             File("showcase.png"),
                         ],
                     ),
                     Directory(
-                        name: "Booth Design 2",
+                        name: "3D-Booth-Design 2",
                         children: [
                             File("booth 2.png"),
                             File("showcase.png"),
                         ],
                     ),
                     Directory(
-                        name: "Booth Design 3",
+                        name: "3D-Booth-Design 3",
                         children: [
                             File("booth 3.png"),
                             File("showcase.png"),
                         ],
                     ),
                     Directory(
-                        name: "Booth Design 4",
+                        name: "3D-Booth-Design 4",
                         children: [
                             File("booth 4-1.png"),
                             File("booth 4-2.png"),
@@ -55,16 +90,73 @@
                         ],
                     ),
                     Directory(
-                        name: "Cat Dropping",
+                        name: "3D-Booth-Gatcha Machine",
                         children: [
-                            File("cat dropping.png"),
+                            File("gatcha.png"),
                             File("showcase.png"),
                         ],
                     ),
                     Directory(
-                        name: "Cat in Box",
+                        name: "3D-Char-Sushi Character Prawn",
                         children: [
                             File("showcase.png"),
+                            File("sushi prawn.png"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Char-Sushi Character Salmon",
+                        children: [
+                            File("salmon 1.png"),
+                            File("salmon 2.png"),
+                            File("showcase.png"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Char-Sushi Queen",
+                        children: [
+                            File("showcase.png"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Donut",
+                        children: [
+                            File("donut in plate.png"),
+                            File("donut undenoise.png"),
+                            File("showcase.png"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Milk",
+                        children: [
+                            File("milk.png"),
+                            File("showcase.png"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Room",
+                        children: [
+                            File("room.png"),
+                            File("showcase.png"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Tin",
+                        children: [
+                            File("showcase.png"),
+                            File("tin.png"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Tree",
+                        children: [
+                            File("showcase.png"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Vendor Machine",
+                        children: [
+                            File("showcase.png"),
+                            File("vendor machine.png"),
                         ],
                     ),
                     Directory(
@@ -89,98 +181,6 @@
                         name: "CGI-Sushi-Queen",
                         children: [
                             File("showcase.png"),
-                        ],
-                    ),
-                    Directory(
-                        name: "Donut",
-                        children: [
-                            File("donut in plate.png"),
-                            File("donut undenoise.png"),
-                            File("showcase.png"),
-                        ],
-                    ),
-                    Directory(
-                        name: "Factory",
-                        children: [
-                            File("showcase.png"),
-                        ],
-                    ),
-                    Directory(
-                        name: "Gatcha Machine",
-                        children: [
-                            File("gatcha.png"),
-                            File("showcase.png"),
-                        ],
-                    ),
-                    Directory(
-                        name: "Milk",
-                        children: [
-                            File("milk.png"),
-                            File("showcase.png"),
-                        ],
-                    ),
-                    Directory(
-                        name: "Profile Image",
-                        children: [
-                            File("profile 1.png"),
-                            File("profile 2.png"),
-                            File("profile 3.png"),
-                            File("showcase.png"),
-                        ],
-                    ),
-                    Directory(
-                        name: "Room",
-                        children: [
-                            File("room.png"),
-                            File("showcase.png"),
-                        ],
-                    ),
-                    Directory(
-                        name: "Sushi Character Prawn",
-                        children: [
-                            File("showcase.png"),
-                            File("sushi prawn.png"),
-                        ],
-                    ),
-                    Directory(
-                        name: "Sushi Character Salmon",
-                        children: [
-                            File("salmon 1.png"),
-                            File("salmon 2.png"),
-                            File("showcase.png"),
-                        ],
-                    ),
-                    Directory(
-                        name: "Sushi Queen",
-                        children: [
-                            File("showcase.png"),
-                        ],
-                    ),
-                    Directory(
-                        name: "Sushi Queen Typing",
-                        children: [
-                            File("showcase.png"),
-                            File("sushi queen typing.png"),
-                        ],
-                    ),
-                    Directory(
-                        name: "Tin",
-                        children: [
-                            File("showcase.png"),
-                            File("tin.png"),
-                        ],
-                    ),
-                    Directory(
-                        name: "Tree",
-                        children: [
-                            File("showcase.png"),
-                        ],
-                    ),
-                    Directory(
-                        name: "Vendor Machine",
-                        children: [
-                            File("showcase.png"),
-                            File("vendor machine.png"),
                         ],
                     ),
                 ],
