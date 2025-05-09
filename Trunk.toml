@@ -4,7 +4,7 @@ target = "web/index.html"
 # Set the output directory for the web build.
 dist = "target/trunk"
 # This is needed in order to host the game on itch.io.
-public_url = "/"
+public_url = "./"
 
 [serve]
 # Open a browser tab once the initial build is complete.
