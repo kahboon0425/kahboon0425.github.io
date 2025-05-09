@@ -237,31 +237,33 @@ fn Portfolio() -> impl IntoView {
                                 // Filter according to folder name.
                                 view! {
                                     <PortfolioCell
-                                        content=if folder_name.contains("Anim") {
-                                            view! {
-                                                <video
-                                                    class="transition duration-300 md:opacity-50 hover:opacity-100 active:opacity-100 big-img"
-                                                    autoplay
-                                                    controls
-                                                    loop
-                                                >
-                                                    <source
+                                        content=move || {
+                                            if folder_name.contains("Anim") {
+                                                view! {
+                                                    <video
+                                                        class="transition duration-300 md:opacity-50 hover:opacity-100 active:opacity-100 big-img"
+                                                        loop
+                                                        autoplay
+                                                        controls
+                                                    >
+                                                        <source
+                                                            src="assets/images/portfolio/".to_string() + folder_name
+                                                                + "/showcase.mp4"
+                                                            type="video/mp4"
+                                                        />
+                                                    </video>
+                                                }
+                                                    .into_any()
+                                            } else {
+                                                view! {
+                                                    <img
+                                                        class="transition duration-300 md:opacity-50 hover:opacity-100 active:opacity-100 big-img"
                                                         src="assets/images/portfolio/".to_string() + folder_name
-                                                            + "/showcase.mp4"
-                                                        type="video/mp4"
+                                                            + "/showcase.png"
                                                     />
-                                                </video>
+                                                }
+                                                    .into_any()
                                             }
-                                                .into_any()
-                                        } else {
-                                            view! {
-                                                <img
-                                                    class="transition duration-300 md:opacity-50 hover:opacity-100 active:opacity-100 big-img"
-                                                    src="assets/images/portfolio/".to_string() + folder_name
-                                                        + "/showcase.png"
-                                                />
-                                            }
-                                                .into_any()
                                         }
                                         on_click=move |m| {
                                             console_log(
