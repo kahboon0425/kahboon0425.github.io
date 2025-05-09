@@ -26,7 +26,7 @@ fn main() {
 #[component]
 fn App() -> impl IntoView {
     view! {
-        <Router base="/portfolio">
+        <Router>
             <main>
                 <Routes fallback=|| view! { <h1>"Not Found"</h1> }>
                     <Route path=path!("/") view=Home />
