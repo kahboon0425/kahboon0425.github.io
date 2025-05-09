@@ -241,7 +241,8 @@ fn Portfolio() -> impl IntoView {
                                             if folder_name.contains("Anim") {
                                                 view! {
                                                     <video
-                                                        class="transition duration-300 md:opacity-50 hover:opacity-100 active:opacity-100 big-img"
+                                                        class="transition duration-300 active:opacity-100 big-img"
+                                                        oncanplay="this.muted=true"
                                                         loop
                                                         autoplay
                                                         controls
@@ -257,7 +258,7 @@ fn Portfolio() -> impl IntoView {
                                             } else {
                                                 view! {
                                                     <img
-                                                        class="transition duration-300 md:opacity-50 hover:opacity-100 active:opacity-100 big-img"
+                                                        class="transition duration-300 active:opacity-100 big-img"
                                                         src="assets/images/portfolio/".to_string() + folder_name
                                                             + "/showcase.png"
                                                     />
@@ -388,7 +389,7 @@ fn PortfolioCell(
 ) -> impl IntoView {
     view! {
         <div
-            class="flex overflow-hidden justify-center items-center text-xl font-semibold text-center bg-gray-300 rounded-xl transition duration-300 cursor-pointer md:text-2xl lg:text-4xl hover:border-none hover:scale-110 focus:border-none focus:scale-110 size-60"
+            class="flex overflow-hidden justify-center items-center text-xl font-semibold text-center rounded-xl transition duration-300 cursor-pointer md:text-2xl lg:text-4xl hover:border-none hover:scale-110 focus:border-none focus:scale-110 size-60"
             on:click=on_click
         >
             {content}
