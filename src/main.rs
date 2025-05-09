@@ -245,6 +245,7 @@ fn Portfolio() -> impl IntoView {
                                                         oncanplay="this.muted=true"
                                                         loop
                                                         autoplay
+                                                        playsinline
                                                         controls
                                                     >
                                                         <source
@@ -565,4 +566,6 @@ macro_rules! extract {
         }
     };
 }
+pub(crate) use extract;
+pub(crate) use extract;
 pub(crate) use extract;
