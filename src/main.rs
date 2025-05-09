@@ -67,7 +67,7 @@ fn About() -> impl IntoView {
 
             <div class="flex flex-col justify-center p-10 pt-0">
                 <div class="self-center py-2 animate-bounce xl:self-end">
-                    <a href="https://drive.google.com/file/d/1n6NcOnok-7g97gj7ykd_XPxBP4CSDYW1/view?usp=sharing">
+                    <a href="https://drive.google.com/file/d/1hxlanqJmtwnupFAmgLh5NaEAavb718qG/view?usp=drive_link">
                         <p class="underline transition cursor-pointer hover:text-blue-300 hover:scale-110">
                             View Resume
                         </p>
