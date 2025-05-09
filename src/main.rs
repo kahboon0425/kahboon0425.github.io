@@ -160,7 +160,7 @@ fn About() -> impl IntoView {
 #[component]
 fn Portfolio() -> impl IntoView {
     const PATHS: &[&str] = &["images", "portfolio"];
-    let folders = get_directory_node(PATHS, &ASSET_TREE).unwrap();
+    let folders = get_directory_node(PATHS).unwrap();
 
     // [(Key, Display)]
     const CATEGORIES: &[(&str, &str)] = &[
@@ -234,12 +234,26 @@ fn Portfolio() -> impl IntoView {
                                 return None;
                             }
                             Some(
-
                                 // Filter according to folder name.
-
                                 view! {
                                     <PortfolioCell
-                                        content={
+                                        content=if folder_name.contains("Anim") {
+                                            view! {
+                                                <video
+                                                    class="transition duration-300 md:opacity-50 hover:opacity-100 active:opacity-100 big-img"
+                                                    autoplay
+                                                    controls
+                                                    loop
+                                                >
+                                                    <source
+                                                        src="assets/images/portfolio/".to_string() + folder_name
+                                                            + "/showcase.mp4"
+                                                        type="video/mp4"
+                                                    />
+                                                </video>
+                                            }
+                                                .into_any()
+                                        } else {
                                             view! {
                                                 <img
                                                     class="transition duration-300 md:opacity-50 hover:opacity-100 active:opacity-100 big-img"
@@ -247,6 +261,7 @@ fn Portfolio() -> impl IntoView {
                                                         + "/showcase.png"
                                                 />
                                             }
+                                                .into_any()
                                         }
                                         on_click=move |m| {
                                             console_log(
@@ -501,6 +516,13 @@ pub enum AssetNode {
 /// Recursively find the directory from `paths`.
 pub fn get_directory_node<'a>(
     paths: &'a [&str],
+) -> Option<&'a [AssetNode]> {
+    get_directory_node_recursive(paths, &ASSET_TREE)
+}
+
+/// Recursively find the directory from `paths`.
+pub fn get_directory_node_recursive<'a>(
+    paths: &'a [&str],
     nodes: &'a [AssetNode],
 ) -> Option<&'a [AssetNode]> {
     for node in nodes {
@@ -514,7 +536,10 @@ pub fn get_directory_node<'a>(
                     return Some(children);
                 }
 
-                return get_directory_node(&paths[1..], children);
+                return get_directory_node_recursive(
+                    &paths[1..],
+                    children,
+                );
             }
             AssetNode::File(_) => {}
         }

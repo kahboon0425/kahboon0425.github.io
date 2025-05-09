@@ -37,26 +37,31 @@
                         name: "3D-Anim-Cat Dropping",
                         children: [
                             File("cat dropping.png"),
+                            File("showcase.mp4"),
                             File("showcase.png"),
                         ],
                     ),
                     Directory(
                         name: "3D-Anim-Cat in Box",
                         children: [
+                            File("showcase.mp4"),
                             File("showcase.png"),
                         ],
                     ),
                     Directory(
                         name: "3D-Anim-Factory",
                         children: [
+                            File("showcase.mp4"),
                             File("showcase.png"),
                         ],
                     ),
                     Directory(
                         name: "3D-Anim-Sushi Queen Typing",
                         children: [
+                            File("showcase.mp4"),
                             File("showcase.png"),
                             File("sushi queen typing.png"),
+                            File("typing.mp4"),
                         ],
                     ),
                     Directory(
