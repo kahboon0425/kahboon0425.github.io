@@ -26,7 +26,7 @@ fn main() {
 #[component]
 fn App() -> impl IntoView {
     view! {
-        <Router base="/portfolio">
+        <Router>
             <main>
                 <Routes fallback=|| view! { <h1>"Not Found"</h1> }>
                     <Route path=path!("/") view=Home />
@@ -186,7 +186,7 @@ fn Portfolio() -> impl IntoView {
             <Title title="Portfolio" />
 
             <div class="flex justify-center mt-5 border-b border-gray-200">
-                <nav class="flex gap-8">
+                <nav class="flex gap-8 overflow-x-auto">
 
                     {CATEGORIES
                         .iter()
@@ -389,7 +389,7 @@ fn PortfolioCell(
 ) -> impl IntoView {
     view! {
         <div
-            class="flex overflow-hidden justify-center items-center text-xl font-semibold text-center rounded-xl transition duration-300 cursor-pointer md:text-2xl lg:text-4xl hover:border-none hover:scale-110 focus:border-none focus:scale-110 size-60"
+            class="flex overflow-hidden justify-center items-center text-xl font-semibold text-center rounded-xl transition duration-300 cursor-pointer md:text-2xl lg:text-4xl hover:border-none hover:scale-110 focus:border-none focus:scale-110 size-80"
             on:click=on_click
         >
             {content}
