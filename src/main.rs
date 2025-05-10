@@ -245,6 +245,7 @@ fn Portfolio() -> impl IntoView {
                                                         oncanplay="this.muted=true"
                                                         loop
                                                         autoplay
+                                                        playsinline
                                                         controls
                                                     >
                                                         <source
