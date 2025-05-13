@@ -77,11 +77,11 @@ fn About() -> impl IntoView {
                 <div class="flex flex-row flex-wrap justify-center gap-15">
                     <div class="p-8 bg-gray-50 rounded-md border-2 border-black md:w-lg">
                         <p>
-                            "Hi, I’m Kahboon. I graduated with an IT background but have a strong interest in 3D art. Over the past few months, I’ve been self-learning 3D modeling using Blender. I enjoy creating cute and stylized characters. I have also been learning character rigging and animation to bring my characters to life. In addition to that, I have also been exploring CGI, VFX, and 3D design for booths and pop-up stores."
+                            "Hi, I’m Kahboon. I graduated with an IT background but have a strong interest in 3D art. Over the past few months, I’ve been self-learning 3D modeling using Blender. I enjoy creating cute and stylized characters. I have also been learning character rigging and animation to bring my characters to life. In addition to that, I have also been exploring CGI, VFX, and 3D design for booths and pop-up stores. Currently, I am learning sculpting using ZBrush."
                         </p>
                         <br />
                         <p>
-                            "I’m currently looking for a junior 3D artist position or a 3D booth designer role. Feel free to check out my portfolio. Thanks for visiting!"
+                            "I’m currently looking for a junior 3D artist position. Feel free to check out my portfolio. Thanks for visiting!"
                         </p>
                     </div>
 
