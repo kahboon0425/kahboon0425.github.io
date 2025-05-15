@@ -85,6 +85,12 @@
                         ],
                     ),
                     Directory(
+                        name: "3D-Anim-Char-Girl",
+                        children: [
+                            File("showcase.mp4"),
+                        ],
+                    ),
+                    Directory(
                         name: "3D-Anim-Char-Sushi Character Prawn",
                         children: [
                             File("showcase.mp4"),
@@ -138,6 +144,12 @@
                             File("showcase.mp4"),
                             File("showcase.png"),
                             File("vendor machine.png"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Baby-Dragon",
+                        children: [
+                            File("showcase.png"),
                         ],
                     ),
                     Directory(
