@@ -85,19 +85,19 @@
                         ],
                     ),
                     Directory(
-                        name: "3D-Anim-Char-Baguette Jumping",
-                        children: [
-                            File("showcase.mp4"),
-                        ],
-                    ),
-                    Directory(
                         name: "3D-Anim-Char-Baguette Rotate",
                         children: [
                             File("showcase.mp4"),
                         ],
                     ),
                     Directory(
-                        name: "3D-Anim-Char-Baguette Running",
+                        name: "3D-Anim-Char-Baguette-PoloBun-Jumping",
+                        children: [
+                            File("showcase.mp4"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Anim-Char-Baguette-PoloBun-Running",
                         children: [
                             File("showcase.mp4"),
                         ],
@@ -109,19 +109,7 @@
                         ],
                     ),
                     Directory(
-                        name: "3D-Anim-Char-PoloBun Jumping",
-                        children: [
-                            File("showcase.mp4"),
-                        ],
-                    ),
-                    Directory(
                         name: "3D-Anim-Char-PoloBun Rotate",
-                        children: [
-                            File("showcase.mp4"),
-                        ],
-                    ),
-                    Directory(
-                        name: "3D-Anim-Char-PoloBun Running",
                         children: [
                             File("showcase.mp4"),
                         ],
@@ -151,6 +139,18 @@
                         ],
                     ),
                     Directory(
+                        name: "3D-Anim-Machine",
+                        children: [
+                            File("showcase.mp4"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Anim-Map",
+                        children: [
+                            File("showcase.mp4"),
+                        ],
+                    ),
+                    Directory(
                         name: "3D-Anim-Room",
                         children: [
                             File("room1.png"),
@@ -165,6 +165,12 @@
                             File("showcase.png"),
                             File("sushi queen typing.png"),
                             File("typing.mp4"),
+                        ],
+                    ),
+                    Directory(
+                        name: "3D-Anim-Tower",
+                        children: [
+                            File("showcase.mp4"),
                         ],
                     ),
                     Directory(
