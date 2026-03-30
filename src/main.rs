@@ -46,114 +46,108 @@ fn App() -> impl IntoView {
 #[component]
 fn About() -> impl IntoView {
     view! {
-        <main class="flex flex-col items-center p-10 h-screen bg-white">
-            <div class="flex justify-between w-full">
-
-                // <SmallButton href="./" content="BACK" width="w-30" bg_hover="hover:bg-pink-300"/>
-                <Icon
-                    href="./"
-                    src="assets/svg/arrow-left-solid.svg"
-                    alt="Back Arrow SVG"
-                />
-                <SmallButton
-                    href="./portfolio"
-                    content="Visit My Portfolio"
-                    width="w-50"
-                />
-
-            </div>
-
-            <h1 class="mt-5 mb-8 text-7xl">"About"</h1>
-
-            <div class="flex flex-col justify-center p-10 pt-0">
-                <div class="self-center py-2 animate-bounce xl:self-end">
-                    <a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/kahboon0425/kahboon_resume/refs/heads/main/resume.pdf">
-                        <p class="underline transition cursor-pointer hover:text-blue-300 hover:scale-110">
-                            View Resume
-                        </p>
+        <div class="flex flex-col min-h-screen bg-white">
+            // Navbar
+            <header class="flex items-center justify-between px-10 py-5 border-b border-gray-200">
+                <nav class="flex gap-10">
+                    <a href="./" class="text-xl font-medium transition hover:text-pink-400">
+                        "Home"
                     </a>
-                </div>
+                    <a href="./about" class="text-xl font-medium transition hover:text-pink-400">
+                        "About"
+                    </a>
+                    <a href="./portfolio" class="text-xl font-medium transition hover:text-pink-400">
+                        "Projects"
+                    </a>
+                </nav>
+                <a
+                    href="./portfolio"
+                    class="text-3xl font-bold transition hover:scale-110 hover:text-pink-400"
+                >
+                    "→"
+                </a>
+            </header>
 
-                <div class="flex flex-row flex-wrap justify-center gap-15">
-                    <div class="p-8 bg-gray-50 rounded-md border-2 border-black md:w-lg">
-                        <p>
-                            "Hi, I’m Kahboon. I graduated with an IT background but have a strong interest in 3D art. Over the past few months, I’ve been self-learning 3D modeling using Blender. I enjoy creating cute and stylized characters. I have also been learning character rigging and animation to bring my characters to life. In addition to that, I have also been exploring CGI, VFX, and 3D design for booths and pop-up stores. Currently, I am learning sculpting using ZBrush."
-                        </p>
-                        <br />
-                        <p>
-                            "I’m currently looking for a junior 3D artist position. Feel free to check out my portfolio. Thanks for visiting!"
-                        </p>
+            <div class="flex flex-col items-center px-10 py-12 md:px-20">
+                <h1 class="mb-4 text-6xl font-bold">"About"</h1>
+
+                <p class="mb-3 max-w-2xl text-center text-lg text-gray-600">
+                    "Hi, I’m Kah Boon — an IT graduate passionate about 3D art. I create cute and stylized characters using Blender and ZBrush, and explore CGI, VFX, and booth design."
+                </p>
+
+                <a
+                    href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/kahboon0425/kahboon_resume/refs/heads/main/resume.pdf"
+                    class="mb-10 underline transition animate-bounce hover:text-blue-400 hover:scale-105"
+                >
+                    "View Resume"
+                </a>
+
+                // 2x2 section grid
+                <div class="grid grid-cols-1 gap-6 w-full max-w-4xl md:grid-cols-2">
+
+                    // Skills — pink
+                    <div class="p-6 bg-pink-50 rounded-xl border-2 border-pink-200 shadow-md transition duration-300 cursor-default hover:shadow-xl hover:scale-[1.02] hover:bg-pink-100">
+                        <h2 class="mb-4 text-2xl font-bold text-pink-700">"Skills"</h2>
+                        <div class="flex flex-wrap gap-2">
+                            {["3D Modeling", "Character Rigging", "Animation", "CGI / VFX", "Booth Design", "ZBrush Sculpting"]
+                                .iter()
+                                .map(|s| view! {
+                                    <span class="px-3 py-1 text-sm font-medium text-pink-800 bg-pink-200 rounded-full">
+                                        {*s}
+                                    </span>
+                                })
+                                .collect::<Vec<_>>()}
+                        </div>
                     </div>
 
-                    <div class="p-6 bg-gray-50 rounded-md border-2 border-black w-sm">
-                        <div class="flex flex-wrap gap-4 items-center mb-4">
-                            <div class="flex justify-center items-center bg-pink-300 rounded-md border size-10">
-
-                                <Icon
-                                    href="mailto:changkahboon25@gmail.com"
-                                    src="assets/svg/envelope-solid.svg"
-                                    alt="Email SVG"
-                                />
-
-                            </div>
-                            <p>"changkahboon25@gmail.com"</p>
+                    // Languages — blue
+                    <div class="p-6 bg-sky-50 rounded-xl border-2 border-sky-200 shadow-md transition duration-300 cursor-default hover:shadow-xl hover:scale-[1.02] hover:bg-sky-100">
+                        <h2 class="mb-4 text-2xl font-bold text-sky-700">"Languages"</h2>
+                        <div class="flex flex-wrap gap-2">
+                            {["English", "Mandarin", "Bahasa Malaysia"]
+                                .iter()
+                                .map(|l| view! {
+                                    <span class="px-3 py-1 text-sm font-medium text-sky-800 bg-sky-200 rounded-full">
+                                        {*l}
+                                    </span>
+                                })
+                                .collect::<Vec<_>>()}
                         </div>
-
-                        <div class="flex flex-wrap gap-4 items-center mb-4">
-                            <div class="flex justify-center items-center bg-blue-300 rounded-md border size-10">
-
-                                <Icon
-                                    href="https://www.instagram.com/the_sushi_queen_art/"
-                                    src="assets/svg/instagram-brands.svg"
-                                    alt="Instagram SVG"
-                                />
-
-                            </div>
-                            <p>"the_sushi_queen_art"</p>
-                        </div>
-
-                        <div class="flex flex-wrap gap-4 items-center mb-4">
-                            <div class="flex justify-center items-center bg-pink-300 rounded-md border size-10">
-
-                                <Icon
-                                    src="assets/svg/whatsapp-brands.svg"
-                                    alt="Whatsapp SVG"
-                                />
-
-                            </div>
-                            <p>"012-7645817"</p>
-                        </div>
-
-                        <div class="flex flex-wrap gap-4 items-center mb-4">
-                            <div class="flex justify-center items-center bg-blue-300 rounded-md border size-10">
-
-                                <Icon
-                                    href="https://www.linkedin.com/in/kahboon"
-                                    src="assets/svg/linkedin-brands.svg"
-                                    alt="Linkedin SVG"
-                                />
-
-                            </div>
-                            <p>"https://www.linkedin.com/in/kahboon"</p>
-                        </div>
-
-                        <div class="flex flex-wrap gap-4 items-center mb-4">
-                            <div class="flex justify-center items-center bg-pink-300 rounded-md border size-10">
-
-                                <Icon
-                                    href="https://github.com/kahboon0425"
-                                    src="assets/svg/github-brands.svg"
-                                    alt="Github SVG"
-                                />
-
-                            </div>
-                            <p>"https://github.com/kahboon0425"</p>
-                        </div>
-
                     </div>
+
+                    // Experience — blue
+                    <div class="p-6 bg-sky-50 rounded-xl border-2 border-sky-200 shadow-md transition duration-300 cursor-default hover:shadow-xl hover:scale-[1.02] hover:bg-sky-100">
+                        <h2 class="mb-4 text-2xl font-bold text-sky-700">"Experience"</h2>
+                        <ul class="flex flex-col gap-3">
+                            <li>
+                                <p class="font-semibold">"Igmax — Focus on Festival"</p>
+                                <p class="text-sm text-gray-500">"Freelance 3D Artist"</p>
+                                <p class="mt-1 text-sm text-gray-600">
+                                    "Created 3D assets and visual designs for festival events and promotional materials."
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    // Software — pink
+                    <div class="p-6 bg-pink-50 rounded-xl border-2 border-pink-200 shadow-md transition duration-300 cursor-default hover:shadow-xl hover:scale-[1.02] hover:bg-pink-100">
+                        <h2 class="mb-4 text-2xl font-bold text-pink-700">"Software"</h2>
+                        <ul class="flex flex-col gap-2">
+                            {["Blender", "ZBrush", "3ds Max", "Adobe After Effects"]
+                                .iter()
+                                .map(|s| view! {
+                                    <li class="flex gap-2 items-center text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-pink-400 inline-block shrink-0" />
+                                        {*s}
+                                    </li>
+                                })
+                                .collect::<Vec<_>>()}
+                        </ul>
+                    </div>
+
                 </div>
             </div>
-        </main>
+        </div>
     }
 }
 
@@ -298,63 +292,165 @@ fn Portfolio() -> impl IntoView {
 #[component]
 fn Home() -> impl IntoView {
     view! {
-        <main class="flex flex-col justify-center items-center h-screen bg-white">
-            <img
-                class="size-30 md:size-50"
-                src="assets/images/Sushi Queen Logo Transparent.png"
-            />
-            // <img class="size-30 md:size-50" src="assets/images/Sushi Queen Logo Transparent.png" />
-            <Title title="Hi, I am Kah Boon" />
-            <div class="flex flex-wrap gap-4 justify-center my-4 md:gap-6">
-                <Button
-                    href="./about"
-                    content="About"
-                    bg="bg-pink-300"
-                    bg_hover="hover:bg-pink-200"
-                />
-                <Button
+        <div class="bg-white">
+            // Sticky navbar
+            <header class="flex sticky top-0 z-50 items-center justify-between px-10 py-5 bg-white border-b border-gray-200">
+                <nav class="flex gap-10">
+                    <a href="#home" class="text-xl font-medium transition hover:text-pink-400">
+                        "Home"
+                    </a>
+                    <a href="#about" class="text-xl font-medium transition hover:text-pink-400">
+                        "About"
+                    </a>
+                    <a href="./portfolio" class="text-xl font-medium transition hover:text-pink-400">
+                        "Projects"
+                    </a>
+                </nav>
+                <a
                     href="./portfolio"
-                    content="Portfolio"
-                    bg="bg-sky-300"
-                    bg_hover="hover:bg-sky-200"
-                />
-            </div>
+                    class="text-3xl font-bold transition hover:scale-110 hover:text-pink-400"
+                >
+                    "→"
+                </a>
+            </header>
 
-            <div class="flex flex-row gap-4 justify-center items-center mt-5 w-md">
-                <div class="">
-                    // email
-                    <Icon
-                        href="mailto:changkahboon25@gmail.com"
-                        src="assets/svg/envelope-solid.svg"
-                        alt="Email SVG"
-                    />
+            // ── Home section ──────────────────────────────────────────
+            <section
+                id="home"
+                class="flex flex-col flex-1 gap-16 justify-center items-center px-10 py-16 min-h-screen md:flex-row md:px-24"
+            >
+                // Left column: circular logo + social icons
+                <div class="flex flex-col gap-8 items-center">
+                    <div class="flex overflow-hidden justify-center items-center rounded-full border-4 border-black size-64 md:size-80">
+                        <img
+                            class="object-contain w-full h-full"
+                            src="assets/images/Sushi Queen Logo Transparent.png"
+                            alt="Sushi Queen Logo"
+                        />
+                    </div>
+                    <div class="flex flex-row gap-8">
+                        <Icon
+                            href="mailto:changkahboon25@gmail.com"
+                            src="assets/svg/envelope-solid.svg"
+                            alt="Email SVG"
+                        />
+                        <Icon
+                            href="https://www.instagram.com/the_sushi_queen_art/"
+                            src="assets/svg/instagram-brands.svg"
+                            alt="Instagram SVG"
+                        />
+                        <Icon
+                            href="https://www.linkedin.com/in/kahboon"
+                            src="assets/svg/linkedin-brands.svg"
+                            alt="LinkedIn SVG"
+                        />
+                        <Icon
+                            href="https://wa.me/60127645817"
+                            src="assets/svg/whatsapp-brands.svg"
+                            alt="WhatsApp SVG"
+                        />
+                    </div>
                 </div>
-                <div class="">
-                    // insta
-                    <Icon
-                        href="https://www.instagram.com/the_sushi_queen_art/"
-                        src="assets/svg/instagram-brands.svg"
-                        alt="Instagram SVG"
-                    />
+
+                // Right column: intro text
+                <div class="flex flex-col gap-6 max-w-md">
+                    <h1 class="text-5xl font-bold md:text-6xl">"Hi, I am Kah Boon"</h1>
+                    <p class="text-lg leading-relaxed text-gray-600">
+                        "3D Artist & Designer passionate about creating cute and stylized characters. Self-taught in Blender, ZBrush."
+                    </p>
+                    <div class="flex gap-3 mt-2">
+                        <span class="inline-block w-3 h-3 rounded-full bg-pink-400" />
+                        <span class="inline-block w-3 h-3 rounded-full bg-gray-300" />
+                        <span class="inline-block w-3 h-3 rounded-full bg-gray-300" />
+                        <span class="inline-block w-3 h-3 rounded-full bg-gray-300" />
+                    </div>
                 </div>
-                <div class="">
-                    // linkedin
-                    <Icon
-                        href="https://www.linkedin.com/in/kahboon"
-                        src="assets/svg/linkedin-brands.svg"
-                        alt="Linkedin SVG"
-                    />
+            </section>
+
+            // ── About section ─────────────────────────────────────────
+            <section
+                id="about"
+                class="flex flex-col items-center px-10 py-16 min-h-screen bg-gray-50 md:px-20"
+            >
+                <h1 class="mb-4 text-6xl font-bold">"About"</h1>
+
+                <p class="mb-3 max-w-2xl text-center text-lg text-gray-600">
+                    "Hi, I'm Kah Boon — an IT graduate passionate about 3D art. I create cute and stylized characters using Blender and ZBrush, and explore CGI, VFX, and booth design."
+                </p>
+
+                <a
+                    href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/kahboon0425/kahboon_resume/refs/heads/main/resume.pdf"
+                    class="mb-10 underline transition animate-bounce hover:text-blue-400 hover:scale-105"
+                >
+                    "View Resume"
+                </a>
+
+                // 2x2 section grid
+                <div class="grid grid-cols-1 gap-6 w-full max-w-4xl md:grid-cols-2">
+
+                    // Skills — pink
+                    <div class="p-6 bg-pink-50 rounded-xl border-2 border-pink-200 shadow-md transition duration-300 cursor-default hover:shadow-xl hover:scale-[1.02] hover:bg-pink-100">
+                        <h2 class="mb-4 text-2xl font-bold text-pink-700">"Skills"</h2>
+                        <div class="flex flex-wrap gap-2">
+                            {["3D Modeling", "Character Rigging", "Animation", "CGI / VFX", "Booth Design", "ZBrush Sculpting"]
+                                .iter()
+                                .map(|s| view! {
+                                    <span class="px-3 py-1 text-sm font-medium text-pink-800 bg-pink-200 rounded-full">
+                                        {*s}
+                                    </span>
+                                })
+                                .collect::<Vec<_>>()}
+                        </div>
+                    </div>
+
+                    // Languages — blue
+                    <div class="p-6 bg-sky-50 rounded-xl border-2 border-sky-200 shadow-md transition duration-300 cursor-default hover:shadow-xl hover:scale-[1.02] hover:bg-sky-100">
+                        <h2 class="mb-4 text-2xl font-bold text-sky-700">"Languages"</h2>
+                        <div class="flex flex-wrap gap-2">
+                            {["English", "Mandarin", "Bahasa Malaysia"]
+                                .iter()
+                                .map(|l| view! {
+                                    <span class="px-3 py-1 text-sm font-medium text-sky-800 bg-sky-200 rounded-full">
+                                        {*l}
+                                    </span>
+                                })
+                                .collect::<Vec<_>>()}
+                        </div>
+                    </div>
+
+                    // Experience — blue
+                    <div class="p-6 bg-sky-50 rounded-xl border-2 border-sky-200 shadow-md transition duration-300 cursor-default hover:shadow-xl hover:scale-[1.02] hover:bg-sky-100">
+                        <h2 class="mb-4 text-2xl font-bold text-sky-700">"Experience"</h2>
+                        <ul class="flex flex-col gap-3">
+                            <li>
+                                <p class="font-semibold">"Igmax — Focus on Festival"</p>
+                                <p class="text-sm text-gray-500">"Freelance 3D Artist"</p>
+                                <p class="mt-1 text-sm text-gray-600">
+                                    "Created 3D assets and visual designs for festival events and promotional materials."
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    // Software — pink
+                    <div class="p-6 bg-pink-50 rounded-xl border-2 border-pink-200 shadow-md transition duration-300 cursor-default hover:shadow-xl hover:scale-[1.02] hover:bg-pink-100">
+                        <h2 class="mb-4 text-2xl font-bold text-pink-700">"Software"</h2>
+                        <ul class="flex flex-col gap-2">
+                            {["Blender", "ZBrush", "3ds Max", "Adobe After Effects"]
+                                .iter()
+                                .map(|s| view! {
+                                    <li class="flex gap-2 items-center text-gray-700">
+                                        <span class="inline-block w-2 h-2 rounded-full bg-pink-400 shrink-0" />
+                                        {*s}
+                                    </li>
+                                })
+                                .collect::<Vec<_>>()}
+                        </ul>
+                    </div>
+
                 </div>
-                <div class="">
-                    // Github
-                    <Icon
-                        href="https://github.com/kahboon0425"
-                        src="assets/svg/github-brands.svg"
-                        alt="Github SVG"
-                    />
-                </div>
-            </div>
-        </main>
+            </section>
+        </div>
     }
 }
 
