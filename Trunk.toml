@@ -9,3 +9,7 @@ dist = "target/trunk"
 open = true
 # Use IPv4 first - prevents errors on Windows
 addresses = ["127.0.0.1", "::1"]
+disable_csp = true
+
+[tools]
+tailwindcss = "4.1.13"
