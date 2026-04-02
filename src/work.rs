@@ -79,7 +79,8 @@ pub fn Work() -> impl IntoView {
                     let p = &PROJECTS[proj_idx];
                     view! {
                         <div class="px-10 py-12 md:px-20">
-                            <div class="relative flex justify-center items-center mb-4">
+                            // Back + title
+                            <div class="relative flex justify-center items-center mb-8">
                                 <button
                                     class="absolute left-0 text-xl transition hover:text-pink-400 hover:scale-110"
                                     on:click=move |_| set_selected_project.set(None)
@@ -88,15 +89,31 @@ pub fn Work() -> impl IntoView {
                                 </button>
                                 <h1 class="text-4xl font-bold">{p.name}</h1>
                             </div>
-                            <p class="mb-8 max-w-2xl text-gray-600">{p.description}</p>
-                            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                                {p.images.iter().map(|img| view! {
-                                    <img
-                                        class="object-cover w-full rounded-xl shadow-md transition hover:scale-[1.02] hover:shadow-xl"
-                                        src=*img
-                                        alt=p.name
-                                    />
-                                }).collect::<Vec<_>>()}
+
+                            // Two-column layout: images left, details right
+                            <div class="flex flex-col gap-8 lg:flex-row">
+                                // Left — image grid
+                                <div class="grid flex-1 grid-cols-2 gap-4 md:grid-cols-3">
+                                    {p.images.iter().map(|img| view! {
+                                        <img
+                                            class="object-cover w-full rounded-xl shadow-md aspect-square transition hover:scale-[1.02] hover:shadow-xl"
+                                            src=*img
+                                            alt=p.name
+                                        />
+                                    }).collect::<Vec<_>>()}
+                                </div>
+
+                                // Right — project details
+                                <div class="flex flex-col gap-4 p-8 w-full rounded-2xl border border-gray-200 shadow-md lg:w-80 xl:w-96">
+                                    <h2 class="text-2xl font-bold">"Project Details"</h2>
+                                    <div class="w-10 h-1 bg-pink-400 rounded-full"></div>
+                                    <p class="leading-relaxed text-gray-600">{p.description}</p>
+                                    <div class="flex gap-2 mt-4">
+                                        <span class="inline-block px-3 py-1 text-sm font-medium text-pink-600 bg-pink-100 rounded-full">
+                                            {p.category}
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     }
