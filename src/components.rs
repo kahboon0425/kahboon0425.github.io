@@ -58,37 +58,38 @@ pub fn CategoryCard(
     #[prop(default = "aspect-[4/5]")] aspect: &'static str,
     on_click: impl Fn() + 'static,
 ) -> impl IntoView {
-    let class = format!(
-        "group relative overflow-hidden rounded-2xl shadow-md cursor-pointer {} transition duration-300 hover:shadow-2xl hover:scale-[1.03]",
-        aspect
-    );
+    let wrapper_class = format!("group relative cursor-pointer p-2 {}", aspect);
     view! {
-        <div class=class on:click=move |_| on_click()>
-            {if is_video {
-                view! {
-                    <video
-                        class="object-cover w-full h-full"
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                        oncanplay="this.muted=true"
-                    >
-                        <source src=cover type="video/mp4" />
-                    </video>
-                }
-                .into_any()
-            } else {
-                view! { <img class="object-cover w-full h-full" src=cover alt=name /> }.into_any()
-            }}
-            // Static gradient + title (always visible)
-            <div class="flex absolute inset-0 items-end p-6 bg-gradient-to-t from-black/70 to-transparent">
-                <h2 class="text-3xl font-bold text-white">{name}</h2>
-            </div>
-            // Slide-up blur overlay on hover
-            <div class="flex absolute inset-0 flex-col gap-3 justify-center items-center translate-y-full backdrop-blur-md bg-black/50 transition-transform duration-500 ease-out group-hover:translate-y-0">
-                <span class="text-4xl">"👆"</span>
-                <p class="text-xl font-bold text-white">"Click to view more"</p>
+        <div class=wrapper_class on:click=move |_| on_click()>
+            // Shadow layer — slight rotation
+            <div class="absolute inset-2 rounded-2xl bg-gray-300 shadow transition-all duration-300 ease-out rotate-[3deg] group-hover:rotate-[4deg]"></div>
+            // Top card
+            <div class="overflow-hidden absolute inset-2 rounded-2xl shadow-lg transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:shadow-2xl">
+                {if is_video {
+                    view! {
+                        <video
+                            class="object-cover w-full h-full"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            oncanplay="this.muted=true"
+                        >
+                            <source src=cover type="video/mp4" />
+                        </video>
+                    }
+                    .into_any()
+                } else {
+                    view! { <img class="object-cover w-full h-full" src=cover alt=name /> }.into_any()
+                }}
+                // Static gradient + title (always visible)
+                <div class="flex absolute inset-0 items-end p-6 bg-gradient-to-t from-black/70 to-transparent">
+                    <h2 class="text-3xl font-bold text-white">{name}</h2>
+                </div>
+                // Slide-up blur overlay on hover
+                <div class="flex absolute inset-0 flex-col gap-3 justify-center items-center translate-y-full backdrop-blur-md bg-black/50 transition-transform duration-500 ease-out group-hover:translate-y-0">
+                    <p class="text-xl font-bold text-white">"Click to view more"</p>
+                </div>
             </div>
         </div>
     }

@@ -166,26 +166,26 @@ pub fn Work() -> impl IntoView {
                                     .enumerate()
                                     .filter(|(_, p)| p.category == cat)
                                     .map(|(i, p)| view! {
+                                        // Stacked card wrapper
                                         <div
-                                            class="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer aspect-[3/4] transition duration-300 hover:shadow-2xl hover:scale-[1.03]"
+                                            class="group relative cursor-pointer aspect-[3/4] p-2"
                                             on:click=move |_| set_selected_project.set(Some(i))
                                         >
-                                            <img
-                                                class="object-cover w-full h-full"
-                                                src=p.cover
-                                                alt=p.name
-                                            />
-                                            // Title overlay (always visible)
-                                            <div class="flex absolute inset-0 items-end p-5 bg-gradient-to-t from-black/70 to-transparent">
-                                                <h2 class="text-lg font-bold leading-snug text-white">
-                                                    {p.name}
-                                                </h2>
-                                            </div>
-                                            // Slide-up blur on hover
-                                            <div class="flex absolute inset-0 flex-col gap-3 justify-center items-center translate-y-full backdrop-blur-md bg-black/50 transition-transform duration-500 ease-out group-hover:translate-y-0">
-                                                <p class="text-xl font-bold text-white">
-                                                    "Click to view more"
-                                                </p>
+                                            // Shadow layer — slight rotation
+                                            <div class="absolute inset-2 rounded-2xl bg-gray-300 shadow transition-all duration-300 ease-out rotate-[3deg] group-hover:rotate-[4deg]"></div>
+                                            // Top card
+                                            <div class="overflow-hidden absolute inset-2 rounded-2xl shadow-lg transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:shadow-2xl">
+                                                <img
+                                                    class="object-cover w-full h-full"
+                                                    src=p.cover
+                                                    alt=p.name
+                                                />
+                                                <div class="flex absolute inset-0 items-end p-5 bg-gradient-to-t from-black/70 to-transparent">
+                                                    <h2 class="text-lg font-bold leading-snug text-white">{p.name}</h2>
+                                                </div>
+                                                <div class="flex absolute inset-0 flex-col gap-3 justify-center items-center translate-y-full backdrop-blur-md bg-black/50 transition-transform duration-500 ease-out group-hover:translate-y-0">
+                                                    <p class="text-xl font-bold text-white">"Click to view more"</p>
+                                                </div>
                                             </div>
                                         </div>
                                     })
