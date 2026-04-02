@@ -5,7 +5,7 @@ use leptos::prelude::*;
 #[component]
 pub fn Navbar() -> impl IntoView {
     view! {
-        <header class="flex sticky top-0 z-50 items-center justify-between px-10 py-5 bg-white border-b border-gray-200">
+        <header class="sticky top-0 z-50 px-10 py-5 bg-white border-b border-gray-200">
             <nav class="flex gap-10">
                 <a href="/" class="text-xl font-medium transition hover:text-pink-400">"Home"</a>
                 <a href="/about" class="text-xl font-medium transition hover:text-pink-400">
@@ -15,12 +15,6 @@ pub fn Navbar() -> impl IntoView {
                     "Projects"
                 </a>
             </nav>
-            <a
-                href="/projects"
-                class="text-3xl font-bold transition hover:scale-110 hover:text-pink-400"
-            >
-                "→"
-            </a>
         </header>
     }
 }
@@ -87,14 +81,14 @@ pub fn CategoryCard(
             } else {
                 view! { <img class="object-cover w-full h-full" src=cover alt=name /> }.into_any()
             }}
-            <div class="flex absolute inset-0 flex-col justify-between p-6 bg-gradient-to-t from-black/70 to-transparent transition duration-300 group-hover:from-black/80">
-                // "Click to view" hint — visible only on hover
-                <div class="flex justify-end opacity-0 transition duration-300 group-hover:opacity-100">
-                    <span class="flex gap-2 items-center px-4 py-2 text-sm font-semibold text-white rounded-full border border-white/60 backdrop-blur-sm bg-white/20">
-                        "Click to view →"
-                    </span>
-                </div>
+            // Static gradient + title (always visible)
+            <div class="flex absolute inset-0 items-end p-6 bg-gradient-to-t from-black/70 to-transparent">
                 <h2 class="text-3xl font-bold text-white">{name}</h2>
+            </div>
+            // Slide-up blur overlay on hover
+            <div class="flex absolute inset-0 flex-col gap-3 justify-center items-center translate-y-full backdrop-blur-md bg-black/50 transition-transform duration-500 ease-out group-hover:translate-y-0">
+                <span class="text-4xl">"👆"</span>
+                <p class="text-xl font-bold text-white">"Click to view more"</p>
             </div>
         </div>
     }

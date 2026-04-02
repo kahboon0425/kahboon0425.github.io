@@ -20,10 +20,10 @@ pub fn Personal() -> impl IntoView {
                 // ── Subcategory cards ─────────────────────────────────
                 None => view! {
                     <div class="px-10 py-12 md:px-20">
-                        <div class="flex gap-4 items-center mb-10">
+                        <div class="relative flex justify-center items-center mb-10">
                             <a
                                 href="/projects"
-                                class="text-xl transition hover:text-pink-400 hover:scale-110"
+                                class="absolute left-0 text-xl transition hover:text-pink-400 hover:scale-110"
                             >
                                 "← Back"
                             </a>
@@ -55,9 +55,9 @@ pub fn Personal() -> impl IntoView {
                     let (_, cat_name, _, _, filter_idx) = SUBCATS[subcat_idx];
                     view! {
                         <div class="px-10 py-12 md:px-20">
-                            <div class="flex gap-4 items-center mb-8">
+                            <div class="relative flex justify-center items-center mb-8">
                                 <button
-                                    class="text-xl transition hover:text-pink-400 hover:scale-110"
+                                    class="absolute left-0 text-xl transition hover:text-pink-400 hover:scale-110"
                                     on:click=move |_| set_selected_cat.set(None)
                                 >
                                     "← Back"

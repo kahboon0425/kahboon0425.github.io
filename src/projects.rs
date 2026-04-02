@@ -7,7 +7,7 @@ pub fn Projects() -> impl IntoView {
         <div class="min-h-screen bg-white">
             <Navbar />
             <div class="flex flex-col items-center px-10 py-12 md:px-20">
-                <h1 class="mb-10 text-6xl font-bold">"Projects"</h1>
+                <h1 class="mb-10 text-6xl font-bold text-center">"Projects"</h1>
                 <div class="grid grid-cols-1 gap-8 w-full max-w-4xl md:grid-cols-2">
                     // Work card
                     <a
@@ -19,13 +19,12 @@ pub fn Projects() -> impl IntoView {
                             src="assets/images/portfolio/3D-Booth-Design 1/showcase.png"
                             alt="Work"
                         />
-                        <div class="flex absolute inset-0 flex-col justify-between p-8 bg-gradient-to-t from-black/70 to-transparent transition duration-300 group-hover:from-black/80">
-                            <div class="flex justify-end opacity-0 transition duration-300 group-hover:opacity-100">
-                                <span class="flex gap-2 items-center px-4 py-2 text-sm font-semibold text-white rounded-full border border-white/60 backdrop-blur-sm bg-white/20">
-                                    "Click to view →"
-                                </span>
-                            </div>
+                        <div class="flex absolute inset-0 items-end p-8 bg-gradient-to-t from-black/70 to-transparent">
                             <h2 class="text-4xl font-bold text-white">"Work"</h2>
+                        </div>
+                        <div class="flex absolute inset-0 flex-col gap-3 justify-center items-center translate-y-full backdrop-blur-md bg-black/50 transition-transform duration-500 ease-out group-hover:translate-y-0">
+                            <span class="text-4xl">"👆"</span>
+                            <p class="text-xl font-bold text-white">"Click to view more"</p>
                         </div>
                     </a>
 
@@ -47,13 +46,12 @@ pub fn Projects() -> impl IntoView {
                                 type="video/mp4"
                             />
                         </video>
-                        <div class="flex absolute inset-0 flex-col justify-between p-8 bg-gradient-to-t from-black/70 to-transparent transition duration-300 group-hover:from-black/80">
-                            <div class="flex justify-end opacity-0 transition duration-300 group-hover:opacity-100">
-                                <span class="flex gap-2 items-center px-4 py-2 text-sm font-semibold text-white rounded-full border border-white/60 backdrop-blur-sm bg-white/20">
-                                    "Click to view →"
-                                </span>
-                            </div>
+                        <div class="flex absolute inset-0 items-end p-8 bg-gradient-to-t from-black/70 to-transparent">
                             <h2 class="text-4xl font-bold text-white">"Personal"</h2>
+                        </div>
+                        <div class="flex absolute inset-0 flex-col gap-3 justify-center items-center translate-y-full backdrop-blur-md bg-black/50 transition-transform duration-500 ease-out group-hover:translate-y-0">
+                            <span class="text-4xl">"👆"</span>
+                            <p class="text-xl font-bold text-white">"Click to view more"</p>
                         </div>
                     </a>
                 </div>

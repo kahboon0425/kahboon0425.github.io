@@ -50,12 +50,11 @@ fn App() -> impl IntoView {
 
 // ── Shared subcategory data ───────────────────────────────────────────────────
 // (group_idx, display_name, cover_path, is_video, filter_idx)
-// group 0 = Work, group 1 = Personal
+// group 1 = Personal only (Work page now has its own PROJECTS const)
 pub(crate) const SUBCATS: &[(usize, &str, &str, bool, usize)] = &[
-    (0, "Events & Exhibition", "assets/images/portfolio/3D-Booth-Design 1/showcase.png",        false, 2),
-    (0, "CGI",                 "assets/images/portfolio/CGI-Anim-Balls/showcase.mp4",           true,  3),
     (1, "Character Design",    "assets/images/portfolio/3D-Anim-Char-Sushi Queen/showcase.mp4", true,  0),
     (1, "Animation",           "assets/images/portfolio/3D-Anim-Map/showcase.mp4",              true,  1),
+    (1, "CGI",                 "assets/images/portfolio/CGI-Anim-Balls/showcase.mp4",           true,  3),
     (1, "3D Modeling",         "assets/images/portfolio/3D-Baby-Dragon/showcase.png",           false, 4),
     (1, "2D Art",              "assets/images/portfolio/2D-Fireball/showcase.png",              false, 5),
 ];
