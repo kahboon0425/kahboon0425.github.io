@@ -1,5 +1,5 @@
 use crate::{
-    components::{CategoryCard, Navbar, PortfolioCell},
+    components::{CategoryCard, HamburgerMenu, PortfolioCell},
     extract, get_directory_node, portfolio_filter, AssetNode, SUBCATS,
 };
 use leptos::prelude::*;
@@ -14,7 +14,7 @@ pub fn Personal() -> impl IntoView {
 
     view! {
         <div class="min-h-screen bg-white">
-            <Navbar />
+            <HamburgerMenu />
 
             {move || match selected_cat.get() {
                 // ── Subcategory cards ─────────────────────────────────

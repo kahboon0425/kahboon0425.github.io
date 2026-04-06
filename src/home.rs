@@ -9,7 +9,7 @@ pub fn Home() -> impl IntoView {
             <section class="flex flex-col flex-1 gap-16 justify-center items-center px-10 py-16 md:flex-row md:px-24">
                 // Left: circular logo + social icons
                 <div class="flex flex-col gap-8 items-center">
-                    <div class="flex overflow-hidden justify-center items-center rounded-full border-4 border-black size-64 md:size-80">
+                    <div class="flex overflow-hidden justify-center items-center rounded-full border-4 border-blue-400 size-64 md:size-80">
                         <img
                             class="object-contain w-full h-full"
                             src="assets/images/Sushi Queen Logo Transparent.png"
@@ -48,9 +48,9 @@ pub fn Home() -> impl IntoView {
                     </p>
                     <div class="flex gap-3 mt-2">
                         <span class="inline-block w-3 h-3 rounded-full bg-pink-400" />
-                        <span class="inline-block w-3 h-3 rounded-full bg-gray-300" />
-                        <span class="inline-block w-3 h-3 rounded-full bg-gray-300" />
-                        <span class="inline-block w-3 h-3 rounded-full bg-gray-300" />
+                        <span class="inline-block w-3 h-3 rounded-full bg-blue-400" />
+                        <span class="inline-block w-3 h-3 rounded-full bg-pink-200" />
+                        <span class="inline-block w-3 h-3 rounded-full bg-blue-200" />
                     </div>
                 </div>
             </section>

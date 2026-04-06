@@ -5,17 +5,44 @@ use leptos::prelude::*;
 #[component]
 pub fn Navbar() -> impl IntoView {
     view! {
-        <header class="sticky top-0 z-50 px-10 py-5 bg-white border-b border-gray-200">
+        <header class="sticky top-0 z-50 px-10 py-5 bg-white border-b-2 border-blue-100">
             <nav class="flex gap-10">
-                <a href="/" class="text-xl font-medium transition hover:text-pink-400">"Home"</a>
-                <a href="/about" class="text-xl font-medium transition hover:text-pink-400">
+                <a href="/" class="text-xl font-medium transition hover:text-pink-500">"Home"</a>
+                <a href="/about" class="text-xl font-medium transition hover:text-blue-500">
                     "About"
                 </a>
-                <a href="/projects" class="text-xl font-medium transition hover:text-pink-400">
+                <a href="/projects" class="text-xl font-medium transition hover:text-pink-500">
                     "Projects"
                 </a>
             </nav>
         </header>
+    }
+}
+
+/// Hamburger menu for inner pages (Work / Personal) — shown in top-right corner.
+#[component]
+pub fn HamburgerMenu() -> impl IntoView {
+    let (open, set_open) = signal(false);
+    view! {
+        <div class="fixed top-10 right-8 z-50">
+            // Toggle button
+            <button
+                class="flex flex-col gap-2 justify-center items-center p-3 w-14 h-14 rounded-xl border-2 border-blue-200 bg-white shadow-md transition hover:bg-blue-50 hover:border-blue-400"
+                on:click=move |_| set_open.update(|v| *v = !*v)
+            >
+                <span class="block w-7 h-0.5 bg-blue-500"></span>
+                <span class="block w-7 h-0.5 bg-blue-500"></span>
+                <span class="block w-7 h-0.5 bg-blue-500"></span>
+            </button>
+            // Dropdown menu
+            {move || open.get().then(|| view! {
+                <div class="absolute right-0 mt-2 w-48 rounded-xl border border-gray-200 bg-white shadow-xl overflow-hidden">
+                    <a href="/" class="block px-6 py-4 text-base font-medium transition hover:bg-pink-50 hover:text-pink-500">"Home"</a>
+                    <a href="/about" class="block px-6 py-4 text-base font-medium transition hover:bg-pink-50 hover:text-pink-500">"About"</a>
+                    <a href="/projects" class="block px-6 py-4 text-base font-medium transition hover:bg-pink-50 hover:text-pink-500">"Projects"</a>
+                </div>
+            })}
+        </div>
     }
 }
 

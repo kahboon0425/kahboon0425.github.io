@@ -275,6 +275,10 @@
                 ],
             ),
             File("Sushi Queen Logo Transparent.png"),
+            Directory(
+                name: "work project",
+                children: [],
+            ),
         ],
     ),
     Directory(

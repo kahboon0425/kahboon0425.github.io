@@ -1,4 +1,4 @@
-use crate::components::Navbar;
+use crate::components::HamburgerMenu;
 use leptos::prelude::*;
 
 struct WorkProject {
@@ -70,7 +70,7 @@ pub fn Work() -> impl IntoView {
 
     view! {
         <div class="min-h-screen bg-white">
-            <Navbar />
+            <HamburgerMenu />
 
             {move || match selected_project.get() {
 
@@ -142,9 +142,9 @@ pub fn Work() -> impl IntoView {
                                 .map(|(i, cat)| view! {
                                     <button
                                         class=move || {
-                                            let base = "pb-3 text-lg font-medium whitespace-nowrap transition hover:text-pink-400";
+                                            let base = "pb-3 text-lg font-medium whitespace-nowrap transition hover:text-pink-500";
                                             if selected_cat.get() == i {
-                                                format!("{base} text-black border-b-2 border-black")
+                                                format!("{base} text-blue-500 border-b-2 border-blue-500")
                                             } else {
                                                 format!("{base} text-gray-400")
                                             }
