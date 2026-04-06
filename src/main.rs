@@ -19,9 +19,9 @@ use personal::Personal;
 use projects::Projects;
 use work::Work;
 
-const ASSETS_INDEX: &str = include_str!("../assets/assets_index.ron");
+const ASSETS_INDEX: &str = include_str!("../assets/assets_index.json");
 pub(crate) static ASSET_TREE: LazyLock<Vec<AssetNode>> =
-    LazyLock::new(|| ron::from_str(ASSETS_INDEX).unwrap());
+    LazyLock::new(|| serde_json::from_str(ASSETS_INDEX).unwrap());
 
 fn main() {
     mount_to_body(App);
@@ -77,6 +77,7 @@ pub(crate) fn portfolio_filter(name: &str, cat_idx: usize) -> bool {
 #[derive(Debug, Deserialize)]
 pub enum AssetNode {
     File(String),
+    TextFile { name: String, content: String },
     Directory {
         name: String,
         children: Vec<AssetNode>,
@@ -102,7 +103,7 @@ fn get_directory_node_recursive<'a>(
                 }
                 return get_directory_node_recursive(&paths[1..], children);
             }
-            AssetNode::File(_) => {}
+            AssetNode::File(_) | AssetNode::TextFile { .. } => {}
         }
     }
     None

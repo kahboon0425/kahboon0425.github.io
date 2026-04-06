@@ -6,13 +6,8 @@ use serde::Serialize;
 fn main() {
     let tree = build_tree(Path::new("assets"));
 
-    let ron = ron::ser::to_string_pretty(
-        &tree,
-        ron::ser::PrettyConfig::default(),
-    )
-    .unwrap();
-    fs::write(Path::new("assets").join("assets_index.ron"), ron)
-        .unwrap();
+    let json = serde_json::to_string_pretty(&tree).unwrap();
+    fs::write(Path::new("assets").join("assets_index.json"), json).unwrap();
 
     println!("cargo:rerun-if-changed=assets");
 }
@@ -30,6 +25,9 @@ fn build_tree(path: &Path) -> Vec<AssetNode> {
                     name: file_name,
                     children: build_tree(&path),
                 });
+            } else if file_name.ends_with(".txt") {
+                let content = fs::read_to_string(&path).unwrap_or_default();
+                nodes.push(AssetNode::TextFile { name: file_name, content });
             } else {
                 nodes.push(AssetNode::File(file_name));
             }
@@ -42,6 +40,7 @@ fn build_tree(path: &Path) -> Vec<AssetNode> {
 #[derive(Serialize)]
 enum AssetNode {
     File(String),
+    TextFile { name: String, content: String },
     Directory {
         name: String,
         children: Vec<AssetNode>,

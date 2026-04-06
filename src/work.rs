@@ -1,116 +1,120 @@
-use crate::components::HamburgerMenu;
+use crate::{
+    components::HamburgerMenu,
+    extract, get_directory_node, AssetNode,
+};
 use leptos::prelude::*;
 
-struct WorkProject {
-    name: &'static str,
-    category: &'static str,
-    cover: &'static str,
-    description: &'static str,
-    images: &'static [&'static str],
+/// Maps (display name, folder name under Work-Projects/).
+const CATEGORIES: &[(&str, &str)] = &[
+    ("Christmas", "Christmas"),
+    ("CNY", "Chinese-New-Year"),
+    ("Hari Raya", "Hari-Raya"),
+    ("Mid Autumn", "Mid-Autumn"),
+];
+
+/// "Theme-Santa's-Dessert-Party" → "Santa's Dessert Party"
+fn folder_to_display_name(folder: &str) -> String {
+    folder
+        .strip_prefix("Theme-")
+        .unwrap_or(folder)
+        .replace('-', " ")
 }
-
-const CATEGORIES: &[&str] = &[
-    "Christmas",
-    "CNY",
-    "Hari Raya",
-    "Mid Autumn",
-    "Other Events",
-];
-
-// Add real project names / descriptions / images here as you get more work.
-const PROJECTS: &[WorkProject] = &[
-    WorkProject {
-        name: "Setapak Mall Christmas 2025",
-        category: "Christmas",
-        cover: "assets/images/portfolio/3D-Booth-Design 1/showcase.png",
-        description: "3D booth design for Setapak Mall Christmas 2025 event. Designed to create a festive and immersive shopping experience.",
-        images: &[
-            "assets/images/portfolio/3D-Booth-Design 1/showcase.png",
-            "assets/images/portfolio/3D-Booth-Design 1/booth 1.png",
-        ],
-    },
-    WorkProject {
-        name: "CNY Booth 2025",
-        category: "CNY",
-        cover: "assets/images/portfolio/3D-Booth-Design 2/showcase.png",
-        description: "Chinese New Year booth design featuring traditional festive elements and vibrant decorations.",
-        images: &[
-            "assets/images/portfolio/3D-Booth-Design 2/showcase.png",
-            "assets/images/portfolio/3D-Booth-Design 2/booth 2.png",
-        ],
-    },
-    WorkProject {
-        name: "Hari Raya Booth 2025",
-        category: "Hari Raya",
-        cover: "assets/images/portfolio/3D-Booth-Design 3/showcase.png",
-        description: "Hari Raya Aidilfitri booth design blending modern aesthetics with traditional Malay motifs.",
-        images: &[
-            "assets/images/portfolio/3D-Booth-Design 3/showcase.png",
-            "assets/images/portfolio/3D-Booth-Design 3/booth 3.png",
-        ],
-    },
-    WorkProject {
-        name: "Travel Fair Booth",
-        category: "Other Events",
-        cover: "assets/images/portfolio/3D-Booth-Design 4/showcase.png",
-        description: "3D booth design for a travel fair event, highlighting destination themes and travel experiences.",
-        images: &[
-            "assets/images/portfolio/3D-Booth-Design 4/showcase.png",
-            "assets/images/portfolio/3D-Booth-Design 4/booth 4-1.png",
-            "assets/images/portfolio/3D-Booth-Design 4/booth 4-2.png",
-            "assets/images/portfolio/3D-Booth-Design 4/booth 4-3.png",
-        ],
-    },
-];
 
 #[component]
 pub fn Work() -> impl IntoView {
     let (selected_cat, set_selected_cat) = signal(0usize);
-    let (selected_project, set_selected_project) = signal::<Option<usize>>(None);
+    // (category index, theme index within that category)
+    let (selected_theme, set_selected_theme) = signal::<Option<(usize, usize)>>(None);
 
     view! {
         <div class="min-h-screen bg-white">
             <HamburgerMenu />
 
-            {move || match selected_project.get() {
+            {move || match selected_theme.get() {
 
                 // ── Project detail view ───────────────────────────────
-                Some(proj_idx) => {
-                    let p = &PROJECTS[proj_idx];
+                Some((cat_idx, theme_idx)) => {
+                    let (cat_name, cat_folder) = CATEGORIES[cat_idx];
+                    let path = ["images", "Work-Projects", cat_folder];
+                    let themes = get_directory_node(&path).unwrap_or(&[]);
+
+                    let theme_dirs: Vec<(&str, &[AssetNode])> = themes
+                        .iter()
+                        .filter_map(|n| match n {
+                            AssetNode::Directory { name, children } => {
+                                Some((name.as_str(), children.as_slice()))
+                            }
+                            _ => None,
+                        })
+                        .collect();
+
+                    let Some(&(theme_folder, theme_children)) = theme_dirs.get(theme_idx) else {
+                        return view! { <p>"Not found."</p> }.into_any();
+                    };
+
+                    let display_name = folder_to_display_name(theme_folder);
+
+                    let images: Vec<String> = theme_children
+                        .iter()
+                        .filter_map(|n| extract!(n, AssetNode::File = ()))
+                        .filter(|name| {
+                            let lower = name.to_lowercase();
+                            lower.ends_with(".png")
+                                || lower.ends_with(".jpg")
+                                || lower.ends_with(".mp4")
+                        })
+                        .map(|name| {
+                            format!(
+                                "assets/images/Work-Projects/{}/{}/{}",
+                                cat_folder, theme_folder, name
+                            )
+                        })
+                        .collect();
+
+                    let description: Option<String> = theme_children
+                        .iter()
+                        .find_map(|n| match n {
+                            AssetNode::TextFile { content, .. } => Some(content.clone()),
+                            _ => None,
+                        });
+
                     view! {
                         <div class="px-10 py-12 md:px-20">
                             // Back + title
                             <div class="relative flex justify-center items-center mb-8">
                                 <button
                                     class="absolute left-0 text-xl transition hover:text-pink-400 hover:scale-110"
-                                    on:click=move |_| set_selected_project.set(None)
+                                    on:click=move |_| set_selected_theme.set(None)
                                 >
                                     "← Back"
                                 </button>
-                                <h1 class="text-4xl font-bold">{p.name}</h1>
+                                <h1 class="text-4xl font-bold">{display_name.clone()}</h1>
                             </div>
 
                             // Two-column layout: images left, details right
                             <div class="flex flex-col gap-8 lg:flex-row">
                                 // Left — image grid
                                 <div class="grid flex-1 grid-cols-2 gap-4 md:grid-cols-3">
-                                    {p.images.iter().map(|img| view! {
+                                    {images.into_iter().map(|img| view! {
                                         <img
                                             class="object-cover w-full rounded-xl shadow-md aspect-square transition hover:scale-[1.02] hover:shadow-xl"
-                                            src=*img
-                                            alt=p.name
+                                            src=img
+                                            alt=display_name.clone()
                                         />
                                     }).collect::<Vec<_>>()}
                                 </div>
 
                                 // Right — project details
-                                <div class="flex flex-col gap-4 p-8 w-full rounded-2xl border border-gray-200 shadow-md lg:w-80 xl:w-96">
+                                <div class="flex flex-col gap-4 p-8 w-full rounded-2xl border border-gray-200 shadow-md self-start lg:w-80 xl:w-96">
                                     <h2 class="text-2xl font-bold">"Project Details"</h2>
                                     <div class="w-10 h-1 bg-pink-400 rounded-full"></div>
-                                    <p class="leading-relaxed text-gray-600">{p.description}</p>
-                                    <div class="flex gap-2 mt-4">
+                                    <p class="text-xl font-semibold text-gray-800">{display_name.clone()}</p>
+                                    {description.map(|desc| view! {
+                                        <p class="leading-relaxed text-gray-600">{desc}</p>
+                                    })}
+                                    <div class="flex gap-2 mt-2">
                                         <span class="inline-block px-3 py-1 text-sm font-medium text-pink-600 bg-pink-100 rounded-full">
-                                            {p.category}
+                                            {cat_name}
                                         </span>
                                     </div>
                                 </div>
@@ -120,7 +124,7 @@ pub fn Work() -> impl IntoView {
                     .into_any()
                 }
 
-                // ── Category tabs + project grid ──────────────────────
+                // ── Category tabs + theme grid ──────────────────────
                 None => view! {
                     <div class="px-10 py-12 md:px-20">
                         // Header
@@ -139,7 +143,7 @@ pub fn Work() -> impl IntoView {
                             {CATEGORIES
                                 .iter()
                                 .enumerate()
-                                .map(|(i, cat)| view! {
+                                .map(|(i, (cat_name, _))| view! {
                                     <button
                                         class=move || {
                                             let base = "pb-3 text-lg font-medium whitespace-nowrap transition hover:text-pink-500";
@@ -151,43 +155,81 @@ pub fn Work() -> impl IntoView {
                                         }
                                         on:click=move |_| set_selected_cat.set(i)
                                     >
-                                        {*cat}
+                                        {*cat_name}
                                     </button>
                                 })
                                 .collect::<Vec<_>>()}
                         </div>
 
-                        // Project cards for selected category
+                        // Theme cards for selected category
                         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                             {move || {
-                                let cat = CATEGORIES[selected_cat.get()];
-                                let items: Vec<_> = PROJECTS
+                                let cat_idx = selected_cat.get();
+                                let (_, cat_folder) = CATEGORIES[cat_idx];
+                                let path = ["images", "Work-Projects", cat_folder];
+                                let themes = get_directory_node(&path).unwrap_or(&[]);
+
+                                let items: Vec<_> = themes
                                     .iter()
                                     .enumerate()
-                                    .filter(|(_, p)| p.category == cat)
-                                    .map(|(i, p)| view! {
-                                        // Stacked card wrapper
-                                        <div
-                                            class="group relative cursor-pointer aspect-[3/4] p-2"
-                                            on:click=move |_| set_selected_project.set(Some(i))
-                                        >
-                                            // Shadow layer — slight rotation
-                                            <div class="absolute inset-2 rounded-2xl bg-gray-300 shadow transition-all duration-300 ease-out rotate-[3deg] group-hover:rotate-[4deg]"></div>
-                                            // Top card
-                                            <div class="overflow-hidden absolute inset-2 rounded-2xl shadow-lg transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:shadow-2xl">
-                                                <img
-                                                    class="object-cover w-full h-full"
-                                                    src=p.cover
-                                                    alt=p.name
-                                                />
-                                                <div class="flex absolute inset-0 items-end p-5 bg-gradient-to-t from-black/70 to-transparent">
-                                                    <h2 class="text-lg font-bold leading-snug text-white">{p.name}</h2>
-                                                </div>
-                                                <div class="flex absolute inset-0 flex-col gap-3 justify-center items-center translate-y-full backdrop-blur-md bg-black/50 transition-transform duration-500 ease-out group-hover:translate-y-0">
-                                                    <p class="text-xl font-bold text-white">"Click to view more"</p>
+                                    .filter_map(|(theme_idx, n)| {
+                                        let (theme_folder, children) = match n {
+                                            AssetNode::Directory { name, children } => {
+                                                (name.as_str(), children.as_slice())
+                                            }
+                                            _ => return None,
+                                        };
+
+                                        // Use cover.png if it exists, otherwise first image found
+                                        let cover = {
+                                            let explicit = children
+                                                .iter()
+                                                .filter_map(|c| extract!(c, AssetNode::File = ()))
+                                                .find(|name| name.to_lowercase() == "cover.png");
+                                            let fallback = children
+                                                .iter()
+                                                .filter_map(|c| extract!(c, AssetNode::File = ()))
+                                                .find(|name| {
+                                                    let lower = name.to_lowercase();
+                                                    lower.ends_with(".png") || lower.ends_with(".jpg")
+                                                });
+                                            explicit.or(fallback)
+                                        };
+
+                                        let cover = cover.map(|name| {
+                                            format!(
+                                                "assets/images/Work-Projects/{}/{}/{}",
+                                                cat_folder, theme_folder, name
+                                            )
+                                        })?;
+
+                                        let display_name = folder_to_display_name(theme_folder);
+
+                                        Some(view! {
+                                            <div
+                                                class="group relative cursor-pointer aspect-[3/4] p-2"
+                                                on:click=move |_| set_selected_theme.set(Some((cat_idx, theme_idx)))
+                                            >
+                                                // Shadow layer
+                                                <div class="absolute inset-2 rounded-2xl bg-gray-300 shadow transition-all duration-300 ease-out rotate-[3deg] group-hover:rotate-[4deg]"></div>
+                                                // Top card
+                                                <div class="overflow-hidden absolute inset-2 rounded-2xl shadow-lg transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:shadow-2xl">
+                                                    <img
+                                                        class="object-cover w-full h-full"
+                                                        src=cover
+                                                        alt=display_name.clone()
+                                                    />
+                                                    <div class="flex absolute inset-0 items-end p-5 bg-gradient-to-t from-black/70 to-transparent">
+                                                        <h2 class="text-lg font-bold leading-snug text-white">
+                                                            {display_name.clone()}
+                                                        </h2>
+                                                    </div>
+                                                    <div class="flex absolute inset-0 flex-col gap-3 justify-center items-center translate-y-full backdrop-blur-md bg-black/50 transition-transform duration-500 ease-out group-hover:translate-y-0">
+                                                        <p class="text-xl font-bold text-white">"Click to view more"</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        })
                                     })
                                     .collect();
 
