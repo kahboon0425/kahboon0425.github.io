@@ -78,7 +78,23 @@ pub fn Work() -> impl IntoView {
                             _ => None,
                         });
 
+                    let (zoomed_img, set_zoomed_img) = signal::<Option<String>>(None);
+
                     view! {
+                        // Lightbox overlay
+                        {move || zoomed_img.get().map(|src| view! {
+                            <div
+                                class="flex fixed inset-0 z-50 justify-center items-center bg-black/80 cursor-zoom-out"
+                                on:click=move |_| set_zoomed_img.set(None)
+                            >
+                                <img
+                                    class="max-w-[90vw] max-h-[90vh] rounded-xl shadow-2xl object-contain cursor-zoom-out"
+                                    src=src
+                                    on:click=move |_| set_zoomed_img.set(None)
+                                />
+                            </div>
+                        })}
+
                         <div class="px-10 py-12 md:px-20">
                             // Back + title
                             <div class="relative flex justify-center items-center mb-8">
@@ -95,12 +111,16 @@ pub fn Work() -> impl IntoView {
                             <div class="flex flex-col gap-8 lg:flex-row">
                                 // Left — image grid
                                 <div class="grid flex-1 grid-cols-2 gap-4 md:grid-cols-3">
-                                    {images.into_iter().map(|img| view! {
-                                        <img
-                                            class="object-cover w-full rounded-xl shadow-md aspect-square transition hover:scale-[1.02] hover:shadow-xl"
-                                            src=img
-                                            alt=display_name.clone()
-                                        />
+                                    {images.into_iter().map(|img| {
+                                        let img_clone = img.clone();
+                                        view! {
+                                            <img
+                                                class="object-cover w-full rounded-xl shadow-md aspect-square transition cursor-zoom-in hover:scale-[1.02] hover:shadow-xl"
+                                                src=img
+                                                alt=display_name.clone()
+                                                on:click=move |_| set_zoomed_img.set(Some(img_clone.clone()))
+                                            />
+                                        }
                                     }).collect::<Vec<_>>()}
                                 </div>
 
