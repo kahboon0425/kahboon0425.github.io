@@ -37,6 +37,7 @@ pub fn Home() -> impl IntoView {
                     <div class="flex gap-5 mt-2 justify-center md:justify-start">
                         <a
                             href="mailto:changkahboon25@gmail.com"
+                            target="_blank" rel="noopener noreferrer"
                             class="group flex justify-center items-center w-16 h-16 rounded-full border-2 transform transition duration-200 hover:scale-125"
                             style="background-color: #FFF3E0; border-color: #F5AA45;"
                         >
@@ -44,6 +45,7 @@ pub fn Home() -> impl IntoView {
                         </a>
                         <a
                             href="https://www.instagram.com/the_sushi_queen_art/"
+                            target="_blank" rel="noopener noreferrer"
                             class="group flex justify-center items-center w-16 h-16 rounded-full border-2 transform transition duration-200 hover:scale-125"
                             style="background-color: #FFF3E0; border-color: #F5AA45;"
                         >
@@ -51,6 +53,7 @@ pub fn Home() -> impl IntoView {
                         </a>
                         <a
                             href="https://www.linkedin.com/in/kahboon"
+                            target="_blank" rel="noopener noreferrer"
                             class="group flex justify-center items-center w-16 h-16 rounded-full border-2 transform transition duration-200 hover:scale-125"
                             style="background-color: #FFF3E0; border-color: #F5AA45;"
                         >
@@ -58,6 +61,7 @@ pub fn Home() -> impl IntoView {
                         </a>
                         <a
                             href="https://wa.me/60127645817"
+                            target="_blank" rel="noopener noreferrer"
                             class="group flex justify-center items-center w-16 h-16 rounded-full border-2 transform transition duration-200 hover:scale-125"
                             style="background-color: #FFF3E0; border-color: #F5AA45;"
                         >
