@@ -16,7 +16,7 @@ pub fn Projects() -> impl IntoView {
                     >
                         <img
                             class="object-cover w-full h-full"
-                            src="assets/images/Work-Projects/Christmas/Theme-Santa's-Dessert-Party/1.png"
+                            src="assets/images/Work-Projects/Christmas/Theme-Santa's-Dessert-Party/01.png"
                             alt="Work"
                         />
                         <div class="flex absolute inset-0 items-end p-8 bg-gradient-to-t from-black/70 to-transparent">

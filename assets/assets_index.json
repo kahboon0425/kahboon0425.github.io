@@ -564,8 +564,12 @@
                   "children": [
                     {
                       "Directory": {
-                        "name": "Theme-Funfair",
-                        "children": []
+                        "name": "Theme-Golden-Christmas-Carnival",
+                        "children": [
+                          {
+                            "File": "1.png"
+                          }
+                        ]
                       }
                     },
                     {
@@ -578,6 +582,9 @@
                       "Directory": {
                         "name": "Theme-Santa's-Dessert-Party",
                         "children": [
+                          {
+                            "File": "01.png"
+                          },
                           {
                             "File": "1.png"
                           },
