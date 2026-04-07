@@ -1,19 +1,27 @@
 use leptos::ev::MouseEvent;
 use leptos::prelude::*;
+use leptos_router::hooks::use_location;
 
 /// Shared sticky navigation bar used on every page.
 #[component]
 pub fn Navbar() -> impl IntoView {
+    let location = use_location();
+
+    let nav_class = move |path: &'static str| {
+        let current = location.pathname.get();
+        if current == path {
+            "text-xl font-semibold pb-1 transition text-[#F5AA45] border-b-2 border-[#F5AA45]"
+        } else {
+            "text-xl font-semibold pb-1 transition text-black hover:text-[#F5AA45]"
+        }
+    };
+
     view! {
-        <header class="sticky top-0 z-50 px-10 py-5 bg-white border-b-2 border-blue-100">
-            <nav class="flex gap-10">
-                <a href="/" class="text-xl font-medium transition hover:text-pink-500">"Home"</a>
-                <a href="/about" class="text-xl font-medium transition hover:text-blue-500">
-                    "About"
-                </a>
-                <a href="/projects" class="text-xl font-medium transition hover:text-pink-500">
-                    "Projects"
-                </a>
+        <header class="sticky top-0 z-50 px-10 py-5 bg-white">
+            <nav class="flex gap-12 justify-center">
+                <a href="/" class=move || nav_class("/")>"Home"</a>
+                <a href="/about" class=move || nav_class("/about")>"About"</a>
+                <a href="/projects" class=move || nav_class("/projects")>"Projects"</a>
             </nav>
         </header>
     }
