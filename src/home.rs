@@ -28,7 +28,7 @@ pub fn Home() -> impl IntoView {
                         <br class="hidden md:block" />
                         "Kah Boon"
                     </h1>
-                    <p class="text-2xl font-bold text-black md:text-3xl">"3D Artist & Designer"</p>
+                    <p class="text-2xl font-bold md:text-3xl" style="color: #F5AA45;">"3D Artist & Designer"</p>
                     <p class="text-lg leading-relaxed text-gray-700 md:text-xl">
                         "Passionate about creating cute and stylized characters. Self-taught in Blender and ZBrush."
                     </p>
@@ -37,27 +37,31 @@ pub fn Home() -> impl IntoView {
                     <div class="flex gap-5 mt-2 justify-center md:justify-start">
                         <a
                             href="mailto:changkahboon25@gmail.com"
-                            class="group flex justify-center items-center w-16 h-16 rounded-full border-2 border-black transform transition duration-200 hover:scale-125 hover:bg-black hover:border-white"
+                            class="group flex justify-center items-center w-16 h-16 rounded-full border-2 transform transition duration-200 hover:scale-125"
+                            style="background-color: #FFF3E0; border-color: #F5AA45;"
                         >
-                            <img class="w-6 h-6 transition group-hover:invert" src="assets/svg/envelope-solid.svg" alt="Email" />
+                            <img class="w-6 h-6 transition group-hover:[filter:brightness(0)_saturate(100%)_invert(68%)_sepia(77%)_saturate(548%)_hue-rotate(347deg)_brightness(104%)]" src="assets/svg/envelope-solid.svg" alt="Email" />
                         </a>
                         <a
                             href="https://www.instagram.com/the_sushi_queen_art/"
-                            class="group flex justify-center items-center w-16 h-16 rounded-full border-2 border-black transform transition duration-200 hover:scale-125 hover:bg-black hover:border-white"
+                            class="group flex justify-center items-center w-16 h-16 rounded-full border-2 transform transition duration-200 hover:scale-125"
+                            style="background-color: #FFF3E0; border-color: #F5AA45;"
                         >
-                            <img class="w-6 h-6 transition group-hover:invert" src="assets/svg/instagram-brands.svg" alt="Instagram" />
+                            <img class="w-6 h-6 transition group-hover:[filter:brightness(0)_saturate(100%)_invert(68%)_sepia(77%)_saturate(548%)_hue-rotate(347deg)_brightness(104%)]" src="assets/svg/instagram-brands.svg" alt="Instagram" />
                         </a>
                         <a
                             href="https://www.linkedin.com/in/kahboon"
-                            class="group flex justify-center items-center w-16 h-16 rounded-full border-2 border-black transform transition duration-200 hover:scale-125 hover:bg-black hover:border-white"
+                            class="group flex justify-center items-center w-16 h-16 rounded-full border-2 transform transition duration-200 hover:scale-125"
+                            style="background-color: #FFF3E0; border-color: #F5AA45;"
                         >
-                            <img class="w-6 h-6 transition group-hover:invert" src="assets/svg/linkedin-brands.svg" alt="LinkedIn" />
+                            <img class="w-6 h-6 transition group-hover:[filter:brightness(0)_saturate(100%)_invert(68%)_sepia(77%)_saturate(548%)_hue-rotate(347deg)_brightness(104%)]" src="assets/svg/linkedin-brands.svg" alt="LinkedIn" />
                         </a>
                         <a
                             href="https://wa.me/60127645817"
-                            class="group flex justify-center items-center w-16 h-16 rounded-full border-2 border-black transform transition duration-200 hover:scale-125 hover:bg-black hover:border-white"
+                            class="group flex justify-center items-center w-16 h-16 rounded-full border-2 transform transition duration-200 hover:scale-125"
+                            style="background-color: #FFF3E0; border-color: #F5AA45;"
                         >
-                            <img class="w-6 h-6 transition group-hover:invert" src="assets/svg/whatsapp-brands.svg" alt="WhatsApp" />
+                            <img class="w-6 h-6 transition group-hover:[filter:brightness(0)_saturate(100%)_invert(68%)_sepia(77%)_saturate(548%)_hue-rotate(347deg)_brightness(104%)]" src="assets/svg/whatsapp-brands.svg" alt="WhatsApp" />
                         </a>
                     </div>
                 </div>

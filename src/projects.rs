@@ -55,6 +55,19 @@ pub fn Projects() -> impl IntoView {
                         </div>
                     </a>
                 </div>
+
+                // Big orange banner below the cards
+                <div
+                    class="flex flex-col gap-4 justify-center items-center mt-12 w-full max-w-4xl rounded-3xl px-12 py-16 shadow-lg"
+                    style="background-color: #F5AA45;"
+                >
+                    <h2 class="text-5xl font-black text-black text-center leading-tight">
+                        "More work coming soon"
+                    </h2>
+                    <p class="text-lg text-black/70 text-center max-w-md">
+                        "Stay tuned for new projects, characters, and designs."
+                    </p>
+                </div>
             </div>
         </div>
     }
