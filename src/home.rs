@@ -7,11 +7,11 @@ pub fn Home() -> impl IntoView {
         <div class="flex flex-col min-h-screen bg-white">
             <Navbar />
 
-            <section class="flex flex-col flex-1 gap-16 justify-center items-center px-12 py-12 md:flex-row md:gap-24 md:px-32">
+            <section class="flex flex-col flex-1 gap-20 justify-center items-center px-12 py-12 md:flex-row md:gap-28 md:px-24">
 
                 // Left — circular image with orange background
                 <div
-                    class="flex flex-shrink-0 overflow-hidden justify-center items-center rounded-full w-80 h-80 md:w-96 md:h-96"
+                    class="flex flex-shrink-0 overflow-hidden justify-center items-center rounded-full w-96 h-96 md:w-[30rem] md:h-[30rem]"
                     style="background-color: #F5AA45;"
                 >
                     <img
@@ -22,40 +22,42 @@ pub fn Home() -> impl IntoView {
                 </div>
 
                 // Right — text content
-                <div class="flex flex-col gap-7 max-w-lg">
-                    <h1 class="text-5xl font-black leading-tight text-black md:text-6xl">
-                        "Chang"<br/>"Kah Boon"
+                <div class="flex flex-col gap-8 max-w-xl items-center text-center md:items-start md:text-left">
+                    <h1 class="text-4xl font-black leading-tight text-black md:text-6xl lg:text-7xl">
+                        "Chang "
+                        <br class="hidden md:block" />
+                        "Kah Boon"
                     </h1>
-                    <p class="text-2xl font-bold text-black">"3D Artist & Designer"</p>
-                    <p class="text-lg leading-relaxed text-gray-700 max-w-sm">
+                    <p class="text-2xl font-bold text-black md:text-3xl">"3D Artist & Designer"</p>
+                    <p class="text-lg leading-relaxed text-gray-700 md:text-xl">
                         "Passionate about creating cute and stylized characters. Self-taught in Blender and ZBrush."
                     </p>
 
                     // Social icons in circles
-                    <div class="flex gap-4 mt-1">
+                    <div class="flex gap-5 mt-2 justify-center md:justify-start">
                         <a
                             href="mailto:changkahboon25@gmail.com"
-                            class="group flex justify-center items-center w-12 h-12 rounded-full border-2 border-black transform transition duration-200 hover:scale-125 hover:bg-black hover:border-white"
+                            class="group flex justify-center items-center w-16 h-16 rounded-full border-2 border-black transform transition duration-200 hover:scale-125 hover:bg-black hover:border-white"
                         >
-                            <img class="w-5 h-5 transition group-hover:invert" src="assets/svg/envelope-solid.svg" alt="Email" />
+                            <img class="w-6 h-6 transition group-hover:invert" src="assets/svg/envelope-solid.svg" alt="Email" />
                         </a>
                         <a
                             href="https://www.instagram.com/the_sushi_queen_art/"
-                            class="group flex justify-center items-center w-12 h-12 rounded-full border-2 border-black transform transition duration-200 hover:scale-125 hover:bg-black hover:border-white"
+                            class="group flex justify-center items-center w-16 h-16 rounded-full border-2 border-black transform transition duration-200 hover:scale-125 hover:bg-black hover:border-white"
                         >
-                            <img class="w-5 h-5 transition group-hover:invert" src="assets/svg/instagram-brands.svg" alt="Instagram" />
+                            <img class="w-6 h-6 transition group-hover:invert" src="assets/svg/instagram-brands.svg" alt="Instagram" />
                         </a>
                         <a
                             href="https://www.linkedin.com/in/kahboon"
-                            class="group flex justify-center items-center w-12 h-12 rounded-full border-2 border-black transform transition duration-200 hover:scale-125 hover:bg-black hover:border-white"
+                            class="group flex justify-center items-center w-16 h-16 rounded-full border-2 border-black transform transition duration-200 hover:scale-125 hover:bg-black hover:border-white"
                         >
-                            <img class="w-5 h-5 transition group-hover:invert" src="assets/svg/linkedin-brands.svg" alt="LinkedIn" />
+                            <img class="w-6 h-6 transition group-hover:invert" src="assets/svg/linkedin-brands.svg" alt="LinkedIn" />
                         </a>
                         <a
                             href="https://wa.me/60127645817"
-                            class="group flex justify-center items-center w-12 h-12 rounded-full border-2 border-black transform transition duration-200 hover:scale-125 hover:bg-black hover:border-white"
+                            class="group flex justify-center items-center w-16 h-16 rounded-full border-2 border-black transform transition duration-200 hover:scale-125 hover:bg-black hover:border-white"
                         >
-                            <img class="w-5 h-5 transition group-hover:invert" src="assets/svg/whatsapp-brands.svg" alt="WhatsApp" />
+                            <img class="w-6 h-6 transition group-hover:invert" src="assets/svg/whatsapp-brands.svg" alt="WhatsApp" />
                         </a>
                     </div>
                 </div>

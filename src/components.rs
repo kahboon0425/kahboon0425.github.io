@@ -10,9 +10,9 @@ pub fn Navbar() -> impl IntoView {
     let nav_class = move |path: &'static str| {
         let current = location.pathname.get();
         if current == path {
-            "text-xl font-semibold pb-1 transition text-[#F5AA45] border-b-2 border-[#F5AA45]"
+            "text-2xl font-semibold pb-1 transition text-[#F5AA45] border-b-2 border-[#F5AA45]"
         } else {
-            "text-xl font-semibold pb-1 transition text-black hover:text-[#F5AA45]"
+            "text-2xl font-semibold pb-1 transition text-black hover:text-[#F5AA45]"
         }
     };
 
