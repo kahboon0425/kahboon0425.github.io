@@ -23,7 +23,7 @@ pub fn Personal() -> impl IntoView {
                         <div class="relative flex justify-center items-center mb-10">
                             <a
                                 href="/projects"
-                                class="absolute left-0 text-xl transition hover:text-pink-400 hover:scale-110"
+                                class="absolute left-0 text-xl transition hover:text-[#fec447] hover:scale-110"
                             >
                                 "← Back"
                             </a>
@@ -57,7 +57,7 @@ pub fn Personal() -> impl IntoView {
                         <div class="px-10 py-12 md:px-20">
                             <div class="relative flex justify-center items-center mb-8">
                                 <button
-                                    class="absolute left-0 text-xl transition hover:text-pink-400 hover:scale-110"
+                                    class="absolute left-0 text-xl transition hover:text-[#fec447] hover:scale-110"
                                     on:click=move |_| set_selected_cat.set(None)
                                 >
                                     "← Back"

@@ -10,14 +10,14 @@ pub fn About() -> impl IntoView {
                 <h1 class="mb-6 text-7xl font-bold">"About"</h1>
                 <a
                     href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/kahboon0425/kahboon_resume/refs/heads/main/resume.pdf"
-                    class="mb-12 text-lg underline transition animate-bounce hover:text-[#F5AA45] hover:scale-105"
+                    class="mb-12 text-lg underline transition animate-bounce hover:text-[#fec447] hover:scale-105"
                 >
                     "View Resume"
                 </a>
 
                 <div class="grid grid-cols-1 gap-8 w-full max-w-5xl md:grid-cols-2">
                     // Skills — orange
-                    <div class="p-8 rounded-2xl shadow-md transition duration-300 cursor-default hover:shadow-xl hover:scale-[1.02]" style="background-color: #F5AA45;">
+                    <div class="p-8 rounded-2xl shadow-md transition duration-300 cursor-default hover:shadow-xl hover:scale-[1.02]" style="background-color: #fec447;">
                         <h2 class="mb-5 text-3xl font-bold text-black">"Skills"</h2>
                         <div class="flex flex-wrap gap-3">
                             {["3D Modeling", "Character Rigging", "Animation", "CGI / VFX", "Booth Design", "ZBrush Sculpting"]
@@ -38,7 +38,7 @@ pub fn About() -> impl IntoView {
                             {["English", "Mandarin", "Bahasa Malaysia"]
                                 .iter()
                                 .map(|l| view! {
-                                    <span class="px-4 py-1.5 text-sm font-medium text-white rounded-full" style="background-color: #F5AA45;">
+                                    <span class="px-4 py-1.5 text-sm font-medium text-white rounded-full" style="background-color: #fec447;">
                                         {*l}
                                     </span>
                                 })
@@ -68,7 +68,7 @@ pub fn About() -> impl IntoView {
                                 .iter()
                                 .map(|s| view! {
                                     <li class="flex gap-3 items-center text-black text-base font-medium">
-                                        <span class="inline-block w-2 h-2 rounded-full shrink-0" style="background-color: #F5AA45;" />
+                                        <span class="inline-block w-2 h-2 rounded-full shrink-0" style="background-color: #fec447;" />
                                         {*s}
                                     </li>
                                 })

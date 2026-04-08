@@ -10,9 +10,9 @@ pub fn Navbar() -> impl IntoView {
     let nav_class = move |path: &'static str| {
         let current = location.pathname.get();
         if current == path {
-            "text-2xl font-semibold pb-1 transition text-[#F5AA45] border-b-2 border-[#F5AA45]"
+            "text-2xl font-semibold pb-1 transition text-[#fec447] border-b-2 border-[#fec447]"
         } else {
-            "text-2xl font-semibold pb-1 transition text-black hover:text-[#F5AA45]"
+            "text-2xl font-semibold pb-1 transition text-black hover:text-[#fec447]"
         }
     };
 
@@ -32,22 +32,30 @@ pub fn Navbar() -> impl IntoView {
 pub fn HamburgerMenu() -> impl IntoView {
     let (open, set_open) = signal(false);
     view! {
+        // Full-screen overlay to close menu on outside click
+        {move || open.get().then(|| view! {
+            <div
+                class="fixed inset-0 z-40"
+                on:click=move |_| set_open.set(false)
+            />
+        })}
         <div class="fixed top-10 right-8 z-50">
             // Toggle button
             <button
-                class="flex flex-col gap-2 justify-center items-center p-3 w-14 h-14 rounded-xl border-2 border-blue-200 bg-white shadow-md transition hover:bg-blue-50 hover:border-blue-400"
+                class="flex flex-col gap-2 justify-center items-center p-3 w-14 h-14 rounded-xl border-2 bg-white shadow-md transition cursor-pointer"
+                style="border-color: #fec447;"
                 on:click=move |_| set_open.update(|v| *v = !*v)
             >
-                <span class="block w-7 h-0.5 bg-blue-500"></span>
-                <span class="block w-7 h-0.5 bg-blue-500"></span>
-                <span class="block w-7 h-0.5 bg-blue-500"></span>
+                <span class="block w-7 h-0.5" style="background-color: #fec447;"></span>
+                <span class="block w-7 h-0.5" style="background-color: #fec447;"></span>
+                <span class="block w-7 h-0.5" style="background-color: #fec447;"></span>
             </button>
             // Dropdown menu
             {move || open.get().then(|| view! {
-                <div class="absolute right-0 mt-2 w-48 rounded-xl border border-gray-200 bg-white shadow-xl overflow-hidden">
-                    <a href="/" class="block px-6 py-4 text-base font-medium transition hover:bg-pink-50 hover:text-pink-500">"Home"</a>
-                    <a href="/about" class="block px-6 py-4 text-base font-medium transition hover:bg-pink-50 hover:text-pink-500">"About"</a>
-                    <a href="/projects" class="block px-6 py-4 text-base font-medium transition hover:bg-pink-50 hover:text-pink-500">"Projects"</a>
+                <div class="absolute right-0 mt-2 w-48 rounded-xl border shadow-xl overflow-hidden" style="border-color: #fec447; background-color: #FFF3E0;">
+                    <a href="/" class="block px-6 py-4 text-base font-medium text-gray-800 transition hover:text-white hover:bg-[#fec447]">"Home"</a>
+                    <a href="/about" class="block px-6 py-4 text-base font-medium text-gray-800 transition hover:text-white hover:bg-[#fec447]">"About"</a>
+                    <a href="/projects" class="block px-6 py-4 text-base font-medium text-gray-800 transition hover:text-white hover:bg-[#fec447]">"Projects"</a>
                 </div>
             })}
         </div>
