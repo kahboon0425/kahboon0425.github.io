@@ -6,7 +6,7 @@ pub fn Projects() -> impl IntoView {
     view! {
         <div class="min-h-screen bg-gray-100">
             <Navbar />
-            <div class="flex flex-col items-center px-8 pt-10 pb-16 md:px-16">
+            <div class="flex flex-col items-center px-8 pt-18 pb-25 md:px-16">
                 <h1 class="mb-12 text-6xl font-bold text-center">"Projects"</h1>
 
                 <div class="grid grid-cols-1 gap-10 w-full max-w-5xl md:grid-cols-2">
