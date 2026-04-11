@@ -10,20 +10,20 @@ pub fn About() -> impl IntoView {
                 <h1 class="mb-6 text-7xl font-bold">"About"</h1>
                 <a
                     href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/kahboon0425/kahboon_resume/refs/heads/main/resume.pdf"
-                    class="mb-12 text-lg underline transition animate-bounce hover:text-[#fec447] hover:scale-105"
+                    class="mb-12 text-xl underline transition animate-bounce hover:text-[#fdbf3a] hover:scale-105"
                 >
                     "View Resume"
                 </a>
 
                 <div class="grid grid-cols-1 gap-8 w-full max-w-5xl md:grid-cols-2">
                     // Skills — orange
-                    <div class="p-8 rounded-2xl shadow-md transition duration-300 cursor-default hover:shadow-xl hover:scale-[1.02]" style="background-color: #fec447;">
+                    <div class="p-8 rounded-2xl shadow-md transition duration-300 cursor-default hover:shadow-xl hover:scale-[1.02]" style="background-color: #fdbf3a;">
                         <h2 class="mb-5 text-3xl font-bold text-black">"Skills"</h2>
                         <div class="flex flex-wrap gap-3">
                             {["3D Modeling", "Character Rigging", "Animation", "CGI / VFX", "Booth Design", "ZBrush Sculpting"]
                                 .iter()
                                 .map(|s| view! {
-                                    <span class="px-4 py-1.5 text-sm font-medium text-black bg-white rounded-full">
+                                    <span class="px-4 py-2 text-base font-medium text-black bg-white rounded-full">
                                         {*s}
                                     </span>
                                 })
@@ -38,7 +38,7 @@ pub fn About() -> impl IntoView {
                             {["English", "Mandarin", "Bahasa Malaysia"]
                                 .iter()
                                 .map(|l| view! {
-                                    <span class="px-4 py-1.5 text-sm font-medium text-white rounded-full" style="background-color: #fec447;">
+                                    <span class="px-4 py-2 text-base font-medium text-white rounded-full" style="background-color: #fdbf3a;">
                                         {*l}
                                     </span>
                                 })
@@ -51,9 +51,9 @@ pub fn About() -> impl IntoView {
                         <h2 class="mb-5 text-3xl font-bold text-black">"Experience"</h2>
                         <ul class="flex flex-col gap-4">
                             <li>
-                                <p class="text-lg font-semibold text-black">"Igmax — Focus on Festival"</p>
-                                <p class="text-sm text-gray-500">"Freelance 3D Artist"</p>
-                                <p class="mt-2 text-sm text-gray-600">
+                                <p class="text-xl font-semibold text-black">"Igmax — Focus on Festival"</p>
+                                <p class="text-base text-gray-500">"Freelance 3D Artist"</p>
+                                <p class="mt-2 text-base text-gray-600">
                                     "Created 3D assets and visual designs for festival events and promotional materials."
                                 </p>
                             </li>
@@ -67,8 +67,8 @@ pub fn About() -> impl IntoView {
                             {["Blender", "ZBrush", "3ds Max", "Adobe After Effects"]
                                 .iter()
                                 .map(|s| view! {
-                                    <li class="flex gap-3 items-center text-black text-base font-medium">
-                                        <span class="inline-block w-2 h-2 rounded-full shrink-0" style="background-color: #fec447;" />
+                                    <li class="flex gap-3 items-center text-black text-lg font-medium">
+                                        <span class="inline-block w-2.5 h-2.5 rounded-full shrink-0" style="background-color: #fdbf3a;" />
                                         {*s}
                                     </li>
                                 })

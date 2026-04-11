@@ -31,7 +31,7 @@ pub fn Projects() -> impl IntoView {
                                 <div class="flex justify-end mt-2">
                                     <span
                                         class="flex justify-center items-center w-9 h-9 rounded-full font-bold text-black transition group-hover:scale-110"
-                                        style="background-color: #fec447;"
+                                        style="background-color: #fdbf3a;"
                                     >"→"</span>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@ pub fn Projects() -> impl IntoView {
                                 <div class="flex justify-end mt-2">
                                     <span
                                         class="flex justify-center items-center w-9 h-9 rounded-full font-bold text-black transition group-hover:scale-110"
-                                        style="background-color: #fec447;"
+                                        style="background-color: #fdbf3a;"
                                     >"→"</span>
                                 </div>
                             </div>

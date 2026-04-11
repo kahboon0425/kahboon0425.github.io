@@ -535,6 +535,23 @@
                         "name": "Theme-Golden-Mandarin-Orchard-金橘园",
                         "children": [
                           {
+                            "File": "2.png"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "Directory": {
+                  "name": "Christmas",
+                  "children": [
+                    {
+                      "Directory": {
+                        "name": "Theme-Golden-Christmas-Funfair",
+                        "children": [
+                          {
                             "File": "1.png"
                           },
                           {
@@ -551,23 +568,9 @@
                           },
                           {
                             "File": "6.png"
-                          }
-                        ]
-                      }
-                    }
-                  ]
-                }
-              },
-              {
-                "Directory": {
-                  "name": "Christmas",
-                  "children": [
-                    {
-                      "Directory": {
-                        "name": "Theme-Golden-Christmas-Carnival",
-                        "children": [
+                          },
                           {
-                            "File": "1.png"
+                            "File": "7.png"
                           }
                         ]
                       }
@@ -575,7 +578,23 @@
                     {
                       "Directory": {
                         "name": "Theme-Monster-In-The-Box",
-                        "children": []
+                        "children": [
+                          {
+                            "File": "1.png"
+                          },
+                          {
+                            "File": "2.png"
+                          },
+                          {
+                            "File": "3.png"
+                          },
+                          {
+                            "File": "4.png"
+                          },
+                          {
+                            "File": "5.png"
+                          }
+                        ]
                       }
                     },
                     {
@@ -598,10 +617,7 @@
                             "File": "4.png"
                           },
                           {
-                            "File": "5.png"
-                          },
-                          {
-                            "File": "7.png"
+                            "File": "6.png"
                           },
                           {
                             "TextFile": {

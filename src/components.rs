@@ -10,9 +10,9 @@ pub fn Navbar() -> impl IntoView {
     let nav_class = move |path: &'static str| {
         let current = location.pathname.get();
         if current == path {
-            "text-2xl font-semibold pb-1 transition text-[#fec447] border-b-2 border-[#fec447]"
+            "text-2xl font-semibold pb-1 transition text-[#fdbf3a] border-b-2 border-[#fdbf3a]"
         } else {
-            "text-2xl font-semibold pb-1 transition text-black hover:text-[#fec447]"
+            "text-2xl font-semibold pb-1 transition text-black hover:text-[#fdbf3a]"
         }
     };
 
@@ -43,19 +43,19 @@ pub fn HamburgerMenu() -> impl IntoView {
             // Toggle button
             <button
                 class="flex flex-col gap-2 justify-center items-center p-3 w-14 h-14 rounded-xl border-2 bg-white shadow-md transition cursor-pointer"
-                style="border-color: #fec447;"
+                style="border-color: #fdbf3a;"
                 on:click=move |_| set_open.update(|v| *v = !*v)
             >
-                <span class="block w-7 h-0.5" style="background-color: #fec447;"></span>
-                <span class="block w-7 h-0.5" style="background-color: #fec447;"></span>
-                <span class="block w-7 h-0.5" style="background-color: #fec447;"></span>
+                <span class="block w-7 h-0.5" style="background-color: #fdbf3a;"></span>
+                <span class="block w-7 h-0.5" style="background-color: #fdbf3a;"></span>
+                <span class="block w-7 h-0.5" style="background-color: #fdbf3a;"></span>
             </button>
             // Dropdown menu
             {move || open.get().then(|| view! {
-                <div class="absolute right-0 mt-2 w-48 rounded-xl border shadow-xl overflow-hidden" style="border-color: #fec447; background-color: #FFF3E0;">
-                    <a href="/" class="block px-6 py-4 text-base font-medium text-gray-800 transition hover:text-white hover:bg-[#fec447]">"Home"</a>
-                    <a href="/about" class="block px-6 py-4 text-base font-medium text-gray-800 transition hover:text-white hover:bg-[#fec447]">"About"</a>
-                    <a href="/projects" class="block px-6 py-4 text-base font-medium text-gray-800 transition hover:text-white hover:bg-[#fec447]">"Projects"</a>
+                <div class="absolute right-0 mt-2 w-48 rounded-xl border shadow-xl overflow-hidden" style="border-color: #fdbf3a; background-color: #FFF3E0;">
+                    <a href="/" class="block px-6 py-4 text-base font-medium text-gray-800 transition hover:text-white hover:bg-[#fdbf3a]">"Home"</a>
+                    <a href="/about" class="block px-6 py-4 text-base font-medium text-gray-800 transition hover:text-white hover:bg-[#fdbf3a]">"About"</a>
+                    <a href="/projects" class="block px-6 py-4 text-base font-medium text-gray-800 transition hover:text-white hover:bg-[#fdbf3a]">"Projects"</a>
                 </div>
             })}
         </div>
