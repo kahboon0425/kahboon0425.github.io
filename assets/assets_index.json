@@ -522,8 +522,20 @@
             "children": [
               {
                 "Directory": {
+                  "name": "Beauty-Fair",
+                  "children": []
+                }
+              },
+              {
+                "Directory": {
                   "name": "Chinese-New-Year",
                   "children": [
+                    {
+                      "Directory": {
+                        "name": "Theme-Bambu",
+                        "children": []
+                      }
+                    },
                     {
                       "Directory": {
                         "name": "Theme-Blossoms-of-Prosperity-花开富贵",
@@ -536,6 +548,28 @@
                         "children": [
                           {
                             "File": "2.png"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "Directory": {
+                        "name": "Theme-Springtime in Nyonya House",
+                        "children": [
+                          {
+                            "File": "1.png"
+                          },
+                          {
+                            "File": "2.png"
+                          },
+                          {
+                            "File": "3.png"
+                          },
+                          {
+                            "File": "4.png"
+                          },
+                          {
+                            "File": "5.png"
                           }
                         ]
                       }
@@ -568,9 +602,6 @@
                           },
                           {
                             "File": "6.png"
-                          },
-                          {
-                            "File": "7.png"
                           }
                         ]
                       }
@@ -592,7 +623,7 @@
                             "File": "4.png"
                           },
                           {
-                            "File": "5.png"
+                            "File": "6.png"
                           }
                         ]
                       }
@@ -601,9 +632,6 @@
                       "Directory": {
                         "name": "Theme-Santa's-Dessert-Party",
                         "children": [
-                          {
-                            "File": "01.png"
-                          },
                           {
                             "File": "1.png"
                           },
@@ -617,7 +645,7 @@
                             "File": "4.png"
                           },
                           {
-                            "File": "6.png"
+                            "File": "5.png"
                           },
                           {
                             "TextFile": {
@@ -633,13 +661,45 @@
               },
               {
                 "Directory": {
-                  "name": "Hari-Raya",
+                  "name": "Easter-Day",
                   "children": []
                 }
               },
               {
                 "Directory": {
+                  "name": "Hari-Raya",
+                  "children": [
+                    {
+                      "Directory": {
+                        "name": "Theme-Seindah-Corak-Aidilfitri",
+                        "children": [
+                          {
+                            "File": "1.png"
+                          },
+                          {
+                            "File": "3.png"
+                          },
+                          {
+                            "File": "4.png"
+                          },
+                          {
+                            "File": "8.png"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "Directory": {
                   "name": "Mid-Autumn",
+                  "children": []
+                }
+              },
+              {
+                "Directory": {
+                  "name": "Travel-Fair",
                   "children": []
                 }
               }

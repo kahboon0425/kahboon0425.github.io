@@ -20,7 +20,7 @@ pub fn Projects() -> impl IntoView {
                             <div class="overflow-hidden h-72">
                                 <img
                                     class="object-cover w-full h-full transition duration-500 group-hover:scale-110"
-                                    src="assets/images/Work-Projects/Christmas/Theme-Santa's-Dessert-Party/01.png"
+                                    src="assets/images/Work-Projects/Christmas/Theme-Santa's-Dessert-Party/1.png"
                                     alt="Work"
                                 />
                             </div>

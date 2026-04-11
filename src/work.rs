@@ -3,6 +3,7 @@ use crate::{
     extract, get_directory_node, AssetNode,
 };
 use leptos::prelude::*;
+use leptos::web_sys;
 
 /// Maps (display name, folder name under Work-Projects/).
 const CATEGORIES: &[(&str, &str)] = &[
@@ -78,21 +79,64 @@ pub fn Work() -> impl IntoView {
                             _ => None,
                         });
 
-                    let (zoomed_img, set_zoomed_img) = signal::<Option<String>>(None);
+                    let images_for_lightbox = images.clone();
+                    let images_for_kb = images.clone();
+                    let (zoomed_idx, set_zoomed_idx) = signal::<Option<usize>>(None);
+
+                    // Keyboard navigation for lightbox
+                    let _kb = window_event_listener(leptos::ev::keydown, move |e: web_sys::KeyboardEvent| {
+                        if let Some(idx) = zoomed_idx.get() {
+                            let total = images_for_kb.len();
+                            match e.key().as_str() {
+                                "ArrowLeft"  => set_zoomed_idx.set(Some(if idx == 0 { total - 1 } else { idx - 1 })),
+                                "ArrowRight" => set_zoomed_idx.set(Some((idx + 1) % total)),
+                                "Escape"     => set_zoomed_idx.set(None),
+                                _ => {}
+                            }
+                        }
+                    });
 
                     view! {
                         // Lightbox overlay
-                        {move || zoomed_img.get().map(|src| view! {
-                            <div
-                                class="flex fixed inset-0 z-50 justify-center items-center bg-black/80 cursor-zoom-out"
-                                on:click=move |_| set_zoomed_img.set(None)
-                            >
-                                <img
-                                    class="max-w-[90vw] max-h-[90vh] rounded-xl shadow-2xl object-contain cursor-zoom-out"
-                                    src=src
-                                    on:click=move |_| set_zoomed_img.set(None)
-                                />
-                            </div>
+                        {move || zoomed_idx.get().map(|idx| {
+                            let src = images_for_lightbox[idx].clone();
+                            let total = images_for_lightbox.len();
+                            view! {
+                                <div
+                                    class="flex fixed inset-0 z-50 justify-center items-center bg-black/80"
+                                    on:click=move |_| set_zoomed_idx.set(None)
+                                >
+                                    // Left arrow
+                                    <button
+                                        class="absolute left-4 z-10 flex justify-center items-center w-12 h-12 text-2xl text-white rounded-full transition bg-white/20 hover:bg-white/40"
+                                        on:click=move |e| {
+                                            e.stop_propagation();
+                                            set_zoomed_idx.set(Some(if idx == 0 { total - 1 } else { idx - 1 }));
+                                        }
+                                    >"‹"</button>
+
+                                    // Image
+                                    <img
+                                        class="max-w-[80vw] max-h-[90vh] rounded-xl shadow-2xl object-contain cursor-zoom-out"
+                                        src=src
+                                        on:click=move |_| set_zoomed_idx.set(None)
+                                    />
+
+                                    // Right arrow
+                                    <button
+                                        class="absolute right-4 z-10 flex justify-center items-center w-12 h-12 text-2xl text-white rounded-full transition bg-white/20 hover:bg-white/40"
+                                        on:click=move |e| {
+                                            e.stop_propagation();
+                                            set_zoomed_idx.set(Some((idx + 1) % total));
+                                        }
+                                    >"›"</button>
+
+                                    // Counter
+                                    <div class="absolute bottom-4 text-sm text-white/70">
+                                        {format!("{} / {}", idx + 1, total)}
+                                    </div>
+                                </div>
+                            }
                         })}
 
                         <div class="px-10 py-12 md:px-20">
@@ -111,14 +155,13 @@ pub fn Work() -> impl IntoView {
                             <div class="flex flex-col gap-8 lg:flex-row">
                                 // Left — image grid
                                 <div class="grid flex-1 grid-cols-2 gap-4 md:grid-cols-3">
-                                    {images.into_iter().map(|img| {
-                                        let img_clone = img.clone();
+                                    {images.into_iter().enumerate().map(|(i, img)| {
                                         view! {
                                             <img
                                                 class="object-cover w-full rounded-xl shadow-md aspect-square transition cursor-zoom-in hover:scale-[1.02] hover:shadow-xl"
                                                 src=img
                                                 alt=display_name.clone()
-                                                on:click=move |_| set_zoomed_img.set(Some(img_clone.clone()))
+                                                on:click=move |_| set_zoomed_idx.set(Some(i))
                                             />
                                         }
                                     }).collect::<Vec<_>>()}
