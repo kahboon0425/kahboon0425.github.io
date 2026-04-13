@@ -522,12 +522,6 @@
             "children": [
               {
                 "Directory": {
-                  "name": "Beauty-Fair",
-                  "children": []
-                }
-              },
-              {
-                "Directory": {
                   "name": "Chinese-New-Year",
                   "children": [
                     {
@@ -661,14 +655,30 @@
               },
               {
                 "Directory": {
-                  "name": "Easter-Day",
-                  "children": []
-                }
-              },
-              {
-                "Directory": {
                   "name": "Hari-Raya",
                   "children": [
+                    {
+                      "Directory": {
+                        "name": "Kaleido-Raya-Moments",
+                        "children": [
+                          {
+                            "File": "1.png"
+                          },
+                          {
+                            "File": "2.png"
+                          },
+                          {
+                            "File": "3.png"
+                          },
+                          {
+                            "File": "4.png"
+                          },
+                          {
+                            "File": "5.png"
+                          }
+                        ]
+                      }
+                    },
                     {
                       "Directory": {
                         "name": "Theme-Seindah-Corak-Aidilfitri",
@@ -699,8 +709,40 @@
               },
               {
                 "Directory": {
-                  "name": "Travel-Fair",
-                  "children": []
+                  "name": "Small-Event",
+                  "children": [
+                    {
+                      "Directory": {
+                        "name": "Beauty-Fair",
+                        "children": []
+                      }
+                    },
+                    {
+                      "Directory": {
+                        "name": "Easter-Day",
+                        "children": []
+                      }
+                    },
+                    {
+                      "Directory": {
+                        "name": "Goodies-for-Foodies",
+                        "children": [
+                          {
+                            "File": "1.png"
+                          },
+                          {
+                            "File": "2.png"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "Directory": {
+                        "name": "Travel-Fair",
+                        "children": []
+                      }
+                    }
+                  ]
                 }
               }
             ]

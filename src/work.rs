@@ -5,15 +5,8 @@ use crate::{
 use leptos::prelude::*;
 use leptos::web_sys;
 
-/// Maps (display name, folder name under Work-Projects/).
-const CATEGORIES: &[(&str, &str)] = &[
-    ("Christmas", "Christmas"),
-    ("CNY", "Chinese-New-Year"),
-    ("Hari Raya", "Hari-Raya"),
-    ("Mid Autumn", "Mid-Autumn"),
-];
-
 /// "Theme-Santa's-Dessert-Party" → "Santa's Dessert Party"
+/// "Chinese-New-Year" → "Chinese New Year"
 fn folder_to_display_name(folder: &str) -> String {
     folder
         .strip_prefix("Theme-")
@@ -23,6 +16,18 @@ fn folder_to_display_name(folder: &str) -> String {
 
 #[component]
 pub fn Work() -> impl IntoView {
+    // Dynamically read category folders from the asset tree (folder_name, display_name)
+    let categories = StoredValue::new(
+        get_directory_node(&["images", "Work-Projects"])
+            .unwrap_or(&[])
+            .iter()
+            .filter_map(|n| match n {
+                AssetNode::Directory { name, .. } => Some((name.clone(), folder_to_display_name(name))),
+                _ => None,
+            })
+            .collect::<Vec<(String, String)>>()
+    );
+
     let (selected_cat, set_selected_cat) = signal(0usize);
     // (category index, theme index within that category)
     let (selected_theme, set_selected_theme) = signal::<Option<(usize, usize)>>(None);
@@ -35,9 +40,9 @@ pub fn Work() -> impl IntoView {
 
                 // ── Project detail view ───────────────────────────────
                 Some((cat_idx, theme_idx)) => {
-                    let (cat_name, cat_folder) = CATEGORIES[cat_idx];
-                    let path = ["images", "Work-Projects", cat_folder];
-                    let themes = get_directory_node(&path).unwrap_or(&[]);
+                    let (cat_folder, cat_display) = categories.with_value(|c: &Vec<(String,String)>| c[cat_idx].clone());
+                    let cat_path = ["images", "Work-Projects", cat_folder.as_str()];
+                    let themes = get_directory_node(&cat_path).unwrap_or(&[]);
 
                     let theme_dirs: Vec<(&str, &[AssetNode])> = themes
                         .iter()
@@ -67,7 +72,7 @@ pub fn Work() -> impl IntoView {
                         .map(|name| {
                             format!(
                                 "assets/images/Work-Projects/{}/{}/{}",
-                                cat_folder, theme_folder, name
+                                cat_folder.as_str(), theme_folder, name
                             )
                         })
                         .collect();
@@ -177,7 +182,7 @@ pub fn Work() -> impl IntoView {
                                     })}
                                     <div class="flex gap-2 mt-2">
                                         <span class="inline-block px-3 py-1 text-sm font-medium text-black rounded-full" style="background-color: #fdbf3a;">
-                                            {cat_name}
+                                            {cat_display.clone()}
                                         </span>
                                     </div>
                                 </div>
@@ -203,34 +208,38 @@ pub fn Work() -> impl IntoView {
 
                         // Category tab bar
                         <div class="flex gap-6 mb-8 border-b border-gray-200 overflow-x-auto justify-center">
-                            {CATEGORIES
-                                .iter()
-                                .enumerate()
-                                .map(|(i, (cat_name, _))| view! {
-                                    <button
-                                        class=move || {
-                                            let base = "pb-3 text-lg font-medium whitespace-nowrap transition hover:text-[#fdbf3a]";
-                                            if selected_cat.get() == i {
-                                                format!("{base} text-[#fdbf3a] border-b-2 border-[#fdbf3a]")
-                                            } else {
-                                                format!("{base} text-gray-400")
-                                            }
+                            {categories.with_value(|c: &Vec<(String,String)>| {
+                                c.iter()
+                                    .enumerate()
+                                    .map(|(i, (_, display))| {
+                                        let display = display.clone();
+                                        view! {
+                                            <button
+                                                class=move || {
+                                                    let base = "pb-3 text-lg font-medium whitespace-nowrap transition hover:text-[#fdbf3a]";
+                                                    if selected_cat.get() == i {
+                                                        format!("{base} text-[#fdbf3a] border-b-2 border-[#fdbf3a]")
+                                                    } else {
+                                                        format!("{base} text-gray-400")
+                                                    }
+                                                }
+                                                on:click=move |_| set_selected_cat.set(i)
+                                            >
+                                                {display.clone()}
+                                            </button>
                                         }
-                                        on:click=move |_| set_selected_cat.set(i)
-                                    >
-                                        {*cat_name}
-                                    </button>
-                                })
-                                .collect::<Vec<_>>()}
+                                    })
+                                    .collect::<Vec<_>>()
+                            })}
                         </div>
 
                         // Theme cards for selected category
                         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                             {move || {
                                 let cat_idx = selected_cat.get();
-                                let (_, cat_folder) = CATEGORIES[cat_idx];
-                                let path = ["images", "Work-Projects", cat_folder];
-                                let themes = get_directory_node(&path).unwrap_or(&[]);
+                                let cat_folder = categories.with_value(|c: &Vec<(String,String)>| c[cat_idx].0.clone());
+                                let cat_path = ["images", "Work-Projects", cat_folder.as_str()];
+                                let themes = get_directory_node(&cat_path).unwrap_or(&[]);
 
                                 let items: Vec<_> = themes
                                     .iter()
@@ -262,7 +271,7 @@ pub fn Work() -> impl IntoView {
                                         let cover = cover.map(|name| {
                                             format!(
                                                 "assets/images/Work-Projects/{}/{}/{}",
-                                                cat_folder, theme_folder, name
+                                                cat_folder.as_str(), theme_folder, name
                                             )
                                         })?;
 
