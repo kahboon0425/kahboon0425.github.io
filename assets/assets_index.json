@@ -526,12 +526,6 @@
                   "children": [
                     {
                       "Directory": {
-                        "name": "Theme-Bambu",
-                        "children": []
-                      }
-                    },
-                    {
-                      "Directory": {
                         "name": "Theme-Blossoms-of-Prosperity-花开富贵",
                         "children": []
                       }
@@ -542,6 +536,28 @@
                         "children": [
                           {
                             "File": "2.png"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "Directory": {
+                        "name": "Theme-Ride-home-where-hearts-reunite-千里奔赴只为团圆",
+                        "children": [
+                          {
+                            "File": "1.png"
+                          },
+                          {
+                            "File": "2.png"
+                          },
+                          {
+                            "File": "3.png"
+                          },
+                          {
+                            "File": "4.png"
+                          },
+                          {
+                            "File": "5.png"
                           }
                         ]
                       }
@@ -675,6 +691,9 @@
                           },
                           {
                             "File": "5.png"
+                          },
+                          {
+                            "File": "6.png"
                           }
                         ]
                       }
