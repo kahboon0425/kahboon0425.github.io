@@ -94,9 +94,6 @@
                     },
                     {
                       "File": "3.mp4"
-                    },
-                    {
-                      "File": "4.mp4"
                     }
                   ]
                 }
@@ -116,7 +113,7 @@
                             "File": "2.mp4"
                           },
                           {
-                            "File": "3.mp4"
+                            "File": "3a.mp4"
                           },
                           {
                             "File": "4.mp4"
@@ -703,6 +700,12 @@
                           },
                           {
                             "File": "5.png"
+                          },
+                          {
+                            "TextFile": {
+                              "name": "decription.txt",
+                              "content": "This is my first version of the design for the project. I have designed a layered horse placed on top of a large flower-shaped structure, symbolizing success rising from prosperity and growth. The project won the tender, but the design was later changed to a large carousel lantern."
+                            }
                           }
                         ]
                       }
@@ -722,6 +725,12 @@
                           },
                           {
                             "File": "4.png"
+                          },
+                          {
+                            "TextFile": {
+                              "name": "decription.txt",
+                              "content": "This was a large-scale project completed as part of a team. I was not responsible for the entire project, and the image shown shows the part I worked on. The client’s requirement was to create a Hong Kong kopitiam atmosphere for the Chinese New Year theme."
+                            }
                           }
                         ]
                       }
@@ -741,6 +750,12 @@
                           },
                           {
                             "File": "4.png"
+                          },
+                          {
+                            "TextFile": {
+                              "name": "decription.txt",
+                              "content": "The client’s requirement for this project was to have a large lantern carousel (走馬燈) for Chinese New Year as a centerpiece."
+                            }
                           }
                         ]
                       }
@@ -760,6 +775,12 @@
                           },
                           {
                             "File": "4.png"
+                          },
+                          {
+                            "TextFile": {
+                              "name": "decription.txt",
+                              "content": "This is my first project that won a tender. For this project, the client wanted the Christmas design to have a funfair-like atmosphere."
+                            }
                           }
                         ]
                       }
@@ -782,6 +803,12 @@
                           },
                           {
                             "File": "5.png"
+                          },
+                          {
+                            "TextFile": {
+                              "name": "decription.txt",
+                              "content": "The client’s requirement for this project was to create a design that could be easily transformed from Chinese New Year to Hari Raya. My idea was to use a Baba Nyonya concept, as it represents both Chinese and Malay cultures and allows for flexible transformation between themes. However, the project was not successful in the final tender stage."
+                            }
                           }
                         ]
                       }
@@ -814,6 +841,12 @@
                           },
                           {
                             "File": "6.png"
+                          },
+                          {
+                            "TextFile": {
+                              "name": "decription.txt",
+                              "content": "This is my first project that won a tender. For this project, the client wanted the Christmas design to have a funfair-like atmosphere."
+                            }
                           }
                         ]
                       }
@@ -836,6 +869,12 @@
                           },
                           {
                             "File": "6.png"
+                          },
+                          {
+                            "TextFile": {
+                              "name": "decription.txt",
+                              "content": "This was the first project I completed after joining the company. The client wanted the entire Christmas setup to be fluffy, creating a soft and cozy festive atmosphere."
+                            }
                           }
                         ]
                       }

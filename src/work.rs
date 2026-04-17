@@ -17,16 +17,21 @@ fn folder_to_display_name(folder: &str) -> String {
 #[component]
 pub fn Work() -> impl IntoView {
     // Dynamically read category folders from the asset tree (folder_name, display_name)
-    let categories = StoredValue::new(
-        get_directory_node(&["images", "Work-Projects"])
+    const CAT_ORDER: &[&str] = &["Christmas", "Chinese-New-Year", "Hari-Raya", "Mid-Autumn", "Small-Event"];
+    let categories = StoredValue::new({
+        let mut cats: Vec<(String, String)> = get_directory_node(&["images", "Work-Projects"])
             .unwrap_or(&[])
             .iter()
             .filter_map(|n| match n {
                 AssetNode::Directory { name, .. } => Some((name.clone(), folder_to_display_name(name))),
                 _ => None,
             })
-            .collect::<Vec<(String, String)>>()
-    );
+            .collect();
+        cats.sort_by_key(|(name, _)| {
+            CAT_ORDER.iter().position(|&o| o == name.as_str()).unwrap_or(usize::MAX)
+        });
+        cats
+    });
 
     let (selected_cat, set_selected_cat) = signal(0usize);
     // (category index, theme index within that category)
