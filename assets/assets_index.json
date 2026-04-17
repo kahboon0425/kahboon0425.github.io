@@ -526,23 +526,7 @@
                   "children": [
                     {
                       "Directory": {
-                        "name": "Theme-Blossoms-of-Prosperity-花开富贵",
-                        "children": []
-                      }
-                    },
-                    {
-                      "Directory": {
-                        "name": "Theme-Golden-Mandarin-Orchard-金橘园",
-                        "children": [
-                          {
-                            "File": "2.png"
-                          }
-                        ]
-                      }
-                    },
-                    {
-                      "Directory": {
-                        "name": "Theme-Ride-home-where-hearts-reunite-千里奔赴只为团圆",
+                        "name": "A -Journey-Home-for-Reunion-千里奔赴只为团圆",
                         "children": [
                           {
                             "File": "1.png"
@@ -558,6 +542,63 @@
                           },
                           {
                             "File": "5.png"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "Directory": {
+                        "name": "Hongkong-Kopitiam",
+                        "children": [
+                          {
+                            "File": "1.png"
+                          },
+                          {
+                            "File": "2.png"
+                          },
+                          {
+                            "File": "3.png"
+                          },
+                          {
+                            "File": "4.png"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "Directory": {
+                        "name": "Lantern Reunion-灯火团圆",
+                        "children": [
+                          {
+                            "File": "1.png"
+                          },
+                          {
+                            "File": "2.png"
+                          },
+                          {
+                            "File": "3.png"
+                          },
+                          {
+                            "File": "4.png"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "Directory": {
+                        "name": "Theme-Golden-Mandarin-Orchard-金橘园",
+                        "children": [
+                          {
+                            "File": "1.png"
+                          },
+                          {
+                            "File": "2.png"
+                          },
+                          {
+                            "File": "3.png"
+                          },
+                          {
+                            "File": "4.png"
                           }
                         ]
                       }
@@ -694,6 +735,12 @@
                           },
                           {
                             "File": "6.png"
+                          },
+                          {
+                            "File": "7.png"
+                          },
+                          {
+                            "File": "8.png"
                           }
                         ]
                       }
@@ -706,7 +753,7 @@
                             "File": "1.png"
                           },
                           {
-                            "File": "3.png"
+                            "File": "2.png"
                           },
                           {
                             "File": "4.png"
@@ -723,7 +770,39 @@
               {
                 "Directory": {
                   "name": "Mid-Autumn",
-                  "children": []
+                  "children": [
+                    {
+                      "Directory": {
+                        "name": "Theme-Blossoms-of-Prosperity-花开富贵",
+                        "children": [
+                          {
+                            "File": "1.png"
+                          },
+                          {
+                            "File": "2.png"
+                          },
+                          {
+                            "File": "3.png"
+                          },
+                          {
+                            "File": "4.png"
+                          },
+                          {
+                            "File": "5.png"
+                          },
+                          {
+                            "File": "6.png"
+                          },
+                          {
+                            "File": "7.png"
+                          },
+                          {
+                            "File": "8.png"
+                          }
+                        ]
+                      }
+                    }
+                  ]
                 }
               },
               {
@@ -733,13 +812,27 @@
                     {
                       "Directory": {
                         "name": "Beauty-Fair",
-                        "children": []
+                        "children": [
+                          {
+                            "File": "1.png"
+                          },
+                          {
+                            "File": "3.png"
+                          },
+                          {
+                            "File": "4.png"
+                          }
+                        ]
                       }
                     },
                     {
                       "Directory": {
                         "name": "Easter-Day",
-                        "children": []
+                        "children": [
+                          {
+                            "File": "1.png"
+                          }
+                        ]
                       }
                     },
                     {
@@ -758,7 +851,14 @@
                     {
                       "Directory": {
                         "name": "Travel-Fair",
-                        "children": []
+                        "children": [
+                          {
+                            "File": "1.png"
+                          },
+                          {
+                            "File": "2.png"
+                          }
+                        ]
                       }
                     }
                   ]
