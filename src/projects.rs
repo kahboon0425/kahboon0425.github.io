@@ -53,7 +53,7 @@ pub fn Projects() -> impl IntoView {
                                     oncanplay="this.muted=true"
                                 >
                                     <source
-                                        src="assets/images/portfolio/3D-Anim-Char-Sushi Queen/showcase.mp4"
+                                        src="assets/images/Personal-Projects/Character-Design/cover.mp4"
                                         type="video/mp4"
                                     />
                                 </video>

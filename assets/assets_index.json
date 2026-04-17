@@ -52,6 +52,193 @@
       "children": [
         {
           "Directory": {
+            "name": "Personal-Projects",
+            "children": [
+              {
+                "Directory": {
+                  "name": "2D-Art",
+                  "children": [
+                    {
+                      "File": "1.png"
+                    },
+                    {
+                      "File": "2.png"
+                    },
+                    {
+                      "File": "3.png"
+                    },
+                    {
+                      "File": "4.png"
+                    },
+                    {
+                      "File": "5.png"
+                    },
+                    {
+                      "File": "6.png"
+                    },
+                    {
+                      "File": "7.png"
+                    }
+                  ]
+                }
+              },
+              {
+                "Directory": {
+                  "name": "CGI",
+                  "children": [
+                    {
+                      "File": "1.mp4"
+                    },
+                    {
+                      "File": "2.mp4"
+                    },
+                    {
+                      "File": "3.mp4"
+                    },
+                    {
+                      "File": "4.mp4"
+                    }
+                  ]
+                }
+              },
+              {
+                "Directory": {
+                  "name": "Character-Design",
+                  "children": [
+                    {
+                      "Directory": {
+                        "name": "Baguette&PoloBun",
+                        "children": [
+                          {
+                            "File": "1.mp4"
+                          },
+                          {
+                            "File": "2.mp4"
+                          },
+                          {
+                            "File": "3.mp4"
+                          },
+                          {
+                            "File": "4.mp4"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "File": "cover.mp4"
+                    },
+                    {
+                      "Directory": {
+                        "name": "Sushi-Prawn&Salmon",
+                        "children": [
+                          {
+                            "File": "1.mp4"
+                          },
+                          {
+                            "File": "2.png"
+                          },
+                          {
+                            "File": "3.png"
+                          },
+                          {
+                            "File": "4.mp4"
+                          },
+                          {
+                            "File": "5.png"
+                          },
+                          {
+                            "File": "6.png"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "Directory": {
+                        "name": "Sushi-Queen",
+                        "children": [
+                          {
+                            "File": "1.mp4"
+                          },
+                          {
+                            "File": "2.png"
+                          },
+                          {
+                            "File": "3.mp4"
+                          },
+                          {
+                            "File": "4.png"
+                          },
+                          {
+                            "File": "5.png"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "Directory": {
+                  "name": "Game-Art",
+                  "children": [
+                    {
+                      "File": "1.mp4"
+                    },
+                    {
+                      "File": "2.mp4"
+                    },
+                    {
+                      "File": "3.mp4"
+                    }
+                  ]
+                }
+              },
+              {
+                "Directory": {
+                  "name": "More",
+                  "children": [
+                    {
+                      "File": "1.png"
+                    },
+                    {
+                      "File": "2.png"
+                    },
+                    {
+                      "File": "3.mp4"
+                    },
+                    {
+                      "File": "4.png"
+                    },
+                    {
+                      "File": "5.mp4"
+                    },
+                    {
+                      "File": "6.mp4"
+                    }
+                  ]
+                }
+              },
+              {
+                "Directory": {
+                  "name": "Sculpting",
+                  "children": [
+                    {
+                      "File": "1.png"
+                    },
+                    {
+                      "File": "2.jpg"
+                    },
+                    {
+                      "File": "3.mp4"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Directory": {
             "name": "portfolio",
             "children": [
               {
