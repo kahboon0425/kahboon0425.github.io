@@ -395,22 +395,6 @@
               },
               {
                 "Directory": {
-                  "name": "3D-Donut",
-                  "children": [
-                    {
-                      "File": "donut in plate.png"
-                    },
-                    {
-                      "File": "donut undenoise.png"
-                    },
-                    {
-                      "File": "showcase.png"
-                    }
-                  ]
-                }
-              },
-              {
-                "Directory": {
                   "name": "3D-Gatcha Machine",
                   "children": [
                     {
@@ -444,16 +428,6 @@
                     },
                     {
                       "File": "tin.png"
-                    }
-                  ]
-                }
-              },
-              {
-                "Directory": {
-                  "name": "3D-Tree",
-                  "children": [
-                    {
-                      "File": "showcase.png"
                     }
                   ]
                 }

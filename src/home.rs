@@ -28,9 +28,9 @@ pub fn Home() -> impl IntoView {
                         <br class="hidden md:block" />
                         "Kah Boon"
                     </h1>
-                    <p class="text-2xl font-bold md:text-3xl" style="color: #fdbf3a;">"3D Artist & Designer"</p>
+                    <p class="text-2xl font-bold md:text-3xl" style="color: #fdbf3a;">"3D Designer"</p>
                     <p class="text-lg leading-relaxed text-gray-700 md:text-xl">
-                        "Passionate about creating cute and stylized characters. Self-taught in Blender and ZBrush."
+                        "Passionate about creating 3D art. Experienced in creating 3D designs for various events using 3ds Max. Self-taught in Blender and ZBrush."
                     </p>
 
                     // Social icons in circles

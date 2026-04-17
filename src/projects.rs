@@ -20,14 +20,14 @@ pub fn Projects() -> impl IntoView {
                             <div class="overflow-hidden h-72">
                                 <img
                                     class="object-cover w-full h-full transition duration-500 group-hover:scale-110"
-                                    src="assets/images/Work-Projects/Christmas/Theme-Santa's-Dessert-Party/1.png"
+                                    src="assets/images/Work-Projects/Christmas/Theme-Golden-Christmas-Funfair/2.png"
                                     alt="Work"
                                 />
                             </div>
                             // Text bottom
                             <div class="flex flex-col gap-2 p-6">
                                 <h2 class="text-3xl font-bold text-black">"Work"</h2>
-                                <p class="text-base text-gray-500">"3D booth designs & event projects."</p>
+                                <p class="text-base text-gray-500">"3D Event Design."</p>
                                 <div class="flex justify-end mt-2">
                                     <span
                                         class="flex justify-center items-center w-9 h-9 rounded-full font-bold text-black transition group-hover:scale-110"
@@ -61,7 +61,7 @@ pub fn Projects() -> impl IntoView {
                             // Text bottom
                             <div class="flex flex-col gap-2 p-6">
                                 <h2 class="text-3xl font-bold text-black">"Personal"</h2>
-                                <p class="text-base text-gray-500">"Characters, animations & personal art."</p>
+                                <p class="text-base text-gray-500">"Characters Design, Sculpting, CGI, 2D Art & More."</p>
                                 <div class="flex justify-end mt-2">
                                     <span
                                         class="flex justify-center items-center w-9 h-9 rounded-full font-bold text-black transition group-hover:scale-110"
