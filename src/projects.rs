@@ -25,12 +25,12 @@ pub fn Projects() -> impl IntoView {
                                 />
                             </div>
                             // Text bottom
-                            <div class="flex flex-col gap-2 p-6">
+                            <div class="flex flex-col gap-1 p-6">
                                 <h2 class="text-3xl font-bold text-black">"Work"</h2>
-                                <p class="text-base text-gray-500">"3D Event Design."</p>
-                                <div class="flex justify-end mt-2">
+                                <div class="flex justify-between items-center">
+                                    <p class="text-base text-gray-500">"3D Event Design"</p>
                                     <span
-                                        class="flex justify-center items-center w-9 h-9 rounded-full font-bold text-black transition group-hover:scale-110"
+                                        class="flex shrink-0 justify-center items-center ml-3 w-9 h-9 rounded-full font-bold text-black transition group-hover:scale-110"
                                         style="background-color: #fdbf3a;"
                                     >"→"</span>
                                 </div>
@@ -59,12 +59,12 @@ pub fn Projects() -> impl IntoView {
                                 </video>
                             </div>
                             // Text bottom
-                            <div class="flex flex-col gap-2 p-6">
+                            <div class="flex flex-col gap-1 p-6">
                                 <h2 class="text-3xl font-bold text-black">"Personal"</h2>
-                                <p class="text-base text-gray-500">"Characters Design, Sculpting, CGI, 2D Art & More."</p>
-                                <div class="flex justify-end mt-2">
+                                <div class="flex justify-between items-center">
+                                    <p class="text-base text-gray-500">"Characters Design, Sculpting, Animation & More"</p>
                                     <span
-                                        class="flex justify-center items-center w-9 h-9 rounded-full font-bold text-black transition group-hover:scale-110"
+                                        class="flex shrink-0 justify-center items-center ml-3 w-9 h-9 rounded-full font-bold text-black transition group-hover:scale-110"
                                         style="background-color: #fdbf3a;"
                                     >"→"</span>
                                 </div>
