@@ -47,10 +47,9 @@ pub fn Projects() -> impl IntoView {
                                 <video
                                     class="object-cover w-full h-full transition duration-500 group-hover:scale-110"
                                     autoplay
-                                    muted
                                     loop
                                     playsinline
-                                    oncanplay="this.muted=true"
+                                    prop:muted=true
                                 >
                                     <source
                                         src="assets/images/Personal-Projects/Character-Design/cover.mp4"

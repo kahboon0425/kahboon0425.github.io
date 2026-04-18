@@ -149,22 +149,33 @@ pub fn Work() -> impl IntoView {
                             }
                         })}
 
-                        <div class="px-10 py-12 md:px-20">
+                        <div class="px-10 pt-10 pb-12 md:px-20 md:pt-12">
                             // Back + title
-                            <div class="relative flex justify-center items-center mb-8">
-                                <button
-                                    class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
-                                    on:click=move |_| set_selected_theme.set(None)
-                                >
-                                    "← Back"
-                                </button>
-                                <h1 class="text-4xl font-bold">{display_name.clone()}</h1>
+                            <div class="mb-6">
+                                <div class="flex items-center pr-16 pt-3 mb-6 md:hidden">
+                                    <button
+                                        class="text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
+                                        on:click=move |_| set_selected_theme.set(None)
+                                    >
+                                        "← Back"
+                                    </button>
+                                </div>
+                                <div class="hidden relative justify-center items-center md:flex">
+                                    <button
+                                        class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
+                                        on:click=move |_| set_selected_theme.set(None)
+                                    >
+                                        "← Back"
+                                    </button>
+                                    <h1 class="text-4xl font-bold">{display_name.clone()}</h1>
+                                </div>
+                                <h1 class="text-2xl font-bold text-center w-full md:hidden">{display_name.clone()}</h1>
                             </div>
 
                             // Two-column layout: images left, details right
                             <div class="flex flex-col gap-8 lg:flex-row">
                                 // Left — image grid
-                                <div class="grid flex-1 grid-cols-2 gap-4 md:grid-cols-3">
+                                <div class="grid flex-1 grid-cols-1 gap-4 md:grid-cols-3">
                                     {images.into_iter().enumerate().map(|(i, img)| {
                                         view! {
                                             <img
@@ -200,14 +211,15 @@ pub fn Work() -> impl IntoView {
                 None => view! {
                     <div class="px-10 py-12 md:px-20">
                         // Header
-                        <div class="relative flex justify-center items-center mb-8">
-                            <a
-                                href="/projects"
-                                class="absolute left-0 text-xl transition hover:text-[#fdbf3a] hover:scale-110"
-                            >
-                                "← Back"
-                            </a>
-                            <h1 class="text-5xl font-bold">"Work"</h1>
+                        <div class="mb-6">
+                            <div class="flex items-center pr-16 pt-3 mb-6 md:hidden">
+                                <a href="/projects" class="text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110">"← Back"</a>
+                            </div>
+                            <div class="hidden relative justify-center items-center md:flex">
+                                <a href="/projects" class="absolute left-0 text-xl transition hover:text-[#fdbf3a] hover:scale-110">"← Back"</a>
+                                <h1 class="text-5xl font-bold">"Work"</h1>
+                            </div>
+                            <h1 class="text-4xl font-bold text-center w-full md:hidden">"Work"</h1>
                         </div>
 
                         // Category tab bar

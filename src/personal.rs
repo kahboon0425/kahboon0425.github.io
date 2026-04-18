@@ -181,9 +181,15 @@ pub fn Personal() -> impl IntoView {
 
                         view! {
                             <div class="px-10 py-12 md:px-20">
-                                <div class="relative flex justify-center items-center mb-10">
-                                    <a href="/projects" class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110">"← Back"</a>
-                                    <h1 class="text-5xl font-bold">"Personal"</h1>
+                                <div class="mb-10">
+                                    <div class="flex items-center pr-16 pt-3 mb-6 md:hidden">
+                                        <a href="/projects" class="text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110">"← Back"</a>
+                                    </div>
+                                    <div class="hidden relative justify-center items-center md:flex">
+                                        <a href="/projects" class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110">"← Back"</a>
+                                        <h1 class="text-5xl font-bold">"Personal"</h1>
+                                    </div>
+                                    <h1 class="text-4xl font-bold text-center w-full md:hidden">"Personal"</h1>
                                 </div>
                                 <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                                     {cards.into_iter().map(|(i, display, cover): (usize, String, String)| view! {
@@ -234,10 +240,17 @@ pub fn Personal() -> impl IntoView {
 
                             view! {
                                 <div class="px-10 py-12 md:px-20">
-                                    <div class="relative flex justify-center items-center mb-10">
-                                        <button class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
-                                            on:click=move |_| set_selected_cat.set(None)>"← Back"</button>
-                                        <h1 class="text-5xl font-bold">{cat_display}</h1>
+                                    <div class="mb-10">
+                                        <div class="flex items-center pr-16 pt-3 mb-6 md:hidden">
+                                            <button class="text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
+                                                on:click=move |_| set_selected_cat.set(None)>"← Back"</button>
+                                        </div>
+                                        <div class="hidden relative justify-center items-center md:flex">
+                                            <button class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
+                                                on:click=move |_| set_selected_cat.set(None)>"← Back"</button>
+                                            <h1 class="text-5xl font-bold">{cat_display.clone()}</h1>
+                                        </div>
+                                        <h1 class="text-4xl font-bold text-center w-full md:hidden">{cat_display}</h1>
                                     </div>
                                     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                                         {cards.into_iter().map(|(ti, display, cover): (usize, String, String)| view! {
@@ -288,14 +301,21 @@ pub fn Personal() -> impl IntoView {
                                         </div>
                                     }
                                 })}
-                                <div class="px-10 py-12 md:px-20">
-                                    <div class="relative flex justify-center items-center mb-8">
-                                        <button class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
-                                            on:click=move |_| set_selected_cat.set(None)>"← Back"</button>
-                                        <h1 class="text-4xl font-bold">{cat_display.clone()}</h1>
+                                <div class="px-10 pt-10 pb-12 md:px-20 md:pt-12">
+                                    <div class="mb-6">
+                                        <div class="flex items-center pr-16 pt-3 mb-6 md:hidden">
+                                            <button class="text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
+                                                on:click=move |_| set_selected_cat.set(None)>"← Back"</button>
+                                        </div>
+                                        <div class="hidden relative justify-center items-center md:flex">
+                                            <button class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
+                                                on:click=move |_| set_selected_cat.set(None)>"← Back"</button>
+                                            <h1 class="text-5xl font-bold">{cat_display.clone()}</h1>
+                                        </div>
+                                        <h1 class="text-2xl font-bold text-center w-full md:hidden">{cat_display.clone()}</h1>
                                     </div>
                                     <div class="flex flex-col gap-8 lg:flex-row">
-                                        <div class="grid flex-1 grid-cols-2 gap-4 md:grid-cols-3">
+                                        <div class="grid flex-1 grid-cols-1 gap-4 md:grid-cols-3">
                                             {images.into_iter().enumerate().map(|(i, img)| {
                                                 render_media(img, move || set_zoomed_idx.set(Some(i)))
                                             }).collect::<Vec<_>>()}
@@ -353,12 +373,19 @@ pub fn Personal() -> impl IntoView {
                                 }
                             })}
                             <div class="px-10 py-12 md:px-20">
-                                <div class="relative flex justify-center items-center mb-8">
-                                    <button class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
-                                        on:click=move |_| set_selected_theme.set(None)>"← Back"</button>
-                                    <h1 class="text-4xl font-bold">{display_name.clone()}</h1>
+                                <div class="mb-6">
+                                    <div class="flex items-center pr-16 pt-3 mb-6 md:hidden">
+                                        <button class="text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
+                                            on:click=move |_| set_selected_theme.set(None)>"← Back"</button>
+                                    </div>
+                                    <div class="hidden relative justify-center items-center md:flex">
+                                        <button class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
+                                            on:click=move |_| set_selected_theme.set(None)>"← Back"</button>
+                                        <h1 class="text-4xl font-bold">{display_name.clone()}</h1>
+                                    </div>
+                                    <h1 class="text-2xl font-bold text-center w-full md:hidden">{display_name.clone()}</h1>
                                 </div>
-                                <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
+                                <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
                                     {images.into_iter().enumerate().map(|(i, img)| {
                                         render_media(img, move || set_zoomed_idx.set(Some(i)))
                                     }).collect::<Vec<_>>()}
