@@ -152,7 +152,7 @@ pub fn Personal() -> impl IntoView {
                         view! {
                             <div class="px-10 py-12 md:px-20">
                                 <div class="relative flex justify-center items-center mb-10">
-                                    <a href="/projects" class="absolute left-0 text-xl transition hover:text-[#fdbf3a] hover:scale-110">"← Back"</a>
+                                    <a href="/projects" class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110">"← Back"</a>
                                     <h1 class="text-5xl font-bold">"Personal"</h1>
                                 </div>
                                 <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -205,7 +205,7 @@ pub fn Personal() -> impl IntoView {
                             view! {
                                 <div class="px-10 py-12 md:px-20">
                                     <div class="relative flex justify-center items-center mb-10">
-                                        <button class="absolute left-0 text-xl transition hover:text-[#fdbf3a] hover:scale-110"
+                                        <button class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
                                             on:click=move |_| set_selected_cat.set(None)>"← Back"</button>
                                         <h1 class="text-5xl font-bold">{cat_display}</h1>
                                     </div>
@@ -256,7 +256,7 @@ pub fn Personal() -> impl IntoView {
                                 })}
                                 <div class="px-10 py-12 md:px-20">
                                     <div class="relative flex justify-center items-center mb-8">
-                                        <button class="absolute left-0 text-xl transition hover:text-[#fdbf3a] hover:scale-110"
+                                        <button class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
                                             on:click=move |_| set_selected_cat.set(None)>"← Back"</button>
                                         <h1 class="text-4xl font-bold">{cat_display}</h1>
                                     </div>
@@ -311,7 +311,7 @@ pub fn Personal() -> impl IntoView {
                             })}
                             <div class="px-10 py-12 md:px-20">
                                 <div class="relative flex justify-center items-center mb-8">
-                                    <button class="absolute left-0 text-xl transition hover:text-[#fdbf3a] hover:scale-110"
+                                    <button class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
                                         on:click=move |_| set_selected_theme.set(None)>"← Back"</button>
                                     <h1 class="text-4xl font-bold">{display_name.clone()}</h1>
                                 </div>

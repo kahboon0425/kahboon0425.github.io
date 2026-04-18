@@ -153,7 +153,7 @@ pub fn Work() -> impl IntoView {
                             // Back + title
                             <div class="relative flex justify-center items-center mb-8">
                                 <button
-                                    class="absolute left-0 text-xl transition hover:text-[#fdbf3a] hover:scale-110"
+                                    class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
                                     on:click=move |_| set_selected_theme.set(None)
                                 >
                                     "← Back"
