@@ -94,6 +94,9 @@
                     },
                     {
                       "File": "3.mp4"
+                    },
+                    {
+                      "File": "4.mp4"
                     }
                   ]
                 }
@@ -186,6 +189,12 @@
                     },
                     {
                       "File": "3.mp4"
+                    },
+                    {
+                      "TextFile": {
+                        "name": "description.txt",
+                        "content": "Watch the gameplay: https://www.youtube.com/watch?v=cBMcfEZzbuU\r\nPlay it on itch.io: https://chang-kah-boon.itch.io/bunguette"
+                      }
                     }
                   ]
                 }
@@ -342,7 +351,7 @@
                           {
                             "TextFile": {
                               "name": "decription.txt",
-                              "content": "This is my first project that won a tender. For this project, the client wanted the Christmas design to have a funfair-like atmosphere."
+                              "content": "My idea for this project is to use mandarin oranges as the main design concept, symbolizing prosperity and good luck for Chinese New Year."
                             }
                           }
                         ]
@@ -464,7 +473,7 @@
                           {
                             "TextFile": {
                               "name": "decription.txt",
-                              "content": "Step into “Santa's Dessert Party,” where Christmas meets a sweet wonderland! The centerpiece is a giant layered cake topped with a Christmas tree, surrounded by oversized candies and colorful gift boxes. People can take photos on the giant melting ice-cream chair, children can enjoy the donut slide, and everyone can try the interactive ring toss game. The design blends festive cheer with a dessert-inspired twist, inviting all into a magical, sugary celebration."
+                              "content": "My idea for this project is to combine Christmas with a sweet wonderland theme to create a playful environment inspired by desserts and candy. The scene is surrounded by candy elements like lollipops and a donut slide, along with oversized sweets to create a fun and playful atmosphere."
                             }
                           }
                         ]
@@ -504,6 +513,12 @@
                           },
                           {
                             "File": "8.png"
+                          },
+                          {
+                            "TextFile": {
+                              "name": "decription.txt",
+                              "content": "This is another large-scale project that won the tender. The client’s requirement was to incorporate kaleidoscope elements into the design."
+                            }
                           }
                         ]
                       }
@@ -523,6 +538,12 @@
                           },
                           {
                             "File": "8.png"
+                          },
+                          {
+                            "TextFile": {
+                              "name": "decription.txt",
+                              "content": "This requirement for this project is to incorporate traditional Malay cloth patterns as the core design concept. The design uses vibrant motifs patterns that reflect Malay culture."
+                            }
                           }
                         ]
                       }
@@ -561,6 +582,12 @@
                           },
                           {
                             "File": "8.png"
+                          },
+                          {
+                            "TextFile": {
+                              "name": "decription.txt",
+                              "content": "My idea for this project is to use the osmanthus flower as the core design concept. It symbolizes reunion, harmony, and quiet elegance, and I incorporate its floral shapes into the overall structure and decorative elements to create a cohesive and visually pleasing design."
+                            }
                           }
                         ]
                       }
@@ -584,6 +611,12 @@
                           },
                           {
                             "File": "4.png"
+                          },
+                          {
+                            "TextFile": {
+                              "name": "decription.txt",
+                              "content": "My idea for this project is to combine Christmas with a sweet wonderland theme to create a playful environment inspired by desserts and candy. The scene is surrounded by candy elements like lollipops and a donut slide, along with oversized sweets to create a fun and playful atmosphere."
+                            }
                           }
                         ]
                       }
@@ -594,6 +627,12 @@
                         "children": [
                           {
                             "File": "1.png"
+                          },
+                          {
+                            "TextFile": {
+                              "name": "decription.txt",
+                              "content": "My idea for this project is to combine Christmas with a sweet wonderland theme to create a playful environment inspired by desserts and candy. The scene is surrounded by candy elements like lollipops and a donut slide, along with oversized sweets to create a fun and playful atmosphere."
+                            }
                           }
                         ]
                       }
@@ -607,6 +646,12 @@
                           },
                           {
                             "File": "2.png"
+                          },
+                          {
+                            "TextFile": {
+                              "name": "decription.txt",
+                              "content": "My idea for this project is to combine Christmas with a sweet wonderland theme to create a playful environment inspired by desserts and candy. The scene is surrounded by candy elements like lollipops and a donut slide, along with oversized sweets to create a fun and playful atmosphere."
+                            }
                           }
                         ]
                       }
@@ -620,6 +665,12 @@
                           },
                           {
                             "File": "2.png"
+                          },
+                          {
+                            "TextFile": {
+                              "name": "decription.txt",
+                              "content": "My idea for this project is to combine Christmas with a sweet wonderland theme to create a playful environment inspired by desserts and candy. The scene is surrounded by candy elements like lollipops and a donut slide, along with oversized sweets to create a fun and playful atmosphere."
+                            }
                           }
                         ]
                       }
@@ -650,10 +701,16 @@
           "File": "instagram-brands.svg"
         },
         {
+          "File": "itch-brands.svg"
+        },
+        {
           "File": "linkedin-brands.svg"
         },
         {
           "File": "whatsapp-brands.svg"
+        },
+        {
+          "File": "youtube-brands.svg"
         }
       ]
     }

@@ -36,20 +36,20 @@ pub fn Home() -> impl IntoView {
                     // Social icons in circles
                     <div class="flex gap-5 mt-2 justify-center md:justify-start">
                         <a
-                            href="mailto:changkahboon25@gmail.com"
-                            target="_blank" rel="noopener noreferrer"
-                            class="group flex justify-center items-center w-16 h-16 rounded-full border-2 transform transition duration-200 hover:scale-125"
-                            style="background-color: #FFF3E0; border-color: #fdbf3a;"
-                        >
-                            <img class="w-6 h-6 transition group-hover:[filter:brightness(0)_saturate(100%)_invert(68%)_sepia(77%)_saturate(548%)_hue-rotate(347deg)_brightness(104%)]" src="assets/svg/envelope-solid.svg" alt="Email" />
-                        </a>
-                        <a
                             href="https://www.instagram.com/the_sushi_queen_art/"
                             target="_blank" rel="noopener noreferrer"
                             class="group flex justify-center items-center w-16 h-16 rounded-full border-2 transform transition duration-200 hover:scale-125"
                             style="background-color: #FFF3E0; border-color: #fdbf3a;"
                         >
                             <img class="w-6 h-6 transition group-hover:[filter:brightness(0)_saturate(100%)_invert(68%)_sepia(77%)_saturate(548%)_hue-rotate(347deg)_brightness(104%)]" src="assets/svg/instagram-brands.svg" alt="Instagram" />
+                        </a>
+                        <a
+                            href="mailto:changkahboon25@gmail.com"
+                            target="_blank" rel="noopener noreferrer"
+                            class="group flex justify-center items-center w-16 h-16 rounded-full border-2 transform transition duration-200 hover:scale-125"
+                            style="background-color: #FFF3E0; border-color: #fdbf3a;"
+                        >
+                            <img class="w-6 h-6 transition group-hover:[filter:brightness(0)_saturate(100%)_invert(68%)_sepia(77%)_saturate(548%)_hue-rotate(347deg)_brightness(104%)]" src="assets/svg/envelope-solid.svg" alt="Email" />
                         </a>
                         <a
                             href="https://www.linkedin.com/in/kahboon"

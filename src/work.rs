@@ -181,7 +181,6 @@ pub fn Work() -> impl IntoView {
                                 <div class="flex flex-col gap-4 p-8 w-full rounded-2xl border border-gray-200 shadow-md self-start lg:w-80 xl:w-96">
                                     <h2 class="text-2xl font-bold">"Project Details"</h2>
                                     <div class="w-10 h-1 rounded-full" style="background-color: #fdbf3a;"></div>
-                                    <p class="text-xl font-semibold text-gray-800">{display_name.clone()}</p>
                                     {description.map(|desc| view! {
                                         <p class="leading-relaxed text-gray-600">{desc}</p>
                                     })}

@@ -10,6 +10,36 @@ fn folder_to_display_name(folder: &str) -> String {
     folder.replace('-', " ").replace('&', " & ")
 }
 
+fn render_description(text: String) -> impl IntoView {
+    let lines: Vec<String> = text.lines().map(|l| l.to_string()).collect();
+    lines.into_iter().map(|line| {
+        if let Some(url_start) = line.find("https://") {
+            let label = line[..url_start].trim_end_matches(|c: char| c == ':' || c.is_whitespace()).to_string();
+            let url = line[url_start..].trim().to_string();
+            let is_youtube = url.contains("youtube.com") || url.contains("youtu.be");
+            let is_itch = url.contains("itch.io");
+            let icon = if is_youtube { "assets/svg/youtube-brands.svg" } else if is_itch { "assets/svg/itch-brands.svg" } else { "" };
+            let bg = if is_youtube { "#FF0000" } else if is_itch { "#fa5c5c" } else { "#555" };
+            let btn_label = if is_youtube { "Watch on YouTube" } else if is_itch { "Play on itch.io" } else { "Open link" };
+            view! {
+                <div class="flex flex-col gap-1.5">
+                    <span class="text-base font-medium text-gray-700">{label}</span>
+                    <a href=url target="_blank" rel="noopener noreferrer"
+                        class="flex items-center gap-2 px-4 py-2 rounded-lg text-base font-semibold text-white transition hover:opacity-80"
+                        style=format!("background-color: {bg}; width: fit-content;")>
+                        {if !icon.is_empty() { view! { <img src=icon class="w-5 h-5 invert" /> }.into_any() } else { view! { <span /> }.into_any() }}
+                        {btn_label}
+                    </a>
+                </div>
+            }.into_any()
+        } else if line.trim().is_empty() {
+            view! { <div class="h-2" /> }.into_any()
+        } else {
+            view! { <p class="text-base leading-relaxed text-gray-600">{line}</p> }.into_any()
+        }
+    }).collect::<Vec<_>>()
+}
+
 fn is_media(name: &str) -> bool {
     let l = name.to_lowercase();
     l.ends_with(".png") || l.ends_with(".jpg") || l.ends_with(".mp4")
@@ -237,6 +267,10 @@ pub fn Personal() -> impl IntoView {
                                 .collect();
                             images_total.set(images.len());
                             let images_lb = images.clone();
+                            let description: Option<String> = cat_children.iter().find_map(|n| match n {
+                                AssetNode::TextFile { content, .. } => Some(content.clone()),
+                                _ => None,
+                            });
 
                             view! {
                                 {move || zoom.map(|idx| {
@@ -258,12 +292,21 @@ pub fn Personal() -> impl IntoView {
                                     <div class="relative flex justify-center items-center mb-8">
                                         <button class="absolute left-0 text-xl transition cursor-pointer hover:text-[#fdbf3a] hover:scale-110"
                                             on:click=move |_| set_selected_cat.set(None)>"← Back"</button>
-                                        <h1 class="text-4xl font-bold">{cat_display}</h1>
+                                        <h1 class="text-4xl font-bold">{cat_display.clone()}</h1>
                                     </div>
-                                    <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
-                                        {images.into_iter().enumerate().map(|(i, img)| {
-                                            render_media(img, move || set_zoomed_idx.set(Some(i)))
-                                        }).collect::<Vec<_>>()}
+                                    <div class="flex flex-col gap-8 lg:flex-row">
+                                        <div class="grid flex-1 grid-cols-2 gap-4 md:grid-cols-3">
+                                            {images.into_iter().enumerate().map(|(i, img)| {
+                                                render_media(img, move || set_zoomed_idx.set(Some(i)))
+                                            }).collect::<Vec<_>>()}
+                                        </div>
+                                        {description.map(|desc| view! {
+                                            <div class="flex flex-col gap-4 p-8 w-full rounded-2xl border border-gray-200 shadow-md self-start lg:w-80 xl:w-96">
+                                                <h2 class="text-2xl font-bold">"Project Details"</h2>
+                                                <div class="w-10 h-1 rounded-full" style="background-color: #fdbf3a;"></div>
+                                                {render_description(desc)}
+                                            </div>
+                                        })}
                                     </div>
                                 </div>
                             }.into_any()
