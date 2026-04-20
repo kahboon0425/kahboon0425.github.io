@@ -279,11 +279,15 @@ pub fn Personal() -> impl IntoView {
                             }.into_any()
                         } else {
                             // Direct images in category
-                            let images: Vec<String> = cat_children.iter()
+                            let mut images: Vec<String> = cat_children.iter()
                                 .filter_map(|n| extract!(n, AssetNode::File = ()))
                                 .filter(|name| is_media(name))
                                 .map(|name| format!("assets/images/Personal-Projects/{}/{}", cat_folder, name))
                                 .collect();
+                            images.sort_by(|a, b| {
+                                let num = |s: &str| s.split('/').last().unwrap_or("").split('.').next().unwrap_or("").parse::<u32>().unwrap_or(u32::MAX);
+                                num(a).cmp(&num(b))
+                            });
                             images_total.set(images.len());
                             let images_lb = images.clone();
                             let description: Option<String> = cat_children.iter().find_map(|n| match n {
@@ -354,11 +358,15 @@ pub fn Personal() -> impl IntoView {
                             return view! { <p>"Not found."</p> }.into_any();
                         };
                         let display_name = folder_to_display_name(theme_folder);
-                        let images: Vec<String> = theme_children.iter()
+                        let mut images: Vec<String> = theme_children.iter()
                             .filter_map(|n| extract!(n, AssetNode::File = ()))
                             .filter(|name| is_media(name))
                             .map(|name| format!("assets/images/Personal-Projects/{}/{}/{}", cat_folder, theme_folder, name))
                             .collect();
+                        images.sort_by(|a, b| {
+                            let num = |s: &str| s.split('/').last().unwrap_or("").split('.').next().unwrap_or("").parse::<u32>().unwrap_or(u32::MAX);
+                            num(a).cmp(&num(b))
+                        });
                         images_total.set(images.len());
                         let images_lb = images.clone();
 

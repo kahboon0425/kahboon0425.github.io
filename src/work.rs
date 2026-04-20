@@ -82,7 +82,10 @@ pub fn Work() -> impl IntoView {
                             )
                         })
                         .collect();
-                    images.sort();
+                    images.sort_by(|a, b| {
+                        let num = |s: &str| s.split('/').last().unwrap_or("").split('.').next().unwrap_or("").parse::<u32>().unwrap_or(u32::MAX);
+                        num(a).cmp(&num(b))
+                    });
 
                     let description: Option<String> = theme_children
                         .iter()
