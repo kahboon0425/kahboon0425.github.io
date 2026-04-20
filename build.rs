@@ -16,7 +16,13 @@ fn build_tree(path: &Path) -> Vec<AssetNode> {
     let mut nodes = Vec::new();
 
     if let Ok(entries) = fs::read_dir(path) {
-        for entry in entries.filter_map(Result::ok) {
+        let mut entries: Vec<_> = entries.filter_map(Result::ok).collect();
+        entries.sort_by_key(|e| {
+            let name = e.file_name().into_string().unwrap_or_default();
+            let num = name.split('.').next().unwrap_or("").parse::<u32>();
+            (num.is_err(), num.unwrap_or(u32::MAX), name)
+        });
+        for entry in entries {
             let path = entry.path();
             let file_name = entry.file_name().into_string().unwrap();
 
