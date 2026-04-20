@@ -49,7 +49,7 @@ pub fn Work() -> impl IntoView {
                     let cat_path = ["images", "Work-Projects", cat_folder.as_str()];
                     let themes = get_directory_node(&cat_path).unwrap_or(&[]);
 
-                    let theme_dirs: Vec<(&str, &[AssetNode])> = themes
+                    let mut theme_dirs: Vec<(&str, &[AssetNode])> = themes
                         .iter()
                         .filter_map(|n| match n {
                             AssetNode::Directory { name, children } => {
@@ -58,6 +58,7 @@ pub fn Work() -> impl IntoView {
                             _ => None,
                         })
                         .collect();
+                    theme_dirs.sort_by_key(|(name, _)| *name);
 
                     let Some(&(theme_folder, theme_children)) = theme_dirs.get(theme_idx) else {
                         return view! { <p>"Not found."</p> }.into_any();
@@ -65,7 +66,7 @@ pub fn Work() -> impl IntoView {
 
                     let display_name = folder_to_display_name(theme_folder);
 
-                    let images: Vec<String> = theme_children
+                    let mut images: Vec<String> = theme_children
                         .iter()
                         .filter_map(|n| extract!(n, AssetNode::File = ()))
                         .filter(|name| {
@@ -81,6 +82,7 @@ pub fn Work() -> impl IntoView {
                             )
                         })
                         .collect();
+                    images.sort();
 
                     let description: Option<String> = theme_children
                         .iter()
@@ -257,16 +259,19 @@ pub fn Work() -> impl IntoView {
                                 let cat_path = ["images", "Work-Projects", cat_folder.as_str()];
                                 let themes = get_directory_node(&cat_path).unwrap_or(&[]);
 
-                                let items: Vec<_> = themes
+                                let mut theme_dirs_sorted: Vec<(&str, &[AssetNode])> = themes
                                     .iter()
+                                    .filter_map(|n| match n {
+                                        AssetNode::Directory { name, children } => Some((name.as_str(), children.as_slice())),
+                                        _ => None,
+                                    })
+                                    .collect();
+                                theme_dirs_sorted.sort_by_key(|(name, _)| *name);
+
+                                let items: Vec<_> = theme_dirs_sorted
+                                    .into_iter()
                                     .enumerate()
-                                    .filter_map(|(theme_idx, n)| {
-                                        let (theme_folder, children) = match n {
-                                            AssetNode::Directory { name, children } => {
-                                                (name.as_str(), children.as_slice())
-                                            }
-                                            _ => return None,
-                                        };
+                                    .filter_map(|(theme_idx, (theme_folder, children))| {
 
                                         // Use cover.png if it exists, otherwise first image found
                                         let cover = {
