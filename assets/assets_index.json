@@ -299,6 +299,9 @@
                             "File": "4.png"
                           },
                           {
+                            "File": "5.png"
+                          },
+                          {
                             "TextFile": {
                               "name": "decription.txt",
                               "content": "This was a large-scale project completed as part of a team. I was not responsible for the entire project, and the image shown shows the part I worked on. The client’s requirement was to create a Hong Kong kopitiam atmosphere for the Chinese New Year theme."
@@ -611,6 +614,9 @@
                           },
                           {
                             "File": "4.png"
+                          },
+                          {
+                            "File": "5.png"
                           }
                         ]
                       }

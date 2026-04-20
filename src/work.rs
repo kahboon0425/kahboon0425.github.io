@@ -308,9 +308,12 @@ pub fn Work() -> impl IntoView {
                                                         alt=display_name.clone()
                                                     />
                                                     <div class="flex absolute inset-0 items-end p-5 bg-gradient-to-t from-black/70 to-transparent">
-                                                        <h2 class="text-lg font-bold leading-snug text-white">
-                                                            {display_name.clone()}
-                                                        </h2>
+                                                        <div class="flex items-center justify-between w-full">
+                                                            <h2 class="text-lg font-bold leading-snug text-white">
+                                                                {display_name.clone()}
+                                                            </h2>
+                                                            <span class="text-white text-xl font-bold shrink-0 ml-2 md:hidden">{"→"}</span>
+                                                        </div>
                                                     </div>
                                                     <div class="flex absolute inset-0 flex-col gap-3 justify-center items-center translate-y-full backdrop-blur-md bg-black/50 transition-transform duration-500 ease-out group-hover:translate-y-0">
                                                         <p class="text-xl font-bold text-white">"Click to view more"</p>
