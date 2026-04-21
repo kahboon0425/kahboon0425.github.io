@@ -10,7 +10,7 @@ pub fn About() -> impl IntoView {
                 <div class="flex flex-col items-center mb-8 w-full max-w-5xl md:relative md:flex-row md:justify-center">
                     <h1 class="text-7xl font-bold">"About"</h1>
                     <a
-                        href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/kahboon0425/kahboon_resume/refs/heads/main/resume.pdf"
+                        href="https://kahboon0425.github.io/kahboon_resume/resume.pdf"
                         class="mt-3 text-base underline transition animate-bounce hover:text-[#fdbf3a] hover:scale-105 md:absolute md:right-0 md:mt-0"
                     >
                         "View Resume"
