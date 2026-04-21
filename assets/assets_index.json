@@ -116,16 +116,13 @@
                             "File": "2.mp4"
                           },
                           {
-                            "File": "3a.mp4"
+                            "File": "4.mp4"
                           },
                           {
-                            "File": "4.mp4"
+                            "File": "3a.mp4"
                           }
                         ]
                       }
-                    },
-                    {
-                      "File": "cover.mp4"
                     },
                     {
                       "Directory": {
@@ -173,6 +170,9 @@
                           }
                         ]
                       }
+                    },
+                    {
+                      "File": "cover.mp4"
                     }
                   ]
                 }

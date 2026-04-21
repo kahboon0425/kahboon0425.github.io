@@ -12,6 +12,7 @@ pub fn About() -> impl IntoView {
                     <a
                         href="https://kahboon0425.github.io/kahboon_resume/resume.pdf"
                         class="mt-3 text-base underline transition animate-bounce hover:text-[#fdbf3a] hover:scale-105 md:absolute md:right-0 md:mt-0"
+                        target="_blank"
                     >
                         "View Resume"
                     </a>
